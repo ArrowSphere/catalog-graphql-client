@@ -1,0 +1,45 @@
+{
+  "name": "arrowsphere/catalog-graphql-client",
+  "type": "library",
+  "description": "The official PHP client for ArrowSphere's Catalog GraphQL API",
+  "keywords": [
+    "arrowsphere",
+    "graphql",
+    "api"
+  ],
+  "license": "MIT",
+  "homepage": "https://www.arrow.com/ecs/na/solutions/cloud/arrowsphere/",
+  "support": {
+    "issues": "https://github.com/ArrowSphere/catalog-graphql-client/issues",
+    "source": "https://github.com/ArrowSphere/catalog-graphql-client"
+  },
+  "authors": [
+    {
+      "name": "Pierre Feyssaguet",
+      "email": "pfeyssaguet@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.2",
+    "gmostafa/php-graphql-client": "^1.8"
+  },
+  "require-dev": {
+    "illuminate/validation": "^5.5 || ^6.0 || ^7.0",
+    "phpunit/phpunit": "^8.5 || ^9.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "ArrowSphere\\CatalogGraphQLClient\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ArrowSphere\\CatalogGraphQLClient\\Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
