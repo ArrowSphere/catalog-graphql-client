@@ -39,7 +39,7 @@ class PriceBand
     /** @var string|null */
     private $currency;
 
-    /** @var Identifiers|null */
+    /** @var PriceBandIdentifiers|null */
     private $identifiers;
 
     /** @var string|null */
@@ -68,7 +68,7 @@ class PriceBand
         $this->actionFlags = isset($data[self::ACTION_FLAGS]) ? new ActionFlags($data[self::ACTION_FLAGS]) : null;
         $this->billing = isset($data[self::BILLING]) ? new Billing($data[self::BILLING]) : null;
         $this->currency = $data[self::CURRENCY] ?? null;
-        $this->identifiers = isset($data[self::IDENTIFIERS]) ? new Identifiers($data[self::IDENTIFIERS]) : null;
+        $this->identifiers = isset($data[self::IDENTIFIERS]) ? new PriceBandIdentifiers($data[self::IDENTIFIERS]) : null;
         $this->marketplace = $data[self::MARKETPLACE] ?? null;
         $this->prices = isset($data[self::PRICES]) ? new Prices($data[self::PRICES]) : null;
         $this->saleConstraints = isset($data[self::SALE_CONSTRAINTS]) ? new PriceBandSaleConstraints($data[self::SALE_CONSTRAINTS]) : null;
@@ -109,9 +109,9 @@ class PriceBand
     }
 
     /**
-     * @return Identifiers|null
+     * @return PriceBandIdentifiers|null
      */
-    public function getIdentifiers(): ?Identifiers
+    public function getIdentifiers(): ?PriceBandIdentifiers
     {
         return $this->identifiers;
     }
