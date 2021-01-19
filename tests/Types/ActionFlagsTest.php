@@ -13,13 +13,13 @@ class ActionFlagsTest extends TestCase
     public function testFields(): void
     {
         $actionFlags = new ActionFlags([
-            ActionFlags::RENEWAL_SKU            => true,
-            ActionFlags::IS_MANUAL_PROVISIONING => true,
             ActionFlags::IS_AUTO_RENEW          => true,
+            ActionFlags::IS_MANUAL_PROVISIONING => true,
+            ActionFlags::RENEWAL_SKU            => true,
         ]);
 
-        self::assertTrue($actionFlags->getRenewalSku());
-        self::assertTrue($actionFlags->getIsManualProvisioning());
         self::assertTrue($actionFlags->getIsAutoRenew());
+        self::assertTrue($actionFlags->getIsManualProvisioning());
+        self::assertTrue($actionFlags->getRenewalSku());
     }
 }

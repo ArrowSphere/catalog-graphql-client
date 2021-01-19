@@ -30,7 +30,7 @@ class PriceBand
     /** @var bool|null */
     private $isEnabled;
 
-    /** @var ActionFlags|null */
+    /** @var PriceBandActionFlags|null */
     private $actionFlags;
 
     /** @var Billing|null */
@@ -65,7 +65,7 @@ class PriceBand
     public function __construct(array $data)
     {
         $this->isEnabled = $data[self::IS_ENABLED] ?? null;
-        $this->actionFlags = isset($data[self::ACTION_FLAGS]) ? new ActionFlags($data[self::ACTION_FLAGS]) : null;
+        $this->actionFlags = isset($data[self::ACTION_FLAGS]) ? new PriceBandActionFlags($data[self::ACTION_FLAGS]) : null;
         $this->billing = isset($data[self::BILLING]) ? new Billing($data[self::BILLING]) : null;
         $this->currency = $data[self::CURRENCY] ?? null;
         $this->identifiers = isset($data[self::IDENTIFIERS]) ? new PriceBandIdentifiers($data[self::IDENTIFIERS]) : null;
@@ -85,9 +85,9 @@ class PriceBand
     }
 
     /**
-     * @return ActionFlags|null
+     * @return PriceBandActionFlags|null
      */
-    public function getActionFlags(): ?ActionFlags
+    public function getActionFlags(): ?PriceBandActionFlags
     {
         return $this->actionFlags;
     }
