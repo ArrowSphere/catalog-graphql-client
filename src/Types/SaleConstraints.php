@@ -3,9 +3,9 @@
 namespace ArrowSphere\CatalogGraphQLClient\Types;
 
 /**
- * Class SalesConstraints
+ * Class SaleConstraints
  */
-class SalesConstraints
+class SaleConstraints
 {
     public const CUSTOMER_QUALIFICATIONS = 'customerQualifications';
 

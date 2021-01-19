@@ -14,7 +14,7 @@ class Filters
     /** @var string|null */
     private $name;
 
-    /** @var FiltersValues|null */
+    /** @var FiltersValues[]|null */
     private $value;
 
     /**
@@ -40,9 +40,9 @@ class Filters
     }
 
     /**
-     * @return FiltersValues|null
+     * @return FiltersValues[]|null
      */
-    public function getValue(): ?FiltersValues
+    public function getValue(): ?array
     {
         return $this->value;
     }

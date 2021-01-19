@@ -154,7 +154,7 @@ class Product
     /** @var string|null */
     private $xspUrl;
 
-    /** @var SalesConstraints|null */
+    /** @var SaleConstraints|null */
     private $saleConstraints;
 
     /** @var Vendor|null */
@@ -216,7 +216,7 @@ class Product
         $this->endCustomerRequirements = $data[self::END_CUSTOMER_REQUIREMENTS] ?? null;
         $this->endCustomerFeatures = $data[self::END_CUSTOMER_FEATURES] ?? null;
         $this->xspUrl = $data[self::XSP_URL] ?? null;
-        $this->saleConstraints = isset($data[self::SALE_CONSTRAINTS]) ? new SalesConstraints($data[self::SALE_CONSTRAINTS]) : null;
+        $this->saleConstraints = isset($data[self::SALE_CONSTRAINTS]) ? new SaleConstraints($data[self::SALE_CONSTRAINTS]) : null;
         $this->vendor = isset($data[self::VENDOR]) ? new Vendor($data[self::VENDOR]) : null;
         $this->program = isset($data[self::PROGRAM]) ? new Program($data[self::PROGRAM]) : null;
         $this->weightTopSales = $data[self::WEIGHT_TOP_SALES] ?? null;
@@ -444,9 +444,9 @@ class Product
     }
 
     /**
-     * @return SalesConstraints|null
+     * @return SaleConstraints|null
      */
-    public function getSaleConstraints(): ?SalesConstraints
+    public function getSaleConstraints(): ?SaleConstraints
     {
         return $this->saleConstraints;
     }

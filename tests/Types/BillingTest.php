@@ -13,13 +13,13 @@ class BillingTest extends TestCase
     public function testFields(): void
     {
         $billing = new Billing([
-            Billing::TERM  => 8640,
             Billing::CYCLE => 720,
+            Billing::TERM  => 8640,
             Billing::TYPE  => 'type',
         ]);
 
-        self::assertSame(8640, $billing->getTerm());
         self::assertSame(720, $billing->getCycle());
+        self::assertSame(8640, $billing->getTerm());
         self::assertSame('type', $billing->getType());
     }
 }

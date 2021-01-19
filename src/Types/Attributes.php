@@ -31,40 +31,40 @@ class Attributes
 
     public const UNIT_TYPE = 'unitType';
 
-    /** @var mixed|null */
+    /** @var bool|null */
     private $cancelSubscription;
 
-    /** @var mixed|null */
+    /** @var bool|null */
     private $decreaseSeats;
 
-    /** @var mixed|null */
+    /** @var bool|null */
     private $increaseSeats;
 
-    /** @var mixed|null */
+    /** @var string|null */
     private $partIdentifier;
 
-    /** @var mixed|null */
+    /** @var int|null */
     private $periodicity;
 
-    /** @var mixed|null */
+    /** @var string|null */
     private $planId;
 
-    /** @var mixed|null */
+    /** @var string|null */
     private $productId;
 
-    /** @var mixed|null */
+    /** @var string|null */
     private $productSku;
 
-    /** @var mixed|null */
+    /** @var bool|null */
     private $reactivateSubscription;
 
-    /** @var mixed|null */
+    /** @var bool|null */
     private $suspendSubscription;
 
-    /** @var mixed|null */
+    /** @var int|null */
     private $term;
 
-    /** @var mixed|null */
+    /** @var string|null */
     private $unitType;
 
     /**
@@ -89,97 +89,97 @@ class Attributes
     }
 
     /**
-     * @return mixed|null
+     * @return bool|null
      */
-    public function getCancelSubscription()
+    public function getCancelSubscription(): ?bool
     {
         return $this->cancelSubscription;
     }
 
     /**
-     * @return mixed|null
+     * @return bool|null
      */
-    public function getDecreaseSeats()
+    public function getDecreaseSeats(): ?bool
     {
         return $this->decreaseSeats;
     }
 
     /**
-     * @return mixed|null
+     * @return bool|null
      */
-    public function getIncreaseSeats()
+    public function getIncreaseSeats(): ?bool
     {
         return $this->increaseSeats;
     }
 
     /**
-     * @return mixed|null
+     * @return string|null
      */
-    public function getPartIdentifier()
+    public function getPartIdentifier(): ?string
     {
         return $this->partIdentifier;
     }
 
     /**
-     * @return mixed|null
+     * @return int|null
      */
-    public function getPeriodicity()
+    public function getPeriodicity(): ?int
     {
         return $this->periodicity;
     }
 
     /**
-     * @return mixed|null
+     * @return string|null
      */
-    public function getPlanId()
+    public function getPlanId(): ?string
     {
         return $this->planId;
     }
 
     /**
-     * @return mixed|null
+     * @return string|null
      */
-    public function getProductId()
+    public function getProductId(): ?string
     {
         return $this->productId;
     }
 
     /**
-     * @return mixed|null
+     * @return string|null
      */
-    public function getProductSku()
+    public function getProductSku(): ?string
     {
         return $this->productSku;
     }
 
     /**
-     * @return mixed|null
+     * @return bool|null
      */
-    public function getReactivateSubscription()
+    public function getReactivateSubscription(): ?bool
     {
         return $this->reactivateSubscription;
     }
 
     /**
-     * @return mixed|null
+     * @return bool|null
      */
-    public function getSuspendSubscription()
+    public function getSuspendSubscription(): ?bool
     {
         return $this->suspendSubscription;
     }
 
     /**
-     * @return mixed|null
+     * @return int|null
      */
-    public function getTerm()
+    public function getTerm(): ?int
     {
         return $this->term;
     }
 
     /**
-     * @return mixed|null
+     * @return string|null
      */
-    public function getUnitType()
+    public function getUnitType(): ?string
     {
         return $this->unitType;
     }
