@@ -4,43 +4,18 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
 
 /**
  * Class FiltersValues
+ *
+ * @method string getValue()
+ * @method int getCount()
  */
-class FiltersValues
+class FiltersValues extends AbstractType
 {
     public const VALUE = 'value';
 
     public const COUNT = 'count';
 
-    /** @var string|null */
-    private $value;
-
-    /** @var int|null */
-    private $count;
-
-    /**
-     * FiltersValues constructor.
-     *
-     * @param array $data
-     */
-    public function __construct(array $data)
-    {
-        $this->value = $data[self::VALUE] ?? null;
-        $this->count = $data[self::COUNT] ?? null;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getValue(): ?string
-    {
-        return $this->value;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getCount(): ?int
-    {
-        return $this->count;
-    }
+    protected const MAPPING = [
+        self::VALUE => self::TYPE_STRING,
+        self::COUNT => self::TYPE_INT
+    ];
 }

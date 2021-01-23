@@ -4,8 +4,21 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
 
 /**
  * Class Attributes
+ *
+ * @method bool getCancelSubscription()
+ * @method bool getDecreaseSeats()
+ * @method bool getIncreaseSeats()
+ * @method string getPartIdentifier()
+ * @method int getPeriodicity()
+ * @method string getPlanId()
+ * @method string getProductId()
+ * @method string getProductSku()
+ * @method bool getReactivateSubscription()
+ * @method bool getSuspendSubscription()
+ * @method int getTerm()
+ * @method string getUnitType()
  */
-class Attributes
+class Attributes extends AbstractType
 {
     public const CANCEL_SUBSCRIPTION = 'cancelSubscription';
 
@@ -31,156 +44,18 @@ class Attributes
 
     public const UNIT_TYPE = 'unitType';
 
-    /** @var bool|null */
-    private $cancelSubscription;
-
-    /** @var bool|null */
-    private $decreaseSeats;
-
-    /** @var bool|null */
-    private $increaseSeats;
-
-    /** @var string|null */
-    private $partIdentifier;
-
-    /** @var int|null */
-    private $periodicity;
-
-    /** @var string|null */
-    private $planId;
-
-    /** @var string|null */
-    private $productId;
-
-    /** @var string|null */
-    private $productSku;
-
-    /** @var bool|null */
-    private $reactivateSubscription;
-
-    /** @var bool|null */
-    private $suspendSubscription;
-
-    /** @var int|null */
-    private $term;
-
-    /** @var string|null */
-    private $unitType;
-
-    /**
-     * Attributes constructor.
-     *
-     * @param array $data
-     */
-    public function __construct(array $data)
-    {
-        $this->cancelSubscription = $data[self::CANCEL_SUBSCRIPTION] ?? null;
-        $this->decreaseSeats = $data[self::DECREASE_SEATS] ?? null;
-        $this->increaseSeats = $data[self::INCREASE_SEATS] ?? null;
-        $this->partIdentifier = $data[self::PART_IDENTIFIER] ?? null;
-        $this->periodicity = $data[self::PERIODICITY] ?? null;
-        $this->planId = $data[self::PLAN_ID] ?? null;
-        $this->productId = $data[self::PRODUCT_ID] ?? null;
-        $this->productSku = $data[self::PRODUCT_SKU] ?? null;
-        $this->reactivateSubscription = $data[self::REACTIVATE_SUBSCRIPTION] ?? null;
-        $this->suspendSubscription = $data[self::SUSPEND_SUBSCRIPTION] ?? null;
-        $this->term = $data[self::TERM] ?? null;
-        $this->unitType = $data[self::UNIT_TYPE] ?? null;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getCancelSubscription(): ?bool
-    {
-        return $this->cancelSubscription;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getDecreaseSeats(): ?bool
-    {
-        return $this->decreaseSeats;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getIncreaseSeats(): ?bool
-    {
-        return $this->increaseSeats;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getPartIdentifier(): ?string
-    {
-        return $this->partIdentifier;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getPeriodicity(): ?int
-    {
-        return $this->periodicity;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getPlanId(): ?string
-    {
-        return $this->planId;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getProductId(): ?string
-    {
-        return $this->productId;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getProductSku(): ?string
-    {
-        return $this->productSku;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getReactivateSubscription(): ?bool
-    {
-        return $this->reactivateSubscription;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getSuspendSubscription(): ?bool
-    {
-        return $this->suspendSubscription;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getTerm(): ?int
-    {
-        return $this->term;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getUnitType(): ?string
-    {
-        return $this->unitType;
-    }
+    protected const MAPPING = [
+        self::CANCEL_SUBSCRIPTION     => self::TYPE_BOOL,
+        self::DECREASE_SEATS          => self::TYPE_BOOL,
+        self::INCREASE_SEATS          => self::TYPE_BOOL,
+        self::PART_IDENTIFIER         => self::TYPE_STRING,
+        self::PERIODICITY             => self::TYPE_INT,
+        self::PLAN_ID                 => self::TYPE_STRING,
+        self::PRODUCT_ID              => self::TYPE_STRING,
+        self::PRODUCT_SKU             => self::TYPE_STRING,
+        self::REACTIVATE_SUBSCRIPTION => self::TYPE_BOOL,
+        self::SUSPEND_SUBSCRIPTION    => self::TYPE_BOOL,
+        self::TERM                    => self::TYPE_INT,
+        self::UNIT_TYPE               => self::TYPE_STRING,
+    ];
 }

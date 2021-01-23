@@ -4,29 +4,14 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
 
 /**
  * Class ProgramName
+ *
+ * @method string getFull()
  */
-class ProgramName
+class ProgramName extends AbstractType
 {
     public const FULL = 'full';
 
-    /** @var string|null */
-    private $full;
-
-    /**
-     * ProgramName constructor.
-     *
-     * @param array $data
-     */
-    public function __construct(array $data)
-    {
-        $this->full = $data[self::FULL] ?? null;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getFull(): ?string
-    {
-        return $this->full;
-    }
+    protected const MAPPING = [
+        self::FULL => self::TYPE_STRING,
+    ];
 }

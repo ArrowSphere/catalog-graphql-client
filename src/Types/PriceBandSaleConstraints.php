@@ -4,8 +4,13 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
 
 /**
  * Class PriceBandSaleConstraints
+ *
+ * @method string getAvailableDate()
+ * @method string getExpiryDate()
+ * @method int getMinQuantity()
+ * @method int getMaxQuantity()
  */
-class PriceBandSaleConstraints
+class PriceBandSaleConstraints extends AbstractType
 {
     public const AVAILABLE_DATE = 'availableDate';
 
@@ -15,60 +20,10 @@ class PriceBandSaleConstraints
 
     public const MAX_QUANTITY = 'maxQuantity';
 
-    /** @var string|null */
-    private $availableDate;
-
-    /** @var string|null */
-    private $expiryDate;
-
-    /** @var int|null */
-    private $minQuantity;
-
-    /** @var int|null */
-    private $maxQuantity;
-
-    /**
-     * PriceBandSaleConstraints constructor.
-     *
-     * @param array $data
-     */
-    public function __construct(array $data)
-    {
-        $this->availableDate = $data[self::AVAILABLE_DATE] ?? null;
-        $this->expiryDate = $data[self::EXPIRY_DATE] ?? null;
-        $this->minQuantity = $data[self::MIN_QUANTITY] ?? null;
-        $this->maxQuantity = $data[self::MAX_QUANTITY] ?? null;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getAvailableDate(): ?string
-    {
-        return $this->availableDate;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getExpiryDate(): ?string
-    {
-        return $this->expiryDate;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getMinQuantity(): ?int
-    {
-        return $this->minQuantity;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getMaxQuantity(): ?int
-    {
-        return $this->maxQuantity;
-    }
+    protected const MAPPING = [
+        self::AVAILABLE_DATE => self::TYPE_STRING,
+        self::EXPIRY_DATE    => self::TYPE_STRING,
+        self::MIN_QUANTITY   => self::TYPE_INT,
+        self::MAX_QUANTITY   => self::TYPE_INT,
+    ];
 }

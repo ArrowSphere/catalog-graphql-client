@@ -4,43 +4,18 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
 
 /**
  * Class Family
+ *
+ * @method string getId()
+ * @method string getName()
  */
-class Family
+class Family extends AbstractType
 {
     public const ID = 'id';
 
     public const NAME = 'name';
 
-    /** @var string|null */
-    private $id;
-
-    /** @var string|null */
-    private $name;
-
-    /**
-     * Family constructor.
-     *
-     * @param array $data
-     */
-    public function __construct(array $data)
-    {
-        $this->id = $data[self::ID] ?? null;
-        $this->name = $data[self::NAME] ?? null;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
+    protected const MAPPING = [
+        self::ID   => self::TYPE_STRING,
+        self::NAME => self::TYPE_STRING,
+    ];
 }

@@ -4,8 +4,12 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
 
 /**
  * Class Program
+ *
+ * @method bool getIsEnabled()
+ * @method string getLegacyCode()
+ * @method ProgramName getName()
  */
-class Program
+class Program extends AbstractType
 {
     public const IS_ENABLED = 'isEnabled';
 
@@ -13,48 +17,9 @@ class Program
 
     public const NAMES = 'names';
 
-    /** @var bool|null */
-    private $isEnabled;
-
-    /** @var string|null */
-    private $legacyCode;
-
-    /** @var ProgramName|null */
-    private $names;
-
-    /**
-     * Program constructor.
-     *
-     * @param array $data
-     */
-    public function __construct(array $data)
-    {
-        $this->isEnabled = $data[self::IS_ENABLED] ?? null;
-        $this->legacyCode = $data[self::LEGACY_CODE] ?? null;
-        $this->names = isset($data[self::NAMES]) ? new ProgramName($data[self::NAMES]) : null;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getIsEnabled(): ?bool
-    {
-        return $this->isEnabled;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getLegacyCode(): ?string
-    {
-        return $this->legacyCode;
-    }
-
-    /**
-     * @return ProgramName|null
-     */
-    public function getNames(): ?ProgramName
-    {
-        return $this->names;
-    }
+    protected const MAPPING = [
+        self::IS_ENABLED  => self::TYPE_BOOL,
+        self::LEGACY_CODE => self::TYPE_STRING,
+        self::NAMES       => ProgramName::class,
+    ];
 }

@@ -4,29 +4,14 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
 
 /**
  * Class PriceBandArrowsphereIdentifier
+ *
+ * @method string getSku()
  */
-class PriceBandArrowsphereIdentifier
+class PriceBandArrowsphereIdentifier extends AbstractType
 {
     public const SKU = 'sku';
 
-    /** @var string|null */
-    private $sku;
-
-    /**
-     * PriceBandArrowsphereIdentifier constructor.
-     *
-     * @param array $data
-     */
-    public function __construct(array $data)
-    {
-        $this->sku = $data[self::SKU] ?? null;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getSku(): ?string
-    {
-        return $this->sku;
-    }
+    protected const MAPPING = [
+        self::SKU => self::TYPE_STRING,
+    ];
 }

@@ -4,8 +4,42 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
 
 /**
  * Class Product
+ *
+ * @method string getId()
+ * @method Identifiers getIdentifiers()
+ * @method string getName()
+ * @method string getClassification()
+ * @method string[] getArrowCategories()
+ * @method string getLicenseAgreementType()
+ * @method Family getFamily()
+ * @method bool getIsAddon()
+ * @method bool getHasAddons()
+ * @method ActionFlags getActionFlags()
+ * @method Identifiers[] getAddonPrimaries()
+ * @method Identifiers[] getConversionOfferPrimaries()
+ * @method Identifiers[] getBaseOfferPrimaries()
+ * @method Assets getAssets()
+ * @method string getEnvironmentAvailability()
+ * @method string getMarketplace()
+ * @method bool getIsEnabled()
+ * @method bool getIsTrial()
+ * @method string getLastUpdate()
+ * @method MarketingText getMarketingText()
+ * @method string getVendorOfferUrl()
+ * @method string getServiceDescription()
+ * @method string getEula()
+ * @method string getEndCustomerEula()
+ * @method string getEndCustomerRequirements()
+ * @method string getEndCustomerFeatures()
+ * @method string getXspUrl()
+ * @method SaleConstraints getSaleConstraints()
+ * @method Vendor getVendor()
+ * @method Program getProgram()
+ * @method float getWeightTopSales()
+ * @method float getWeightForced()
+ * @method PriceBand[] getPriceBand()
  */
-class Product
+class Product extends AbstractType
 {
     public const ID = 'id';
 
@@ -73,421 +107,54 @@ class Product
 
     public const PRICE_BAND = 'priceBand';
 
-    /** @var string|null */
-    private $id;
-
-    /** @var Identifiers|null */
-    private $identifiers;
-
-    /** @var string|null */
-    private $name;
-
-    /** @var string|null */
-    private $classification;
-
-    /** @var string[]|null */
-    private $arrowCategories;
-
-    /** @var string|null */
-    private $licenseAgreementType;
-
-    /** @var Family|null */
-    private $family;
-
-    /** @var bool|null */
-    private $isAddon;
-
-    /** @var bool|null */
-    private $hasAddons;
-
-    /** @var ActionFlags|null */
-    private $actionFlags;
-
-    /** @var Identifiers[]|null */
-    private $addonPrimaries;
-
-    /** @var Identifiers[]|null */
-    private $conversionOfferPrimaries;
-
-    /** @var Identifiers[]|null */
-    private $baseOfferPrimaries;
-
-    /** @var Assets|null */
-    private $assets;
-
-    /** @var string|null */
-    private $environmentAvailability;
-
-    /** @var string|null */
-    private $marketplace;
-
-    /** @var bool|null */
-    private $isEnabled;
-
-    /** @var bool|null */
-    private $isTrial;
-
-    /** @var string|null */
-    private $lastUpdate;
-
-    /** @var MarketingText|null */
-    private $marketingText;
-
-    /** @var string|null */
-    private $vendorOfferUrl;
-
-    /** @var string|null */
-    private $serviceDescription;
-
-    /** @var string|null */
-    private $eula;
-
-    /** @var string|null */
-    private $endCustomerEula;
-
-    /** @var string|null */
-    private $endCustomerRequirements;
-
-    /** @var string|null */
-    private $endCustomerFeatures;
-
-    /** @var string|null */
-    private $xspUrl;
-
-    /** @var SaleConstraints|null */
-    private $saleConstraints;
-
-    /** @var Vendor|null */
-    private $vendor;
-
-    /** @var Program|null */
-    private $program;
-
-    /** @var float|null */
-    private $weightTopSales;
-
-    /** @var float|null */
-    private $weightForced;
-
-    /** @var PriceBand[]|null */
-    private $priceBand;
-
-    /**
-     * Product constructor.
-     *
-     * @param array $data
-     */
-    public function __construct(array $data)
-    {
-        $this->id = $data[self::ID] ?? null;
-        $this->identifiers = isset($data[self::IDENTIFIERS]) ? new Identifiers($data[self::IDENTIFIERS]) : null;
-        $this->name = $data[self::NAME] ?? null;
-        $this->classification = $data[self::CLASSIFICATION] ?? null;
-        $this->arrowCategories = $data[self::ARROW_CATEGORIES] ?? null;
-        $this->licenseAgreementType = $data[self::LICENSE_AGREEMENT_TYPE] ?? null;
-        $this->family = isset($data[self::FAMILY]) ? new Family($data[self::FAMILY]) : null;
-        $this->isAddon = $data[self::IS_ADDON] ?? null;
-        $this->hasAddons = $data[self::HAS_ADDONS] ?? null;
-        $this->actionFlags = isset($data[self::ACTION_FLAGS]) ? new ActionFlags($data[self::ACTION_FLAGS]) : null;
-
-        $this->addonPrimaries = isset($data[self::ADDON_PRIMARIES]) ? array_map(static function (array $addonPrimary) {
-            return new Identifiers($addonPrimary);
-        }, $data[self::ADDON_PRIMARIES]) : null;
-
-        $this->conversionOfferPrimaries = isset($data[self::CONVERSION_OFFER_PRIMARIES]) ? array_map(static function (array $conversionOfferPrimary) {
-            return new Identifiers($conversionOfferPrimary);
-        }, $data[self::CONVERSION_OFFER_PRIMARIES]) : null;
-
-        $this->baseOfferPrimaries = isset($data[self::BASE_OFFER_PRIMARIES]) ? array_map(static function (array $baseOfferPrimary) {
-            return new Identifiers($baseOfferPrimary);
-        }, $data[self::BASE_OFFER_PRIMARIES]) : null;
-
-        $this->assets = isset($data[self::ASSETS]) ? new Assets($data[self::ASSETS]) : null;
-        $this->environmentAvailability = $data[self::ENVIRONMENT_AVAILABILITY] ?? null;
-        $this->marketplace = $data[self::MARKETPLACE] ?? null;
-        $this->isEnabled = $data[self::IS_ENABLED] ?? null;
-        $this->isTrial = $data[self::IS_TRIAL] ?? null;
-        $this->lastUpdate = $data[self::LAST_UPDATE] ?? null;
-        $this->marketingText = isset($data[self::MARKETING_TEXT]) ? new MarketingText($data[self::MARKETING_TEXT]) : null;
-        $this->vendorOfferUrl = $data[self::VENDOR_OFFER_URL] ?? null;
-        $this->serviceDescription = $data[self::SERVICE_DESCRIPTION] ?? null;
-        $this->eula = $data[self::EULA] ?? null;
-        $this->endCustomerEula = $data[self::END_CUSTOMER_EULA] ?? null;
-        $this->endCustomerRequirements = $data[self::END_CUSTOMER_REQUIREMENTS] ?? null;
-        $this->endCustomerFeatures = $data[self::END_CUSTOMER_FEATURES] ?? null;
-        $this->xspUrl = $data[self::XSP_URL] ?? null;
-        $this->saleConstraints = isset($data[self::SALE_CONSTRAINTS]) ? new SaleConstraints($data[self::SALE_CONSTRAINTS]) : null;
-        $this->vendor = isset($data[self::VENDOR]) ? new Vendor($data[self::VENDOR]) : null;
-        $this->program = isset($data[self::PROGRAM]) ? new Program($data[self::PROGRAM]) : null;
-        $this->weightTopSales = $data[self::WEIGHT_TOP_SALES] ?? null;
-        $this->weightForced = $data[self::WEIGHT_FORCED] ?? null;
-
-        $this->priceBand = isset($data[self::PRICE_BAND]) ? array_map(static function (array $priceBand) {
-            return new PriceBand($priceBand);
-        }, $data[self::PRICE_BAND]) : null;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return Identifiers|null
-     */
-    public function getIdentifiers(): ?Identifiers
-    {
-        return $this->identifiers;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getClassification(): ?string
-    {
-        return $this->classification;
-    }
-
-    /**
-     * @return string[]|null
-     */
-    public function getArrowCategories(): ?array
-    {
-        return $this->arrowCategories;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getLicenseAgreementType(): ?string
-    {
-        return $this->licenseAgreementType;
-    }
-
-    /**
-     * @return Family|null
-     */
-    public function getFamily(): ?Family
-    {
-        return $this->family;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getIsAddon(): ?bool
-    {
-        return $this->isAddon;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getHasAddons(): ?bool
-    {
-        return $this->hasAddons;
-    }
-
-    /**
-     * @return ActionFlags|null
-     */
-    public function getActionFlags(): ?ActionFlags
-    {
-        return $this->actionFlags;
-    }
-
-    /**
-     * @return Identifiers[]|null
-     */
-    public function getAddonPrimaries(): ?array
-    {
-        return $this->addonPrimaries;
-    }
-
-    /**
-     * @return Identifiers[]|null
-     */
-    public function getConversionOfferPrimaries(): ?array
-    {
-        return $this->conversionOfferPrimaries;
-    }
-
-    /**
-     * @return Identifiers[]|null
-     */
-    public function getBaseOfferPrimaries(): ?array
-    {
-        return $this->baseOfferPrimaries;
-    }
-
-    /**
-     * @return Assets|null
-     */
-    public function getAssets(): ?Assets
-    {
-        return $this->assets;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getEnvironmentAvailability(): ?string
-    {
-        return $this->environmentAvailability;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getMarketplace(): ?string
-    {
-        return $this->marketplace;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getIsEnabled(): ?bool
-    {
-        return $this->isEnabled;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getIsTrial(): ?bool
-    {
-        return $this->isTrial;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getLastUpdate(): ?string
-    {
-        return $this->lastUpdate;
-    }
-
-    /**
-     * @return MarketingText|null
-     */
-    public function getMarketingText(): ?MarketingText
-    {
-        return $this->marketingText;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getVendorOfferUrl(): ?string
-    {
-        return $this->vendorOfferUrl;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getServiceDescription(): ?string
-    {
-        return $this->serviceDescription;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getEula(): ?string
-    {
-        return $this->eula;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getEndCustomerEula(): ?string
-    {
-        return $this->endCustomerEula;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getEndCustomerRequirements(): ?string
-    {
-        return $this->endCustomerRequirements;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getEndCustomerFeatures(): ?string
-    {
-        return $this->endCustomerFeatures;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getXspUrl(): ?string
-    {
-        return $this->xspUrl;
-    }
-
-    /**
-     * @return SaleConstraints|null
-     */
-    public function getSaleConstraints(): ?SaleConstraints
-    {
-        return $this->saleConstraints;
-    }
-
-    /**
-     * @return Vendor|null
-     */
-    public function getVendor(): ?Vendor
-    {
-        return $this->vendor;
-    }
-
-    /**
-     * @return Program|null
-     */
-    public function getProgram(): ?Program
-    {
-        return $this->program;
-    }
-
-    /**
-     * @return float|null
-     */
-    public function getWeightTopSales(): ?float
-    {
-        return $this->weightTopSales;
-    }
-
-    /**
-     * @return float|null
-     */
-    public function getWeightForced(): ?float
-    {
-        return $this->weightForced;
-    }
-
-    /**
-     * @return PriceBand[]|null
-     */
-    public function getPriceBand(): ?array
-    {
-        return $this->priceBand;
-    }
+    protected const MAPPING = [
+        self::ID                         => self::TYPE_STRING,
+        self::IDENTIFIERS                => Identifiers::class,
+        self::NAME                       => self::TYPE_STRING,
+        self::CLASSIFICATION             => self::TYPE_STRING,
+        self::ARROW_CATEGORIES           => [
+            self::MAPPING_TYPE  => self::TYPE_STRING,
+            self::MAPPING_ARRAY => true,
+        ],
+        self::LICENSE_AGREEMENT_TYPE     => self::TYPE_STRING,
+        self::FAMILY                     => Family::class,
+        self::IS_ADDON                   => self::TYPE_BOOL,
+        self::HAS_ADDONS                 => self::TYPE_BOOL,
+        self::ACTION_FLAGS               => ActionFlags::class,
+        self::ADDON_PRIMARIES            => [
+            self::MAPPING_TYPE  => Identifiers::class,
+            self::MAPPING_ARRAY => true,
+        ],
+        self::CONVERSION_OFFER_PRIMARIES => [
+            self::MAPPING_TYPE  => Identifiers::class,
+            self::MAPPING_ARRAY => true,
+        ],
+        self::BASE_OFFER_PRIMARIES       => [
+            self::MAPPING_TYPE  => Identifiers::class,
+            self::MAPPING_ARRAY => true,
+        ],
+        self::ASSETS                     => Assets::class,
+        self::ENVIRONMENT_AVAILABILITY   => self::TYPE_STRING,
+        self::MARKETPLACE                => self::TYPE_STRING,
+        self::IS_ENABLED                 => self::TYPE_BOOL,
+        self::IS_TRIAL                   => self::TYPE_BOOL,
+        self::LAST_UPDATE                => self::TYPE_STRING,
+        self::MARKETING_TEXT             => MarketingText::class,
+        self::VENDOR_OFFER_URL           => self::TYPE_STRING,
+        self::SERVICE_DESCRIPTION        => self::TYPE_STRING,
+        self::EULA                       => self::TYPE_STRING,
+        self::END_CUSTOMER_EULA          => self::TYPE_STRING,
+        self::END_CUSTOMER_REQUIREMENTS  => self::TYPE_STRING,
+        self::END_CUSTOMER_FEATURES      => self::TYPE_STRING,
+        self::XSP_URL                    => self::TYPE_STRING,
+        self::SALE_CONSTRAINTS           => SaleConstraints::class,
+        self::VENDOR                     => Vendor::class,
+        self::PROGRAM                    => Program::class,
+        self::WEIGHT_TOP_SALES           => self::TYPE_FLOAT,
+        self::WEIGHT_FORCED              => self::TYPE_FLOAT,
+        self::PRICE_BAND                 => [
+            self::MAPPING_TYPE  => PriceBand::class,
+            self::MAPPING_ARRAY => true,
+        ],
+    ];
 }
