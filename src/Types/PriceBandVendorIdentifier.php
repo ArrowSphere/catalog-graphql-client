@@ -4,43 +4,18 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
 
 /**
  * Class PriceBandVendorIdentifier
+ *
+ * @method string getPurchasePlan()
+ * @method string getSku()
  */
-class PriceBandVendorIdentifier
+class PriceBandVendorIdentifier extends AbstractType
 {
     public const PURCHASE_PLAN = 'purchasePlan';
 
     public const SKU = 'sku';
 
-    /** @var string|null */
-    private $purchasePlan;
-
-    /** @var string|null */
-    private $sku;
-
-    /**
-     * PriceBandVendorIdentifier constructor.
-     *
-     * @param array $data
-     */
-    public function __construct(array $data)
-    {
-        $this->purchasePlan = $data[self::PURCHASE_PLAN] ?? null;
-        $this->sku = $data[self::SKU] ?? null;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getPurchasePlan(): ?string
-    {
-        return $this->purchasePlan;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getSku(): ?string
-    {
-        return $this->sku;
-    }
+    protected const MAPPING = [
+        self::PURCHASE_PLAN => self::TYPE_STRING,
+        self::SKU           => self::TYPE_STRING,
+    ];
 }

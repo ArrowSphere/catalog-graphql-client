@@ -3,6 +3,11 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2021-01-25
+### Changed
+- All the type classes now extend an abstract class named ```AbstractType```. Their accessors are now magic methods created via the ```__call``` method of ```AbstractType```
+- Now if a field is not requested, but the user tries to access it regardless, a ```UnrequestedException``` is thrown. This allows to make a difference between "the field is ```null``` because I didn't request it" and "the field is really ```null```"
+
 ## [0.2.0] - 2021-01-19
 ### Added
 - Test classes for other type classes

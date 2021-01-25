@@ -4,8 +4,12 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
 
 /**
  * Class ActionFlags
+ *
+ * @method bool getIsAutoRenew()
+ * @method bool getIsManualProvisioning()
+ * @method bool getRenewalSku()
  */
-class ActionFlags
+class ActionFlags extends AbstractType
 {
     public const IS_AUTO_RENEW = 'isAutoRenew';
 
@@ -13,48 +17,9 @@ class ActionFlags
 
     public const RENEWAL_SKU = 'renewalSku';
 
-    /** @var bool|null */
-    private $isAutoRenew;
-
-    /** @var bool|null */
-    private $isManualProvisioning;
-
-    /** @var bool|null */
-    private $renewalSku;
-
-    /**
-     * ActionFlags constructor.
-     *
-     * @param array $data
-     */
-    public function __construct(array $data)
-    {
-        $this->isAutoRenew = $data[self::IS_AUTO_RENEW] ?? null;
-        $this->isManualProvisioning = $data[self::IS_MANUAL_PROVISIONING] ?? null;
-        $this->renewalSku = $data[self::RENEWAL_SKU] ?? null;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getIsAutoRenew(): ?bool
-    {
-        return $this->isAutoRenew;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getIsManualProvisioning(): ?bool
-    {
-        return $this->isManualProvisioning;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getRenewalSku(): ?bool
-    {
-        return $this->renewalSku;
-    }
+    protected const MAPPING = [
+        self::IS_AUTO_RENEW          => self::TYPE_BOOL,
+        self::IS_MANUAL_PROVISIONING => self::TYPE_BOOL,
+        self::RENEWAL_SKU            => self::TYPE_BOOL,
+    ];
 }

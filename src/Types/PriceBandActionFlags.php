@@ -4,8 +4,14 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
 
 /**
  * Class PriceBandActionFlags
+ *
+ * @method bool getCanBeCancelled()
+ * @method bool getCanBeReactivated()
+ * @method bool getCanBeSuspended()
+ * @method bool getCanDecreaseSeats()
+ * @method bool getCanIncreaseSeats()
  */
-class PriceBandActionFlags
+class PriceBandActionFlags extends AbstractType
 {
     public const CAN_BE_CANCELLED = 'canBeCancelled';
 
@@ -17,72 +23,11 @@ class PriceBandActionFlags
 
     public const CAN_INCREASE_SEATS = 'canIncreaseSeats';
 
-    /** @var bool|null */
-    private $canBeCancelled;
-
-    /** @var bool|null */
-    private $canBeReactivated;
-
-    /** @var bool|null */
-    private $canBeSuspended;
-
-    /** @var bool|null */
-    private $canDecreaseSeats;
-
-    /** @var bool|null */
-    private $canIncreaseSeats;
-
-    /**
-     * PriceBandActionFlags constructor.
-     *
-     * @param array $data
-     */
-    public function __construct(array $data)
-    {
-        $this->canBeCancelled = $data[self::CAN_BE_CANCELLED] ?? null;
-        $this->canBeReactivated = $data[self::CAN_BE_REACTIVATED] ?? null;
-        $this->canBeSuspended = $data[self::CAN_BE_SUSPENDED] ?? null;
-        $this->canDecreaseSeats = $data[self::CAN_DECREASE_SEATS] ?? null;
-        $this->canIncreaseSeats = $data[self::CAN_INCREASE_SEATS] ?? null;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getCanBeCancelled(): ?bool
-    {
-        return $this->canBeCancelled;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getCanBeReactivated(): ?bool
-    {
-        return $this->canBeReactivated;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getCanBeSuspended(): ?bool
-    {
-        return $this->canBeSuspended;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getCanDecreaseSeats(): ?bool
-    {
-        return $this->canDecreaseSeats;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getCanIncreaseSeats(): ?bool
-    {
-        return $this->canIncreaseSeats;
-    }
+    protected const MAPPING = [
+        self::CAN_BE_CANCELLED   => self::TYPE_BOOL,
+        self::CAN_BE_REACTIVATED => self::TYPE_BOOL,
+        self::CAN_BE_SUSPENDED   => self::TYPE_BOOL,
+        self::CAN_DECREASE_SEATS => self::TYPE_BOOL,
+        self::CAN_INCREASE_SEATS => self::TYPE_BOOL,
+    ];
 }

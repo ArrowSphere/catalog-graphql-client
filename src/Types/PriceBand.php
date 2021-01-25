@@ -4,8 +4,19 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
 
 /**
  * Class PriceBand
+ *
+ * @method bool getIsEnabled()
+ * @method PriceBandActionFlags getActionFlags()
+ * @method Billing getBilling()
+ * @method string getCurrency()
+ * @method PriceBandIdentifiers getIdentifiers()
+ * @method string getMarketplace()
+ * @method Prices getPrices()
+ * @method PriceBandSaleConstraints getSaleConstraints()
+ * @method string getOrderingType()
+ * @method Uom getUom()
  */
-class PriceBand
+class PriceBand extends AbstractType
 {
     public const IS_ENABLED = 'isEnabled';
 
@@ -27,132 +38,16 @@ class PriceBand
 
     public const UOM = 'uom';
 
-    /** @var bool|null */
-    private $isEnabled;
-
-    /** @var PriceBandActionFlags|null */
-    private $actionFlags;
-
-    /** @var Billing|null */
-    private $billing;
-
-    /** @var string|null */
-    private $currency;
-
-    /** @var PriceBandIdentifiers|null */
-    private $identifiers;
-
-    /** @var string|null */
-    private $marketplace;
-
-    /** @var Prices|null */
-    private $prices;
-
-    /** @var PriceBandSaleConstraints|null */
-    private $saleConstraints;
-
-    /** @var string|null */
-    private $orderingType;
-
-    /** @var Uom|null */
-    private $uom;
-
-    /**
-     * PriceBand constructor.
-     *
-     * @param array $data
-     */
-    public function __construct(array $data)
-    {
-        $this->isEnabled = $data[self::IS_ENABLED] ?? null;
-        $this->actionFlags = isset($data[self::ACTION_FLAGS]) ? new PriceBandActionFlags($data[self::ACTION_FLAGS]) : null;
-        $this->billing = isset($data[self::BILLING]) ? new Billing($data[self::BILLING]) : null;
-        $this->currency = $data[self::CURRENCY] ?? null;
-        $this->identifiers = isset($data[self::IDENTIFIERS]) ? new PriceBandIdentifiers($data[self::IDENTIFIERS]) : null;
-        $this->marketplace = $data[self::MARKETPLACE] ?? null;
-        $this->prices = isset($data[self::PRICES]) ? new Prices($data[self::PRICES]) : null;
-        $this->saleConstraints = isset($data[self::SALE_CONSTRAINTS]) ? new PriceBandSaleConstraints($data[self::SALE_CONSTRAINTS]) : null;
-        $this->orderingType = $data[self::ORDERING_TYPE] ?? null;
-        $this->uom = isset($data[self::UOM]) ? new Uom($data[self::UOM]) : null;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getIsEnabled(): ?bool
-    {
-        return $this->isEnabled;
-    }
-
-    /**
-     * @return PriceBandActionFlags|null
-     */
-    public function getActionFlags(): ?PriceBandActionFlags
-    {
-        return $this->actionFlags;
-    }
-
-    /**
-     * @return Billing|null
-     */
-    public function getBilling(): ?Billing
-    {
-        return $this->billing;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getCurrency(): ?string
-    {
-        return $this->currency;
-    }
-
-    /**
-     * @return PriceBandIdentifiers|null
-     */
-    public function getIdentifiers(): ?PriceBandIdentifiers
-    {
-        return $this->identifiers;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getMarketplace(): ?string
-    {
-        return $this->marketplace;
-    }
-
-    /**
-     * @return Prices|null
-     */
-    public function getPrices(): ?Prices
-    {
-        return $this->prices;
-    }
-
-    /**
-     * @return PriceBandSaleConstraints|null
-     */
-    public function getSaleConstraints(): ?PriceBandSaleConstraints
-    {
-        return $this->saleConstraints;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getOrderingType(): ?string
-    {
-        return $this->orderingType;
-    }
-
-    /**
-     * @return Uom|null
-     */
-    public function getUom(): ?Uom
-    {
-        return $this->uom;
-    }
+    protected const MAPPING = [
+        self::IS_ENABLED       => self::TYPE_BOOL,
+        self::ACTION_FLAGS     => PriceBandActionFlags::class,
+        self::BILLING          => Billing::class,
+        self::CURRENCY         => self::TYPE_STRING,
+        self::IDENTIFIERS      => PriceBandIdentifiers::class,
+        self::MARKETPLACE      => self::TYPE_STRING,
+        self::PRICES           => Prices::class,
+        self::SALE_CONSTRAINTS => PriceBandSaleConstraints::class,
+        self::ORDERING_TYPE    => self::TYPE_STRING,
+        self::UOM              => Uom::class,
+    ];
 }

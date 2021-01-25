@@ -4,8 +4,13 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
 
 /**
  * Class MarketingText
+ *
+ * @method string getOverviewDescription()
+ * @method string getFeaturesShort()
+ * @method string getFeaturesFull()
+ * @method string getFeatures()
  */
-class MarketingText
+class MarketingText extends AbstractType
 {
     public const OVERVIEW_DESCRIPTION = 'overviewDescription';
 
@@ -15,60 +20,10 @@ class MarketingText
 
     public const FEATURES = 'features';
 
-    /** @var string|null */
-    private $overviewDescription;
-
-    /** @var string|null */
-    private $featuresShort;
-
-    /** @var string|null */
-    private $featuresFull;
-
-    /** @var string|null */
-    private $features;
-
-    /**
-     * MarketingText constructor.
-     *
-     * @param array $data
-     */
-    public function __construct(array $data)
-    {
-        $this->overviewDescription = $data[self::OVERVIEW_DESCRIPTION] ?? null;
-        $this->featuresShort = $data[self::FEATURES_SHORT] ?? null;
-        $this->featuresFull = $data[self::FEATURES_FULL] ?? null;
-        $this->features = $data[self::FEATURES] ?? null;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getOverviewDescription(): ?string
-    {
-        return $this->overviewDescription;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getFeaturesShort(): ?string
-    {
-        return $this->featuresShort;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getFeaturesFull(): ?string
-    {
-        return $this->featuresFull;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getFeatures(): ?string
-    {
-        return $this->features;
-    }
+    protected const MAPPING = [
+        self::OVERVIEW_DESCRIPTION => self::TYPE_STRING,
+        self::FEATURES_SHORT       => self::TYPE_STRING,
+        self::FEATURES_FULL        => self::TYPE_STRING,
+        self::FEATURES             => self::TYPE_STRING,
+    ];
 }

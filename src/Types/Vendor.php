@@ -4,29 +4,14 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
 
 /**
  * Class Vendor
+ *
+ * @method string getName()
  */
-class Vendor
+class Vendor extends AbstractType
 {
     public const NAME = 'name';
 
-    /** @var string|null */
-    private $name;
-
-    /**
-     * Vendor constructor.
-     *
-     * @param array $data
-     */
-    public function __construct(array $data)
-    {
-        $this->name = $data[self::NAME] ?? null;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
+    protected const MAPPING = [
+        self::NAME => self::TYPE_STRING,
+    ];
 }
