@@ -28,6 +28,13 @@ abstract class AbstractType
 
     protected const TYPE_FLOAT = 'float';
 
+    private const TYPES = [
+        self::TYPE_STRING,
+        self::TYPE_BOOL,
+        self::TYPE_INT,
+        self::TYPE_FLOAT,
+    ];
+
     /**
      * @param $method
      * @param $params
@@ -68,7 +75,7 @@ abstract class AbstractType
             $isArray = is_array($definition) ? $definition[self::MAPPING_ARRAY] ?? false : false;
 
             $buildValue = static function($value) use ($type) {
-                return class_exists($type) ? new $type($value) : $value;
+                return in_array($type, self::TYPES, true) ? $value : new $type($value);
             };
 
             if ($isArray) {
