@@ -2,10 +2,12 @@
 
 namespace ArrowSphere\CatalogGraphQLClient;
 
+use ArrowSphere\CatalogGraphQLClient\Exceptions\NonExistingFieldException;
 use ArrowSphere\CatalogGraphQLClient\Helpers\FilterHelper;
 use ArrowSphere\CatalogGraphQLClient\Input\Paginate;
 use ArrowSphere\CatalogGraphQLClient\Input\SearchBody;
 use ArrowSphere\CatalogGraphQLClient\Types\PaginatedProducts;
+use ArrowSphere\CatalogGraphQLClient\Types\Product;
 use GraphQL\Client;
 use GraphQL\Query;
 use GraphQL\RawObject;
@@ -48,14 +50,14 @@ class CatalogGraphQLClient
     }
 
     /**
-     * @param string $marketplace
-     * @param array $filters
+     * @param array $searchBody
      * @param array $fields
      * @param int $page
      * @param int $perPage
      * @return PaginatedProducts
+     * @throws NonExistingFieldException
      */
-    public function find(string $marketplace, array $filters, array $fields, int $page = 1, $perPage = 100): PaginatedProducts
+    public function find(array $searchBody, array $fields, int $page = 1, $perPage = 100): PaginatedProducts
     {
         $selectionSet = $this->prepareSelectionSet($fields);
 
@@ -64,10 +66,10 @@ class CatalogGraphQLClient
             Paginate::PAGE     => $page,
         ];
 
-        $searchBody = [
-            SearchBody::MARKETPLACE => $marketplace,
-            SearchBody::FILTERS     => (new FilterHelper($filters))->getSearchBodyFilters(),
-        ];
+        // TODO something more generic should be done here...
+        if (isset($searchBody[SearchBody::FILTERS])) {
+            $searchBody[SearchBody::FILTERS] = (new FilterHelper($searchBody[SearchBody::FILTERS]))->getSearchBodyFilters();
+        }
 
         $functionName = Types\Query::GET_PRODUCTS;
 
@@ -83,6 +85,36 @@ class CatalogGraphQLClient
         $arrayData = $this->parseData($data);
 
         return new PaginatedProducts($arrayData);
+    }
+
+    /**
+     * @param array $searchBody
+     * @param array $fields
+     * @return Product
+     * @throws NonExistingFieldException
+     */
+    public function findOne(array $searchBody, array $fields): Product
+    {
+        $selectionSet = $this->prepareSelectionSet($fields);
+
+        // TODO something more generic should be done here...
+        if (isset($searchBody[SearchBody::FILTERS])) {
+            $searchBody[SearchBody::FILTERS] = (new FilterHelper($searchBody[SearchBody::FILTERS]))->getSearchBodyFilters();
+        }
+
+        $functionName = Types\Query::PRODUCT;
+
+        $data = $this->call(
+            $functionName,
+            [
+                'searchBody' => new RawObject($this->prepareInput($searchBody)),
+            ],
+            $selectionSet
+        );
+
+        $arrayData = $this->parseData($data);
+
+        return new Product($arrayData);
     }
 
     /**
