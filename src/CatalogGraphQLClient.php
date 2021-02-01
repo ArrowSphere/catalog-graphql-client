@@ -90,10 +90,10 @@ class CatalogGraphQLClient
     /**
      * @param array $searchBody
      * @param array $fields
-     * @return Product
+     * @return Product|null
      * @throws NonExistingFieldException
      */
-    public function findOne(array $searchBody, array $fields): Product
+    public function findOne(array $searchBody, array $fields): ?Product
     {
         $selectionSet = $this->prepareSelectionSet($fields);
 
@@ -111,6 +111,10 @@ class CatalogGraphQLClient
             ],
             $selectionSet
         );
+
+        if ($data === null) {
+            return null;
+        }
 
         $arrayData = $this->parseData($data);
 
