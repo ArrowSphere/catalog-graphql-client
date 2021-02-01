@@ -28,6 +28,23 @@ class FilterHelperTest extends TestCase
                     ],
                 ],
             ],
+            'multipleValues'     => [
+                'inputArray' => [
+                    'test1' => [
+                        'val1',
+                        'val2',
+                    ],
+                ],
+                'expected'   => [
+                    [
+                        'name'  => 'test1',
+                        'value' => [
+                            'val1',
+                            'val2',
+                        ],
+                    ],
+                ],
+            ],
             'simpleNestedArray'  => [
                 'inputArray' => [
                     'test1' => 'val1',
