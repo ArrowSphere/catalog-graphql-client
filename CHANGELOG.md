@@ -3,6 +3,17 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2021-02-01
+### Removed
+- The ```CatalogGraphQLClient::find()``` method has changed: it now takes an array called ```searchBody``` as an input parameter, instead of ```marketplace``` and ```filters```. The marketplace and the filters must be passed in the ```searchBody``` array. This will allow more variable parameters to be passed to the endpoint. This is a breaking change but needs very little work to be adapted. See [Upgrade guide](UPGRADING.md) for more information.
+
+### Added
+- There is now a ```CatalogGraphQLClient::findOne()``` method that allows to find only one offer.
+- ```FilterHelper``` can now manage multiple values in a single field
+
+### Fixed
+- Added a transformation to the filters to make sure the values are always strings, or array of strings (bool values are transformed to string "true" or "false")
+
 ## [0.3.1] - 2021-01-26
 ### Fixed
 - Removed usage of ```class_exists``` in ```AbstractType``` which can have side effects with autoloading

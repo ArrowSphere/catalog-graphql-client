@@ -23,6 +23,7 @@ $ composer require arrowsphere/catalog-graphql-client
 <?php
 
 use ArrowSphere\CatalogGraphQLClient\CatalogGraphQLClient;
+use ArrowSphere\CatalogGraphQLClient\Input\SearchBody;
 use ArrowSphere\CatalogGraphQLClient\Types\ArrowsphereIdentifier;
 use ArrowSphere\CatalogGraphQLClient\Types\Identifiers;
 use ArrowSphere\CatalogGraphQLClient\Types\Product;
@@ -63,7 +64,12 @@ $fields = [
     ]
 ];
 
-$result = $client->find('US', $filters, $fields);
+$searchBody = [
+    SearchBody::MARKETPLACE => 'US',
+    SearchBody::FILTERS     => $filters,
+];
+
+$result = $client->find($searchBody, $fields);
 
 $products = $result->getProducts();
 if (count($products) === 1) {
