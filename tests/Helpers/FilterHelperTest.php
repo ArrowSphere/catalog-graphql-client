@@ -28,6 +28,27 @@ class FilterHelperTest extends TestCase
                     ],
                 ],
             ],
+            'nonStringValues'    => [
+                'inputArray' => [
+                    'testBool'  => true,
+                    'testInt'   => 42,
+                    'testFloat' => 12.34,
+                ],
+                'expected'   => [
+                    [
+                        'name'  => 'testBool',
+                        'value' => 'true',
+                    ],
+                    [
+                        'name'  => 'testInt',
+                        'value' => '42',
+                    ],
+                    [
+                        'name'  => 'testFloat',
+                        'value' => '12.34',
+                    ],
+                ],
+            ],
             'multipleValues'     => [
                 'inputArray' => [
                     'test1' => [
@@ -108,6 +129,6 @@ class FilterHelperTest extends TestCase
      */
     public function testGetSearchBodyFilters(array $inputArray, array $expected): void
     {
-        self::assertEquals($expected, (new FilterHelper($inputArray))->getSearchBodyFilters());
+        self::assertSame($expected, (new FilterHelper($inputArray))->getSearchBodyFilters());
     }
 }

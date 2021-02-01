@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - There is now a ```CatalogGraphQLClient::findOne()``` method that allows to find only one offer.
 - ```FilterHelper``` can now manage multiple values in a single field
 
+### Fixed
+- Added a transformation to the filters to make sure the values are always strings, or array of strings (bool values are transformed to string "true" or "false")
+
 ## [0.3.1] - 2021-01-26
 ### Fixed
 - Removed usage of ```class_exists``` in ```AbstractType``` which can have side effects with autoloading
