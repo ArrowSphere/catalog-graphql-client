@@ -3,6 +3,10 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+### Changed
+- The code now uses ```array_is_list``` from the package ```symfony/polyfill-php81``` because this function will exist in PHP 8.1
+
 ## [0.4.0] - 2021-02-01
 ### Removed
 - The ```CatalogGraphQLClient::find()``` method has changed: it now takes an array called ```searchBody``` as an input parameter, instead of ```marketplace``` and ```filters```. The marketplace and the filters must be passed in the ```searchBody``` array. This will allow more variable parameters to be passed to the endpoint. This is a breaking change but needs very little work to be adapted. See [Upgrade guide](UPGRADING.md) for more information.

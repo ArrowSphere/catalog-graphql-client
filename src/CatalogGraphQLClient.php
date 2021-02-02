@@ -132,7 +132,7 @@ class CatalogGraphQLClient
         // I'm sure there are bugs in it but for my use cases it works... if you run into bugs please implement unit tests
         $res = [];
 
-        $sequential = (array_values($data) === $data);
+        $sequential = array_is_list($data);
 
         foreach ($data as $name => $value) {
             $prefix = $sequential ? '' : $name . ': ';
