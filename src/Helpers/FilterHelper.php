@@ -40,7 +40,7 @@ class FilterHelper
         foreach ($filters as $name => $value) {
             $newPrefix = $prefix === '' ? $name : $prefix . '.' . $name;
 
-            if (is_array($value) && array_keys($value) !== array_keys(array_values($value))) {
+            if (is_array($value) && ! array_is_list($value)) {
                 $searchBodyFilters[] = $this->computeFilters($newPrefix, $value);
             } else {
                 $searchBodyFilters[] = [
