@@ -10,6 +10,7 @@ use ArrowSphere\CatalogGraphQLClient\Types\MarketingText;
 use ArrowSphere\CatalogGraphQLClient\Types\PriceBand;
 use ArrowSphere\CatalogGraphQLClient\Types\Product;
 use ArrowSphere\CatalogGraphQLClient\Types\Program;
+use ArrowSphere\CatalogGraphQLClient\Types\RelatedOffer;
 use ArrowSphere\CatalogGraphQLClient\Types\SaleConstraints;
 use ArrowSphere\CatalogGraphQLClient\Types\Vendor;
 use PHPUnit\Framework\TestCase;
@@ -66,6 +67,9 @@ class ProductTest extends TestCase
             Product::WEIGHT_FORCED              => 56.78,
             Product::WEIGHT_TOP_SALES           => 12.34,
             Product::XSP_URL                    => 'xsp url',
+            Product::RELATED_OFFERS             => [
+                [],
+            ],
         ]);
 
         self::assertInstanceOf(ActionFlags::class, $product->getActionFlags());
@@ -109,5 +113,7 @@ class ProductTest extends TestCase
         self::assertSame(56.78, $product->getWeightForced());
         self::assertSame(12.34, $product->getWeightTopSales());
         self::assertSame('xsp url', $product->getXspUrl());
+        self::assertIsArray($product->getRelatedOffers());
+        self::assertInstanceOf(RelatedOffer::class, $product->getRelatedOffers()[0]);
     }
 }
