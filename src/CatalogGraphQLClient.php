@@ -4,6 +4,7 @@ namespace ArrowSphere\CatalogGraphQLClient;
 
 use ArrowSphere\CatalogGraphQLClient\Exceptions\NonExistingFieldException;
 use ArrowSphere\CatalogGraphQLClient\Helpers\FilterHelper;
+use ArrowSphere\CatalogGraphQLClient\Helpers\InputPreparator;
 use ArrowSphere\CatalogGraphQLClient\Input\Paginate;
 use ArrowSphere\CatalogGraphQLClient\Input\SearchBody;
 use ArrowSphere\CatalogGraphQLClient\Types\PaginatedProducts;
@@ -20,6 +21,9 @@ class CatalogGraphQLClient
     /** @var Client */
     private $client;
 
+    /** @var InputPreparator */
+    private $inputPreparator;
+
     /**
      * CatalogGraphQLClient constructor.
      *
@@ -30,6 +34,7 @@ class CatalogGraphQLClient
     public function __construct(string $url, string $token, Client $client = null)
     {
         $this->client = $client ?? new Client($url, ['Authorization' => $token]);
+        $this->inputPreparator = new InputPreparator();
     }
 
     /**
@@ -76,8 +81,8 @@ class CatalogGraphQLClient
         $data = $this->call(
             $functionName,
             [
-                'paginate'   => new RawObject($this->prepareInput($pagination)),
-                'searchBody' => new RawObject($this->prepareInput($searchBody)),
+                'paginate'   => new RawObject($this->inputPreparator->prepareInput($pagination)),
+                'searchBody' => new RawObject($this->inputPreparator->prepareInput($searchBody)),
             ],
             $selectionSet
         );
@@ -107,7 +112,7 @@ class CatalogGraphQLClient
         $data = $this->call(
             $functionName,
             [
-                'searchBody' => new RawObject($this->prepareInput($searchBody)),
+                'searchBody' => new RawObject($this->inputPreparator->prepareInput($searchBody)),
             ],
             $selectionSet
         );
@@ -119,39 +124,6 @@ class CatalogGraphQLClient
         $arrayData = $this->parseData($data);
 
         return new Product($arrayData);
-    }
-
-    /**
-     * @param array $data
-     * @return string
-     */
-    private function prepareInput(array $data): string
-    {
-        // This is a quick implementation of a kind of json_encode but without double quotes on the keys (like a JS object)
-        // Because this lib wants it like that for RawObject...
-        // I'm sure there are bugs in it but for my use cases it works... if you run into bugs please implement unit tests
-        $res = [];
-
-        $sequential = array_is_list($data);
-
-        foreach ($data as $name => $value) {
-            $prefix = $sequential ? '' : $name . ': ';
-
-            if (is_array($value)) {
-                $res[] = $prefix . $this->prepareInput($value);
-            } else {
-                if (is_bool($value)) {
-                    $value = $value ? 'true' : 'false';
-                }
-                $res[] = $prefix . (is_string($value) ? '"' . $value . '"' : $value);
-            }
-        }
-
-        if ($sequential) {
-            return '[' . implode(', ', $res) . ']';
-        }
-
-        return '{' . implode(', ', $res) . '}';
     }
 
     /**

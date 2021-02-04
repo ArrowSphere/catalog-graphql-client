@@ -3,12 +3,13 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.4.1] - 2021-02-09
 ### Added
 - Added ```relatedOffers``` field to the ```Product``` type, and the necessary type to handle it
 
 ### Changed
 - The code now uses ```array_is_list``` from the package ```symfony/polyfill-php81``` because this function will exist in PHP 8.1
+- Little refactoring to ```CatalogGraphQLClient```: the ```prepareInput()``` method has been moved to a dedicated class ```InputPreparator``` which is under test
 
 ## [0.4.0] - 2021-02-01
 ### Removed
