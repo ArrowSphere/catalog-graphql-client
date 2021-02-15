@@ -36,8 +36,8 @@ abstract class AbstractType
     ];
 
     /**
-     * @param $method
-     * @param $params
+     * @param mixed $method
+     * @param mixed $params
      * @return mixed
      * @throws CatalogGraphQLClientException
      * @throws UnrequestedFieldException

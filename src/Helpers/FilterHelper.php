@@ -9,6 +9,9 @@ use ArrowSphere\CatalogGraphQLClient\Types\Filters;
  */
 class FilterHelper
 {
+    /**
+     * @var array
+     */
     private $filters;
 
     /**
@@ -61,7 +64,7 @@ class FilterHelper
      * If the original value is a bool: "true" or "false" as a string
      * Otherwise, just the original value as a string
      *
-     * @param $value
+     * @param string|int|float|bool $value
      * @return string
      */
     private function sanitizeValue($value): string
