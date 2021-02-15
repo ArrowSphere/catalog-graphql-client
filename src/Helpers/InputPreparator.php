@@ -9,6 +9,7 @@ class InputPreparator
 {
     /**
      * @param array $data
+     *
      * @return string
      */
     public function prepareInput(array $data): string

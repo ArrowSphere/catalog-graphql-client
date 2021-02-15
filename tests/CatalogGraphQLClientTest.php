@@ -112,7 +112,6 @@ JSON;
 
     public function testFindOne(): void
     {
-
         $client = $this->getMockBuilder(Client::class)
             ->disableOriginalConstructor()
             ->getMock();

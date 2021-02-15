@@ -35,6 +35,7 @@ class FilterHelper
     /**
      * @param string $prefix
      * @param array $filters
+     *
      * @return array
      */
     private function computeFilters(string $prefix, array $filters): array
@@ -65,6 +66,7 @@ class FilterHelper
      * Otherwise, just the original value as a string
      *
      * @param string|int|float|bool $value
+     *
      * @return string
      */
     private function sanitizeValue($value): string
@@ -80,6 +82,7 @@ class FilterHelper
      * Runs the sanitizeValue method on each of the values of the array.
      *
      * @param array $values
+     *
      * @return array
      */
     private function sanitizeArray(array $values): array

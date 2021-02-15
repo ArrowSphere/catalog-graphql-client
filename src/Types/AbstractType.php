@@ -11,7 +11,9 @@ use ArrowSphere\CatalogGraphQLClient\Exceptions\UnrequestedFieldException;
  */
 abstract class AbstractType
 {
-    /** @var array */
+    /**
+     * @var array
+     */
     private $fields = [];
 
     protected const MAPPING = [];
@@ -38,7 +40,9 @@ abstract class AbstractType
     /**
      * @param mixed $method
      * @param mixed $params
+     *
      * @return mixed
+     *
      * @throws CatalogGraphQLClientException
      * @throws UnrequestedFieldException
      */
@@ -61,6 +65,7 @@ abstract class AbstractType
      * AbstractType constructor.
      *
      * @param array $data
+     *
      * @throws NonExistingFieldException
      */
     public function __construct(array $data)
@@ -74,7 +79,7 @@ abstract class AbstractType
             $type = is_string($definition) ? $definition : $definition[self::MAPPING_TYPE];
             $isArray = is_array($definition) ? $definition[self::MAPPING_ARRAY] ?? false : false;
 
-            $buildValue = static function($value) use ($type) {
+            $buildValue = static function ($value) use ($type) {
                 return in_array($type, self::TYPES, true) ? $value : new $type($value);
             };
 
