@@ -41,7 +41,7 @@ class CatalogGraphQLClient
      * @param string $functionName
      * @param array $arguments
      * @param array $selectionSet
-     * @return array|object
+     * @return array|object|null
      */
     public function call(string $functionName, array $arguments, array $selectionSet)
     {
@@ -51,7 +51,7 @@ class CatalogGraphQLClient
 
         $results = $this->client->runQuery($gql);
 
-        return $results->getData()->$functionName;
+        return $results->getData()->$functionName ?? null;
     }
 
     /**
@@ -145,7 +145,7 @@ class CatalogGraphQLClient
     }
 
     /**
-     * @param $data
+     * @param array|object|null $data
      * @return array
      */
     private function parseData($data): array
