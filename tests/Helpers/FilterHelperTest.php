@@ -124,6 +124,7 @@ class FilterHelperTest extends TestCase
 
     /**
      * @dataProvider providerGetSearchBodyFilters
+     *
      * @param array $inputArray
      * @param array $expected
      */

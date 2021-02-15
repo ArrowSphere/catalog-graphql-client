@@ -18,10 +18,14 @@ use GraphQL\RawObject;
  */
 class CatalogGraphQLClient
 {
-    /** @var Client */
+    /**
+     * @var Client
+     */
     private $client;
 
-    /** @var InputPreparator */
+    /**
+     * @var InputPreparator
+     */
     private $inputPreparator;
 
     /**
@@ -41,6 +45,7 @@ class CatalogGraphQLClient
      * @param string $functionName
      * @param array $arguments
      * @param array $selectionSet
+     *
      * @return array|object|null
      */
     public function call(string $functionName, array $arguments, array $selectionSet)
@@ -59,7 +64,9 @@ class CatalogGraphQLClient
      * @param array $fields
      * @param int $page
      * @param int $perPage
+     *
      * @return PaginatedProducts
+     *
      * @throws NonExistingFieldException
      */
     public function find(array $searchBody, array $fields, int $page = 1, $perPage = 100): PaginatedProducts
@@ -95,7 +102,9 @@ class CatalogGraphQLClient
     /**
      * @param array $searchBody
      * @param array $fields
+     *
      * @return Product|null
+     *
      * @throws NonExistingFieldException
      */
     public function findOne(array $searchBody, array $fields): ?Product
@@ -128,6 +137,7 @@ class CatalogGraphQLClient
 
     /**
      * @param array $fields
+     *
      * @return array
      */
     private function prepareSelectionSet(array $fields): array
@@ -146,6 +156,7 @@ class CatalogGraphQLClient
 
     /**
      * @param array|object|null $data
+     *
      * @return array
      */
     private function parseData($data): array

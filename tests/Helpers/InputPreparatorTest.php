@@ -47,6 +47,7 @@ class InputPreparatorTest extends TestCase
 
     /**
      * @dataProvider providerPrepareInput
+     *
      * @param array $data
      * @param string $expected
      */
