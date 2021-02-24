@@ -15,6 +15,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method PriceBandSaleConstraints getSaleConstraints()
  * @method string getOrderingType()
  * @method Uom getUom()
+ * @method Uom getDynamicAttributes()
  */
 class PriceBand extends AbstractType
 {
@@ -38,16 +39,19 @@ class PriceBand extends AbstractType
 
     public const UOM = 'uom';
 
+    public const DYNAMIC_ATTRIBUTES = 'dynamicAttributes';
+
     protected const MAPPING = [
-        self::IS_ENABLED       => self::TYPE_BOOL,
-        self::ACTION_FLAGS     => PriceBandActionFlags::class,
-        self::BILLING          => Billing::class,
-        self::CURRENCY         => self::TYPE_STRING,
-        self::IDENTIFIERS      => PriceBandIdentifiers::class,
-        self::MARKETPLACE      => self::TYPE_STRING,
-        self::PRICES           => Prices::class,
-        self::SALE_CONSTRAINTS => PriceBandSaleConstraints::class,
-        self::ORDERING_TYPE    => self::TYPE_STRING,
-        self::UOM              => Uom::class,
+        self::IS_ENABLED         => self::TYPE_BOOL,
+        self::ACTION_FLAGS       => PriceBandActionFlags::class,
+        self::BILLING            => Billing::class,
+        self::CURRENCY           => self::TYPE_STRING,
+        self::IDENTIFIERS        => PriceBandIdentifiers::class,
+        self::MARKETPLACE        => self::TYPE_STRING,
+        self::PRICES             => Prices::class,
+        self::DYNAMIC_ATTRIBUTES => DynamicAttributes::class,
+        self::SALE_CONSTRAINTS   => PriceBandSaleConstraints::class,
+        self::ORDERING_TYPE      => self::TYPE_STRING,
+        self::UOM                => Uom::class,
     ];
 }
