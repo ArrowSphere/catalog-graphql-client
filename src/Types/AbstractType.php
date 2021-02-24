@@ -65,8 +65,6 @@ abstract class AbstractType
      * AbstractType constructor.
      *
      * @param array $data
-     *
-     * @throws NonExistingFieldException
      */
     public function __construct(array $data)
     {
@@ -80,7 +78,7 @@ abstract class AbstractType
             $isArray = is_array($definition) ? $definition[self::MAPPING_ARRAY] ?? false : false;
 
             $buildValue = static function ($value) use ($type) {
-                return in_array($type, self::TYPES, true) ? $value : new $type($value);
+                return in_array($type, self::TYPES, true) ? $value : new $type($value ?? []);
             };
 
             if ($isArray) {
