@@ -15,7 +15,8 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method PriceBandSaleConstraints getSaleConstraints()
  * @method string getOrderingType()
  * @method Uom getUom()
- * @method Uom getDynamicAttributes()
+ * @method DynamicAttributes getDynamicAttributes()
+ * @method string getName()
  */
 class PriceBand extends AbstractType
 {
@@ -41,7 +42,10 @@ class PriceBand extends AbstractType
 
     public const DYNAMIC_ATTRIBUTES = 'dynamicAttributes';
 
+    public const NAME = 'name';
+
     protected const MAPPING = [
+        self::NAME               => self::TYPE_STRING,
         self::IS_ENABLED         => self::TYPE_BOOL,
         self::ACTION_FLAGS       => PriceBandActionFlags::class,
         self::BILLING            => Billing::class,
