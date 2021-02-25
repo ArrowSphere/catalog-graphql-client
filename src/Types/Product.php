@@ -39,6 +39,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method float getWeightForced()
  * @method PriceBand[] getPriceBand()
  * @method RelatedOffer[] getRelatedOffers()
+ * @method string[] getArrowSubCategory()
  */
 class Product extends AbstractType
 {
@@ -110,11 +111,17 @@ class Product extends AbstractType
 
     public const RELATED_OFFERS = 'relatedOffers';
 
+    public const ARROW_SUBCATEGORY = 'arrowSubCategories';
+
     protected const MAPPING = [
         self::ID                         => self::TYPE_STRING,
         self::IDENTIFIERS                => Identifiers::class,
         self::NAME                       => self::TYPE_STRING,
         self::CLASSIFICATION             => self::TYPE_STRING,
+        self::ARROW_SUBCATEGORY          => [
+            self::MAPPING_TYPE  => self::TYPE_STRING,
+            self::MAPPING_ARRAY => true,
+        ],
         self::ARROW_CATEGORIES           => [
             self::MAPPING_TYPE  => self::TYPE_STRING,
             self::MAPPING_ARRAY => true,
