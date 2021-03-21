@@ -49,7 +49,7 @@ abstract class AbstractType
     public function __call($method, $params)
     {
         $prefix = strtolower(substr($method, 0, 3));
-        if ($prefix !== 'get') {
+        if (! in_array($prefix, ['get', 'set'])) {
             throw new CatalogGraphQLClientException(sprintf('Unknown method %s', $method));
         }
 
@@ -58,7 +58,12 @@ abstract class AbstractType
             throw new UnrequestedFieldException(sprintf('Field %s from type %s has not been requested', $property, static::class));
         }
 
-        return $this->fields[$property] ?? null;
+        if ($prefix === 'get') {
+            return $this->fields[$property] ?? null;
+        }
+        $this->fields[$property] = $params[0];
+
+        return $this;
     }
 
     /**

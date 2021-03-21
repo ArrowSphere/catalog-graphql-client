@@ -9,6 +9,10 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method int getCurrentPage()
  * @method int getTotalPage()
  * @method int getTotal()
+ * @method Pagination setPerPage(int $perPage)
+ * @method Pagination setCurrentPage(int $currentPage)
+ * @method Pagination setTotalPage(int $totalPage)
+ * @method Pagination setTotal(int $total)
  */
 class Pagination extends AbstractType
 {

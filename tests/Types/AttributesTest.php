@@ -39,5 +39,33 @@ class AttributesTest extends TestCase
         self::assertTrue($attributes->getSuspendSubscription());
         self::assertSame(8640, $attributes->getTerm());
         self::assertSame('unit type', $attributes->getUnitType());
+
+        $attributes
+            ->setCancelSubscription(false)
+            ->setDecreaseSeats(false)
+            ->setIncreaseSeats(false)
+            ->setPartIdentifier('identifier part')
+            ->setPeriodicity(1234)
+            ->setPlanId('my planID')
+            ->setProductId('my product id')
+            ->setProductSku('my product sku')
+            ->setReactivateSubscription(false)
+            ->setSuspendSubscription(false)
+            ->setTerm(1234)
+            ->setUnitType('my unit type')
+        ;
+
+        self::assertFalse($attributes->getCancelSubscription());
+        self::assertFalse($attributes->getDecreaseSeats());
+        self::assertFalse($attributes->getIncreaseSeats());
+        self::assertSame('identifier part', $attributes->getPartIdentifier());
+        self::assertSame(1234, $attributes->getPeriodicity());
+        self::assertSame('my planID', $attributes->getPlanId());
+        self::assertSame('my product id', $attributes->getProductId());
+        self::assertSame('my product sku', $attributes->getProductSku());
+        self::assertFalse($attributes->getReactivateSubscription());
+        self::assertFalse($attributes->getSuspendSubscription());
+        self::assertSame(1234, $attributes->getTerm());
+        self::assertSame('my unit type', $attributes->getUnitType());
     }
 }

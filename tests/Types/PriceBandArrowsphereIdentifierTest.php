@@ -17,5 +17,9 @@ class PriceBandArrowsphereIdentifierTest extends TestCase
         ]);
 
         self::assertSame('sku', $priceBandArrowsphereIdentifier->getSku());
+
+        $priceBandArrowsphereIdentifier->setSku('sku2');
+
+        self::assertSame('sku2', $priceBandArrowsphereIdentifier->getSku());
     }
 }

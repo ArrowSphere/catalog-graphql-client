@@ -8,6 +8,9 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method PriceBandArrowsphereIdentifier getArrowsphere()
  * @method ErpIdentifier getErp()
  * @method VendorIdentifier getVendor()
+ * @method PriceBandIdentifiers setArrowsphere(PriceBandArrowsphereIdentifier $arrowsphere)
+ * @method PriceBandIdentifiers setErp(ErpIdentifier $erp)
+ * @method PriceBandIdentifiers setVendor(VendorIdentifier $vendor)
  */
 class PriceBandIdentifiers extends AbstractType
 {

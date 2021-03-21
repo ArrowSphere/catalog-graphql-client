@@ -9,6 +9,10 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method string getFeaturesShort()
  * @method string getFeaturesFull()
  * @method string getFeatures()
+ * @method MarketingText setOverviewDescription(string $overviewDescription)
+ * @method MarketingText setFeaturesShort(string $featuresShort)
+ * @method MarketingText setFeaturesFull(string $featuresFull)
+ * @method MarketingText setFeatures(string $features)
  */
 class MarketingText extends AbstractType
 {

@@ -7,7 +7,10 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  *
  * @method bool getIsEnabled()
  * @method string getLegacyCode()
- * @method ProgramName getName()
+ * @method ProgramName getNames()
+ * @method Program setIsEnabled(bool $isEnabled)
+ * @method Program setLegacyCode(string $legacyCode)
+ * @method Program setNames(ProgramName $names)
  */
 class Program extends AbstractType
 {

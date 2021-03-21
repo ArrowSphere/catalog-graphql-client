@@ -17,5 +17,9 @@ class ErpIdentifierTest extends TestCase
         ]);
 
         self::assertSame('sku', $erpIdentifier->getSku());
+
+        $erpIdentifier->setSku('sku2');
+
+        self::assertSame('sku2', $erpIdentifier->getSku());
     }
 }

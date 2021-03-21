@@ -8,6 +8,9 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method bool getIsAutoRenew()
  * @method bool getIsManualProvisioning()
  * @method bool getRenewalSku()
+ * @method ActionFlags setIsAutoRenew(bool $isAutoRenew)
+ * @method ActionFlags setIsManualProvisioning(bool $isManualProcessing)
+ * @method ActionFlags setRenewalSku(bool $renewalSku)
  */
 class ActionFlags extends AbstractType
 {

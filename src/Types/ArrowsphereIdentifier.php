@@ -9,6 +9,10 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method string getSkuXac()
  * @method string getSkuXsp()
  * @method string getOrderableSku()
+ * @method ArrowsphereIdentifier setSku(string $sku)
+ * @method ArrowsphereIdentifier setSkuXac(string $skuXac)
+ * @method ArrowsphereIdentifier setSkuXsp(string $skuXsp)
+ * @method ArrowsphereIdentifier setOrderableSku(string $orderableSku)
  */
 class ArrowsphereIdentifier extends AbstractType
 {

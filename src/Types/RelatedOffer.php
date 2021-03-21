@@ -7,6 +7,8 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  *
  * @method string getSku()
  * @method string getVendor()
+ * @method RelatedOffer setSku(string $sku)
+ * @method RelatedOffer setVendor(string $vendor)
  */
 class RelatedOffer extends AbstractType
 {

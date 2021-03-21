@@ -25,5 +25,19 @@ class PriceBandActionFlagsTest extends TestCase
         self::assertTrue($priceBandActionFlags->getCanBeSuspended());
         self::assertTrue($priceBandActionFlags->getCanDecreaseSeats());
         self::assertTrue($priceBandActionFlags->getCanIncreaseSeats());
+
+        $priceBandActionFlags
+            ->setCanBeCancelled(false)
+            ->setCanBeReactivated(false)
+            ->setCanBeSuspended(false)
+            ->setCanDecreaseSeats(false)
+            ->setCanIncreaseSeats(false)
+        ;
+
+        self::assertFalse($priceBandActionFlags->getCanBeCancelled());
+        self::assertFalse($priceBandActionFlags->getCanBeReactivated());
+        self::assertFalse($priceBandActionFlags->getCanBeSuspended());
+        self::assertFalse($priceBandActionFlags->getCanDecreaseSeats());
+        self::assertFalse($priceBandActionFlags->getCanIncreaseSeats());
     }
 }

@@ -23,5 +23,17 @@ class AssetsTest extends TestCase
         self::assertSame('main logo url', $assets->getMainLogoUrl());
         self::assertSame('picture url', $assets->getPictureUrl());
         self::assertSame('square logo url', $assets->getSquareLogoUrl());
+
+        $assets
+            ->setFeaturePictureUrl('url1')
+            ->setMainLogoUrl('url2')
+            ->setPictureUrl('url3')
+            ->setSquareLogoUrl('url4')
+        ;
+
+        self::assertSame('url1', $assets->getFeaturePictureUrl());
+        self::assertSame('url2', $assets->getMainLogoUrl());
+        self::assertSame('url3', $assets->getPictureUrl());
+        self::assertSame('url4', $assets->getSquareLogoUrl());
     }
 }

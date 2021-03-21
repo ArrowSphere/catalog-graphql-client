@@ -23,5 +23,17 @@ class MarketingTextTest extends TestCase
         self::assertSame('features full', $marketingText->getFeaturesFull());
         self::assertSame('features short', $marketingText->getFeaturesShort());
         self::assertSame('overview description', $marketingText->getOverviewDescription());
+
+        $marketingText
+            ->setFeatures('my features')
+            ->setFeaturesFull('my features full')
+            ->setFeaturesShort('my features short')
+            ->setOverviewDescription('my overview description')
+        ;
+
+        self::assertSame('my features', $marketingText->getFeatures());
+        self::assertSame('my features full', $marketingText->getFeaturesFull());
+        self::assertSame('my features short', $marketingText->getFeaturesShort());
+        self::assertSame('my overview description', $marketingText->getOverviewDescription());
     }
 }

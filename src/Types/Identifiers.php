@@ -7,6 +7,8 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  *
  * @method ArrowsphereIdentifier getArrowsphere()
  * @method VendorIdentifier getVendor()
+ * @method Identifiers setArrowsphere(ArrowsphereIdentifier $arrowsphere)
+ * @method Identifiers setVendor(VendorIdentifier $vendor)
  */
 class Identifiers extends AbstractType
 {

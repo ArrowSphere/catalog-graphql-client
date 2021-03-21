@@ -11,6 +11,12 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method string getVCpu()
  * @method string getReservationsAutofitGroup()
  * @method string getAcu()
+ * @method DynamicAttributes setDiskSize(string $diskSize)
+ * @method DynamicAttributes setRam(string $ram)
+ * @method DynamicAttributes setRegion(string $region)
+ * @method DynamicAttributes setVCpu(string $vCpu)
+ * @method DynamicAttributes setReservationsAutofitGroup(string $reservationsAutofitGroup)
+ * @method DynamicAttributes setAcu(string $acu)
  */
 class DynamicAttributes extends AbstractType
 {

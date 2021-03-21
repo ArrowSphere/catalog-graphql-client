@@ -8,6 +8,9 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method string getBuy()
  * @method string getSell()
  * @method string getPublic()
+ * @method Prices setBuy(string $buy)
+ * @method Prices setSell(string $sell)
+ * @method Prices setPublic(string $public)
  */
 class Prices extends AbstractType
 {

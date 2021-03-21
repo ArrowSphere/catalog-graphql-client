@@ -19,5 +19,13 @@ class PriceBandVendorIdentifierTest extends TestCase
 
         self::assertSame('purchase plan', $priceBandVendorIdentifier->getPurchasePlan());
         self::assertSame('sku', $priceBandVendorIdentifier->getSku());
+
+        $priceBandVendorIdentifier
+            ->setSku('sku2')
+            ->setPurchasePlan('my purchase plan')
+        ;
+
+        self::assertSame('my purchase plan', $priceBandVendorIdentifier->getPurchasePlan());
+        self::assertSame('sku2', $priceBandVendorIdentifier->getSku());
     }
 }

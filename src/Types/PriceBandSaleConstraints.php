@@ -9,6 +9,10 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method string getExpiryDate()
  * @method int getMinQuantity()
  * @method int getMaxQuantity()
+ * @method PriceBandSaleConstraints setAvailableDate(string $availableDate)
+ * @method PriceBandSaleConstraints setExpiryDate(string $expiryDate)
+ * @method PriceBandSaleConstraints setMinQuantity(int $minQuantity)
+ * @method PriceBandSaleConstraints setMaxQuantity(int $maxQuantity)
  */
 class PriceBandSaleConstraints extends AbstractType
 {

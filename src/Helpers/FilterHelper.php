@@ -2,7 +2,7 @@
 
 namespace ArrowSphere\CatalogGraphQLClient\Helpers;
 
-use ArrowSphere\CatalogGraphQLClient\Types\Filters;
+use ArrowSphere\CatalogGraphQLClient\Input\Filter;
 
 /**
  * Class FilterHelper
@@ -49,8 +49,8 @@ class FilterHelper
             } else {
                 $searchBodyFilters[] = [
                     [
-                        Filters::NAME => $newPrefix,
-                        Filters::VALUE => is_array($value) ? $this->sanitizeArray($value) : $this->sanitizeValue($value),
+                        Filter::NAME => $newPrefix,
+                        Filter::VALUE => is_array($value) ? $this->sanitizeArray($value) : $this->sanitizeValue($value),
                     ],
                 ];
             }

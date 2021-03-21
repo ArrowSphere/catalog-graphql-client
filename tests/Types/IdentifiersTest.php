@@ -21,5 +21,13 @@ class IdentifiersTest extends TestCase
 
         self::assertInstanceOf(ArrowsphereIdentifier::class, $identifiers->getArrowsphere());
         self::assertInstanceOf(VendorIdentifier::class, $identifiers->getVendor());
+
+        $identifiers
+            ->setArrowsphere(new ArrowsphereIdentifier([]))
+            ->setVendor(new VendorIdentifier([]))
+        ;
+
+        self::assertInstanceOf(ArrowsphereIdentifier::class, $identifiers->getArrowsphere());
+        self::assertInstanceOf(VendorIdentifier::class, $identifiers->getVendor());
     }
 }

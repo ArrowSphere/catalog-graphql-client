@@ -17,6 +17,18 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method Uom getUom()
  * @method DynamicAttributes getDynamicAttributes()
  * @method string getName()
+ * @method PriceBand setIsEnabled(bool $isEnabled)
+ * @method PriceBand setActionFlags(PriceBandActionFlags $actionFlags)
+ * @method PriceBand setBilling(Billing $billing)
+ * @method PriceBand setCurrency(string $currency)
+ * @method PriceBand setIdentifiers(PriceBandIdentifiers $identifiers)
+ * @method PriceBand setMarketplace(string $marketplace)
+ * @method PriceBand setPrices(Prices $prices)
+ * @method PriceBand setSaleConstraints(PriceBandSaleConstraints $saleConstraints)
+ * @method PriceBand setOrderingType(string $orderingType)
+ * @method PriceBand setUom(Uom $uom)
+ * @method PriceBand setDynamicAttributes(DynamicAttributes $dynamicAttributes)
+ * @method PriceBand setName(string $name)
  */
 class PriceBand extends AbstractType
 {

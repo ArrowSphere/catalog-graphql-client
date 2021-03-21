@@ -21,5 +21,15 @@ class PricesTest extends TestCase
         self::assertSame('10.5', $prices->getBuy());
         self::assertSame('12.5', $prices->getPublic());
         self::assertSame('11.5', $prices->getSell());
+
+        $prices
+            ->setBuy('1')
+            ->setPublic('2')
+            ->setSell('3')
+        ;
+
+        self::assertSame('1', $prices->getBuy());
+        self::assertSame('2', $prices->getPublic());
+        self::assertSame('3', $prices->getSell());
     }
 }

@@ -24,5 +24,27 @@ class PriceBandIdentifiersTest extends TestCase
         self::assertInstanceOf(PriceBandArrowsphereIdentifier::class, $priceBandIdentifiers->getArrowsphere());
         self::assertInstanceOf(ErpIdentifier::class, $priceBandIdentifiers->getErp());
         self::assertInstanceOf(VendorIdentifier::class, $priceBandIdentifiers->getVendor());
+
+        $priceBandIdentifiers
+            ->setArrowsphere(new PriceBandArrowsphereIdentifier([
+                PriceBandArrowsphereIdentifier::SKU => 'sku',
+            ]))
+            ->setErp(new ErpIdentifier([
+                ErpIdentifier::SKU => 'sku',
+            ]))
+            ->setVendor(new VendorIdentifier([
+                VendorIdentifier::ATTRIBUTES => [],
+                VendorIdentifier::FAMILY     => 'family',
+                VendorIdentifier::NAME       => 'name',
+                VendorIdentifier::OFFER_NAME => 'offer name',
+                VendorIdentifier::SKU        => 'sku',
+            ]));
+
+        self::assertInstanceOf(PriceBandArrowsphereIdentifier::class, $priceBandIdentifiers->getArrowsphere());
+        self::assertEquals("sku", $priceBandIdentifiers->getArrowsphere()->getSku());
+        self::assertInstanceOf(ErpIdentifier::class, $priceBandIdentifiers->getErp());
+        self::assertEquals("sku", $priceBandIdentifiers->getErp()->getSku());
+        self::assertInstanceOf(VendorIdentifier::class, $priceBandIdentifiers->getVendor());
+        self::assertEquals("family", $priceBandIdentifiers->getVendor()->getFamily());
     }
 }

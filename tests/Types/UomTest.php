@@ -19,5 +19,13 @@ class UomTest extends TestCase
 
         self::assertSame('SEAT', $uom->getType());
         self::assertSame(1, $uom->getQuantity());
+
+        $uom
+            ->setType('lol')
+            ->setQuantity(3)
+        ;
+
+        self::assertSame('lol', $uom->getType());
+        self::assertSame(3, $uom->getQuantity());
     }
 }

@@ -115,5 +115,21 @@ class ProductTest extends TestCase
         self::assertSame('xsp url', $product->getXspUrl());
         self::assertIsArray($product->getRelatedOffers());
         self::assertInstanceOf(RelatedOffer::class, $product->getRelatedOffers()[0]);
+
+        $product
+            ->setIsEnabled(false)
+            ->setName('lol')
+            ->setId('my id')
+            ->setClassification('FTSL')
+            ->setMarketplace('FR')
+            ->setIsAddon(true)
+        ;
+
+        self::assertFalse($product->getIsEnabled());
+        self::assertEquals('lol', $product->getName());
+        self::assertEquals('my id', $product->getId());
+        self::assertEquals('FTSL', $product->getClassification());
+        self::assertEquals('FR', $product->getMarketplace());
+        self::assertTrue($product->getIsAddon());
     }
 }
