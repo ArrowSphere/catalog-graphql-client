@@ -20,4 +20,6 @@ class SearchBody
     public const MARKETPLACE = 'marketplace';
 
     public const RESELLER_REF = 'resellerRef';
+
+    public const AGGREGATOR_FILTER = 'aggregatorFilter';
 }

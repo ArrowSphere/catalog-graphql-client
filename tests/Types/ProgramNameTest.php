@@ -17,5 +17,8 @@ class ProgramNameTest extends TestCase
         ]);
 
         self::assertEquals('full', $programName->getFull());
+
+        $programName->setFull('my full');
+        self::assertEquals('my full', $programName->getFull());
     }
 }

@@ -21,5 +21,15 @@ class BillingTest extends TestCase
         self::assertSame(720, $billing->getCycle());
         self::assertSame(8640, $billing->getTerm());
         self::assertSame('type', $billing->getType());
+
+        $billing
+            ->setTerm(124)
+            ->setCycle(234)
+            ->setType('my type')
+        ;
+
+        self::assertSame(234, $billing->getCycle());
+        self::assertSame(124, $billing->getTerm());
+        self::assertSame('my type', $billing->getType());
     }
 }

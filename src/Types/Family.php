@@ -7,6 +7,8 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  *
  * @method string getId()
  * @method string getName()
+ * @method Family setId(string $id)
+ * @method Family setName(string $id)
  */
 class Family extends AbstractType
 {

@@ -11,6 +11,12 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method string getSku()
  * @method Attributes getAttributes()
  * @method string getPurchasePlan()
+ * @method VendorIdentifier setName(string $name)
+ * @method VendorIdentifier setFamily(string $family)
+ * @method VendorIdentifier setOfferName(string $offerName)
+ * @method VendorIdentifier setSku(string $sku)
+ * @method VendorIdentifier setAttributes(Attributes $attributes)
+ * @method VendorIdentifier setPurchasePlan(string $purchasePlan)
  */
 class VendorIdentifier extends AbstractType
 {
@@ -24,7 +30,7 @@ class VendorIdentifier extends AbstractType
 
     public const ATTRIBUTES = 'attributes';
 
-    public const PURCHASE_PLAN = 'PurchasePlan';
+    public const PURCHASE_PLAN = 'purchasePlan';
 
     protected const MAPPING = [
         self::NAME          => self::TYPE_STRING,

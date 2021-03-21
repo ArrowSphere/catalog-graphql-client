@@ -9,6 +9,10 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method Pagination getPagination()
  * @method Product[] getProducts()
  * @method Product[] getTopOffers()
+ * @method PaginatedProducts setFilters(Filters[] $filters)
+ * @method PaginatedProducts setPagination(Pagination $pagination)
+ * @method PaginatedProducts setProducts(Product[] $products)
+ * @method PaginatedProducts setTopOffers(Product[] $topOffers)
  */
 class PaginatedProducts extends AbstractType
 {

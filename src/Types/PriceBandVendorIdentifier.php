@@ -7,6 +7,8 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  *
  * @method string getPurchasePlan()
  * @method string getSku()
+ * @method PriceBandVendorIdentifier setPurchasePlan(string $purchasePlan)
+ * @method PriceBandVendorIdentifier setSku(string $sku)
  */
 class PriceBandVendorIdentifier extends AbstractType
 {

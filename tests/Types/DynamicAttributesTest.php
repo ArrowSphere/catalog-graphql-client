@@ -27,5 +27,21 @@ class DynamicAttributesTest extends TestCase
         self::assertEquals('4', $dynamicAttributes->getVCpu());
         self::assertEquals('test', $dynamicAttributes->getReservationsAutofitGroup());
         self::assertEquals('160', $dynamicAttributes->getAcu());
+
+        $dynamicAttributes
+            ->setDiskSize('3')
+            ->setRam('4')
+            ->setRegion('eu-west2')
+            ->setVCpu('5')
+            ->setReservationsAutofitGroup('test2')
+            ->setAcu('240')
+        ;
+
+        self::assertEquals('3', $dynamicAttributes->getDiskSize());
+        self::assertEquals('4', $dynamicAttributes->getRam());
+        self::assertEquals('eu-west2', $dynamicAttributes->getRegion());
+        self::assertEquals('5', $dynamicAttributes->getVCpu());
+        self::assertEquals('test2', $dynamicAttributes->getReservationsAutofitGroup());
+        self::assertEquals('240', $dynamicAttributes->getAcu());
     }
 }

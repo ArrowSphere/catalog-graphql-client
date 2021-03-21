@@ -27,10 +27,12 @@ class InputPreparator
             if (is_array($value)) {
                 $res[] = $prefix . $this->prepareInput($value);
             } else {
+                $bool = false;
                 if (is_bool($value)) {
                     $value = $value ? 'true' : 'false';
+                    $bool = true;
                 }
-                $res[] = $prefix . (is_string($value) ? '"' . $value . '"' : $value);
+                $res[] = $prefix . (is_string($value) && $bool === false ? '"' . $value . '"' :  $value);
             }
         }
 

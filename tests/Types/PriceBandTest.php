@@ -48,5 +48,23 @@ class PriceBandTest extends TestCase
         self::assertInstanceOf(PriceBandSaleConstraints::class, $priceBand->getSaleConstraints());
         self::assertInstanceOf(Uom::class, $priceBand->getUom());
         self::assertInstanceOf(DynamicAttributes::class, $priceBand->getDynamicAttributes());
+
+        $priceBand
+            ->setMarketplace('FR')
+            ->setOrderingType('lol')
+            ->setCurrency('EUR')
+            ->setIsEnabled(false)
+            ->setBilling(new Billing([
+                Billing::CYCLE => 720,
+                Billing::TERM  => 8640,
+                Billing::TYPE  => 'type',
+            ]))
+        ;
+
+        self::assertInstanceOf(Billing::class, $priceBand->getBilling());
+        self::assertEquals('EUR', $priceBand->getCurrency());
+        self::assertFalse($priceBand->getIsEnabled());
+        self::assertEquals('FR', $priceBand->getMarketplace());
+        self::assertEquals('lol', $priceBand->getOrderingType());
     }
 }

@@ -21,5 +21,14 @@ class ActionFlagsTest extends TestCase
         self::assertTrue($actionFlags->getIsAutoRenew());
         self::assertTrue($actionFlags->getIsManualProvisioning());
         self::assertTrue($actionFlags->getRenewalSku());
+
+        $actionFlags
+            ->setIsAutoRenew(false)
+            ->setIsManualProvisioning(false)
+            ->setRenewalSku(false);
+
+        self::assertFalse($actionFlags->getIsAutoRenew());
+        self::assertFalse($actionFlags->getIsManualProvisioning());
+        self::assertFalse($actionFlags->getRenewalSku());
     }
 }

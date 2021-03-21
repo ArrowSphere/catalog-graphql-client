@@ -23,5 +23,17 @@ class ArrowsphereIdentifierTest extends TestCase
         self::assertSame('sku', $arrowsphereIdentifier->getSku());
         self::assertSame('sku xac', $arrowsphereIdentifier->getSkuXac());
         self::assertSame('sku xsp', $arrowsphereIdentifier->getSkuXsp());
+
+        $arrowsphereIdentifier
+            ->setOrderableSku('skuA')
+            ->setSku('sku1')
+            ->setSkuXac('sku2')
+            ->setSkuXsp('sku3')
+        ;
+
+        self::assertSame('skuA', $arrowsphereIdentifier->getOrderableSku());
+        self::assertSame('sku1', $arrowsphereIdentifier->getSku());
+        self::assertSame('sku2', $arrowsphereIdentifier->getSkuXac());
+        self::assertSame('sku3', $arrowsphereIdentifier->getSkuXsp());
     }
 }

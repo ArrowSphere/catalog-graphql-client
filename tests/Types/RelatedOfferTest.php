@@ -19,5 +19,13 @@ class RelatedOfferTest extends TestCase
 
         self::assertSame('sku', $relatedOffer->getSku());
         self::assertSame('vendor', $relatedOffer->getVendor());
+
+        $relatedOffer
+            ->setSku('my sku')
+            ->setVendor('my vendor')
+        ;
+
+        self::assertSame('my sku', $relatedOffer->getSku());
+        self::assertSame('my vendor', $relatedOffer->getVendor());
     }
 }

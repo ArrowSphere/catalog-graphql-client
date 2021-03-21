@@ -17,6 +17,18 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method bool getSuspendSubscription()
  * @method int getTerm()
  * @method string getUnitType()
+ * @method Attributes setCancelSubscription(bool $cancelSubscription)
+ * @method Attributes setDecreaseSeats(bool $decreaseSeat)
+ * @method Attributes setIncreaseSeats(bool $increaseSeat)
+ * @method Attributes setPartIdentifier(string $partIdentifier)
+ * @method Attributes setPeriodicity(int $periodicity)
+ * @method Attributes setPlanId(string $planId)
+ * @method Attributes setProductId(string $productID)
+ * @method Attributes setProductSku(string $productSku)
+ * @method Attributes setReactivateSubscription(bool $reactivateSubscription)
+ * @method Attributes setSuspendSubscription(bool $suspendSubscription)
+ * @method Attributes setTerm(int $setTerm)
+ * @method Attributes setUnitType(string $unitType)
  */
 class Attributes extends AbstractType
 {

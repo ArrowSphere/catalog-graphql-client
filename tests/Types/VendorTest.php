@@ -17,5 +17,9 @@ class VendorTest extends TestCase
         ]);
 
         self::assertSame('name', $vendor->getName());
+
+        $vendor->setName('my name');
+
+        self::assertSame('my name', $vendor->getName());
     }
 }

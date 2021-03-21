@@ -15,13 +15,13 @@ class FiltersTest extends TestCase
     {
         $filters = new Filters([
             Filters::NAME  => 'name',
-            Filters::VALUE => [
+            Filters::VALUES => [
                 [],
             ],
         ]);
 
         self::assertSame('name', $filters->getName());
-        self::assertIsArray($filters->getValue());
-        self::assertInstanceOf(FiltersValues::class, $filters->getValue()[0]);
+        self::assertIsArray($filters->getValues());
+        self::assertInstanceOf(FiltersValues::class, $filters->getValues()[0]);
     }
 }

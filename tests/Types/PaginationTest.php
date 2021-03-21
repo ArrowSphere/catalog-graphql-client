@@ -23,5 +23,17 @@ class PaginationTest extends TestCase
         self::assertSame(25, $pagination->getPerPage());
         self::assertSame(100, $pagination->getTotal());
         self::assertSame(4, $pagination->getTotalPage());
+
+        $pagination
+            ->setCurrentPage(3)
+            ->setPerPage(50)
+            ->setTotal(200)
+            ->setTotalPage(8)
+        ;
+
+        self::assertSame(3, $pagination->getCurrentPage());
+        self::assertSame(50, $pagination->getPerPage());
+        self::assertSame(200, $pagination->getTotal());
+        self::assertSame(8, $pagination->getTotalPage());
     }
 }

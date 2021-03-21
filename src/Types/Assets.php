@@ -9,6 +9,10 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method string getMainLogoUrl()
  * @method string getPictureUrl()
  * @method string getSquareLogoUrl()
+ * @method Assets setFeaturePictureUrl(string $featurePictureUrl)
+ * @method Assets setMainLogoUrl(string $mainLogoUrl)
+ * @method Assets setPictureUrl(string $pictureUrl)
+ * @method Assets setSquareLogoUrl(string $squareLogoUrl)
  */
 class Assets extends AbstractType
 {

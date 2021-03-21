@@ -19,5 +19,13 @@ class FiltersValuesTest extends TestCase
 
         self::assertSame(12, $filtersValues->getCount());
         self::assertSame('value', $filtersValues->getValue());
+
+        $filtersValues
+            ->setCount(14)
+            ->setValue('test')
+        ;
+
+        self::assertSame(14, $filtersValues->getCount());
+        self::assertSame('test', $filtersValues->getValue());
     }
 }

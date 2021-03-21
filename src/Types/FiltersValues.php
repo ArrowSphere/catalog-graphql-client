@@ -7,6 +7,8 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  *
  * @method string getValue()
  * @method int getCount()
+ * @method FiltersValues setValue(string $value)
+ * @method FiltersValues setCount(int $count)
  */
 class FiltersValues extends AbstractType
 {

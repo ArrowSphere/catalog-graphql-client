@@ -7,6 +7,8 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  *
  * @method int getQuantity()
  * @method string getType()
+ * @method Uom setQuantity(int $quantity)
+ * @method Uom setType(string $type)
  */
 class Uom extends AbstractType
 {

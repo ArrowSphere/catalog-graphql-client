@@ -13,6 +13,14 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method int getMaxSubscriptionPerCustomer()
  * @method string getSaleGroup()
  * @method string[] getRequiredAttributes()
+ * @method SaleConstraints setCustomerQualifications(string[] $customerQualifications)
+ * @method SaleConstraints setResellerQualifications(string[] $resellerQualifications)
+ * @method SaleConstraints setMaxQuantity(int $maxQuantity)
+ * @method SaleConstraints setMinQuantity(int $minQuantity)
+ * @method SaleConstraints setMaxSubscriptionConstraint(string $maxSubscriptionConstraint)
+ * @method SaleConstraints setMaxSubscriptionPerCustomer(int $maxSubscriptionPerCustomer)
+ * @method SaleConstraints setSaleGroup(string $saleGroup)
+ * @method SaleConstraints setRequiredAttributes(string[] $requiredAttributes)
  */
 class SaleConstraints extends AbstractType
 {

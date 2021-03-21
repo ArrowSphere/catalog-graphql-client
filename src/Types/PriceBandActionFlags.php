@@ -10,6 +10,11 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method bool getCanBeSuspended()
  * @method bool getCanDecreaseSeats()
  * @method bool getCanIncreaseSeats()
+ * @method PriceBandActionFlags setCanBeCancelled(bool $canBeCancelled)
+ * @method PriceBandActionFlags setCanBeReactivated(bool $canBeReactivated)
+ * @method PriceBandActionFlags setCanBeSuspended(bool $canBeSuspended)
+ * @method PriceBandActionFlags setCanDecreaseSeats(bool $canDecreaseSeats)
+ * @method PriceBandActionFlags setCanIncreaseSeats(bool $canIncreaseSeats)
  */
 class PriceBandActionFlags extends AbstractType
 {

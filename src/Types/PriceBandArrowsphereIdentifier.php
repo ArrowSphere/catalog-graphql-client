@@ -6,6 +6,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * Class PriceBandArrowsphereIdentifier
  *
  * @method string getSku()
+ * @method PriceBandArrowsphereIdentifier setSku(string $sku)
  */
 class PriceBandArrowsphereIdentifier extends AbstractType
 {

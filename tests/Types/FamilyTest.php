@@ -19,5 +19,13 @@ class FamilyTest extends TestCase
 
         self::assertSame('id', $family->getId());
         self::assertSame('name', $family->getName());
+
+        $family
+            ->setId('my id')
+            ->setName('my name')
+        ;
+
+        self::assertSame('my id', $family->getId());
+        self::assertSame('my name', $family->getName());
     }
 }

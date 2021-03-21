@@ -52,5 +52,18 @@ class SaleConstraintsTest extends TestCase
             'res2',
         ], $saleConstraints->getResellerQualifications());
         self::assertSame('sale group', $saleConstraints->getSaleGroup());
+
+        $saleConstraints
+            ->setMinQuantity(1)
+            ->setMaxQuantity(3)
+            ->setMaxSubscriptionPerCustomer(1)
+            ->setMaxSubscriptionConstraint('my max subscription constraint')
+            ->setSaleGroup('my sale group')
+        ;
+
+        self::assertSame(3, $saleConstraints->getMaxQuantity());
+        self::assertSame('my max subscription constraint', $saleConstraints->getMaxSubscriptionConstraint());
+        self::assertSame(1, $saleConstraints->getMaxSubscriptionPerCustomer());
+        self::assertSame(1, $saleConstraints->getMinQuantity());
     }
 }

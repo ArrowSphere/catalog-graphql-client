@@ -8,6 +8,9 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method int getCycle()
  * @method int getTerm()
  * @method string getType()
+ * @method Billing setCycle(int $cycle)
+ * @method Billing setTerm(int $term)
+ * @method Billing setType(string $type)
  */
 class Billing extends AbstractType
 {
