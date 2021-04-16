@@ -22,7 +22,7 @@ class InputPreparator
         $sequential = array_is_list($data);
 
         foreach ($data as $name => $value) {
-            $prefix = $sequential ? '' : $name . ': ';
+            $prefix = $sequential ? '' : $this->secureIndex($name) . ': ';
 
             if (is_array($value)) {
                 $res[] = $prefix . $this->prepareInput($value);
@@ -32,7 +32,7 @@ class InputPreparator
                     $value = $value ? 'true' : 'false';
                     $bool = true;
                 }
-                $res[] = $prefix . (is_string($value) && $bool === false ? '"' . $value . '"' :  $value);
+                $res[] = $prefix . (is_string($value) && $bool === false ? '"' . addslashes($value) . '"' :  $value);
             }
         }
 
@@ -41,5 +41,21 @@ class InputPreparator
         }
 
         return '{' . implode(', ', $res) . '}';
+    }
+
+    /**
+     * Prepares a string to be used as an index.
+     *
+     * @param string $index
+     *
+     * @return string
+     */
+    private function secureIndex(string $index): string
+    {
+        if (strpos($index, ' ') !== false) {
+            $index = '"' . $index . '"';
+        }
+
+        return $index;
     }
 }
