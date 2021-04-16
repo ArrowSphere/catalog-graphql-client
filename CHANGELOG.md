@@ -3,6 +3,39 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.1] - 2021-04-16
+### Fixed
+- The ```InputPreparator``` didn't escape the quotes properly, and didn't add quotes around the indices which contained spaces
+
+## [0.5.0] - 2021-03-23
+### Added
+- There are now setters on each property
+
+### Fixed
+- The ```Filters``` class was used in the ```FilterHelper``` instead of the ```Filter``` class
+- The ```InputPreparator``` had a bug on bool values, it formatted them as strings instead of real bool values
+- The ```Filters``` class had a ```VALUE``` field instead of ```VALUES``` (confusion between ```Filter``` and ```Filters```)
+- Fixed a typo in ```VendorIdentifier``` (for ```purchasePlan``` instead of ```PurchasePlan```)
+
+## [0.4.4] - 2021-02-25
+### Changed
+- Changed various properties:
+    - ```DynamicAttributes```:
+        - ```CORES``` has been removed
+        - ```HAS_ACU``` has been renamed to ```ACU``` and is now a ```string``` instead of a ```bool```
+    - ```Product```:
+        - ```ARROW_SUBCATEGORY``` has been added (as an array of ```string```)
+    - ```VendorIdentifier```:
+        - ```PURCHASE_PLAN``` has been added (as a ```string```)
+
+## [0.4.3] - 2021-02-24
+### Fixed
+- Null check on the ```types``` attribute
+
+## [0.4.2] - 2021-02-24
+### Added
+- Added management of the dynamic attributes on pricebands, with a new class ```DynamicAttributes``` which can be present in the ```PriceBand``` class
+
 ## [0.4.1] - 2021-02-09
 ### Added
 - Added ```relatedOffers``` field to the ```Product``` type, and the necessary type to handle it

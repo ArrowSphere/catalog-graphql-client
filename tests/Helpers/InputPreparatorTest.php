@@ -13,19 +13,19 @@ class InputPreparatorTest extends TestCase
     public function providerPrepareInput(): array
     {
         return [
-            'empty array' => [
+            'empty array'   => [
                 'data'     => [],
                 'expected' => '[]',
             ],
-            'pagination'  => [
+            'pagination'    => [
                 'data'     => [
                     'page'    => 1,
                     'perPage' => 50,
                 ],
                 'expected' => '{page: 1, perPage: 50}',
             ],
-            'searchBody'  => [
-                'data' => [
+            'searchBody'    => [
+                'data'     => [
                     'filters' => [
                         [
                             'name'  => 'field1',
@@ -41,6 +41,18 @@ class InputPreparatorTest extends TestCase
                     ],
                 ],
                 'expected' => '{filters: [{name: "field1", value: "value1"}, {name: "field2", value: ["value2.1", "value2.2"]}]}',
+            ],
+            'double quotes' => [
+                'data'     => [
+                    'myQuotedString' => '"my value"',
+                ],
+                'expected' => '{myQuotedString: "\"my value\""}',
+            ],
+            'spaced value'  => [
+                'data'     => [
+                    'my spaced index' => 'my value',
+                ],
+                'expected' => '{"my spaced index": "my value"}',
             ],
         ];
     }
