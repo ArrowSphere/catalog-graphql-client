@@ -5,13 +5,16 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
 use ArrowSphere\CatalogGraphQLClient\Exceptions\CatalogGraphQLClientException;
 use ArrowSphere\CatalogGraphQLClient\Exceptions\NonExistingFieldException;
 use ArrowSphere\CatalogGraphQLClient\Exceptions\UnrequestedFieldException;
+use JsonSerializable;
 
 /**
  * Class AbstractType
  */
-abstract class AbstractType
+abstract class AbstractType implements JsonSerializable
 {
     /**
+     * This property holds the fields of the current object.
+     *
      * @var array
      */
     private $fields = [];
@@ -38,6 +41,8 @@ abstract class AbstractType
     ];
 
     /**
+     * Magic method to provide the getters and setters.
+     *
      * @param mixed $method
      * @param mixed $params
      *
@@ -70,6 +75,8 @@ abstract class AbstractType
      * AbstractType constructor.
      *
      * @param array $data
+     *
+     * @throws NonExistingFieldException
      */
     public function __construct(array $data)
     {
@@ -80,7 +87,7 @@ abstract class AbstractType
 
             $definition = static::MAPPING[$name];
             $type = is_string($definition) ? $definition : $definition[self::MAPPING_TYPE];
-            $isArray = is_array($definition) ? $definition[self::MAPPING_ARRAY] ?? false : false;
+            $isArray = is_array($definition) && ($definition[self::MAPPING_ARRAY] ?? false);
 
             $buildValue = static function ($value) use ($type) {
                 return in_array($type, self::TYPES, true) ? $value : new $type($value ?? []);
@@ -92,5 +99,29 @@ abstract class AbstractType
                 $this->fields[$name] = $buildValue($value);
             }
         });
+    }
+
+    /**
+     * Indicates which field must be returned when using json_encode with an instance of this class.
+     *
+     * @return array
+     */
+    public function jsonSerialize(): array
+    {
+        $data = [];
+
+        foreach ($this->fields as $name => $value) {
+            if ($value instanceof JsonSerializable) {
+                $data[$name] = $value->jsonSerialize();
+            } elseif (is_array($value)) {
+                $data[$name] = array_map(static function ($subValue) {
+                    return $subValue instanceof JsonSerializable ? $subValue->jsonSerialize() : $subValue;
+                }, $value);
+            } else {
+                $data[$name] = $value;
+            }
+        }
+
+        return $data;
     }
 }
