@@ -3,6 +3,10 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2021-06-11
+### Added
+- The ```AbstractType``` class now implements the ```JsonSerializable``` interface, so the objects can be JSONified with standard PHP code
+
 ## [0.5.1] - 2021-04-16
 ### Fixed
 - The ```InputPreparator``` didn't escape the quotes properly, and didn't add quotes around the indices which contained spaces

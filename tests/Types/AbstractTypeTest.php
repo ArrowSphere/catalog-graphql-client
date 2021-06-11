@@ -2,6 +2,7 @@
 
 namespace ArrowSphere\CatalogGraphQLClient\Tests\Types;
 
+use ArrowSphere\CatalogGraphQLClient\Exceptions\NonExistingFieldException;
 use ArrowSphere\CatalogGraphQLClient\Exceptions\UnrequestedFieldException;
 use ArrowSphere\CatalogGraphQLClient\Types\AbstractType;
 use PHPUnit\Framework\TestCase;
@@ -12,9 +13,9 @@ use PHPUnit\Framework\TestCase;
 class AbstractTypeTest extends TestCase
 {
     /**
-     * @throws \ArrowSphere\CatalogGraphQLClient\Exceptions\NonExistingFieldException
+     * @throws NonExistingFieldException
      */
-    public function testFields(): void
+    private function initType(): MyType
     {
         $data = [
             'testBool'             => true,
@@ -59,7 +60,15 @@ class AbstractTypeTest extends TestCase
             'testNullableField'    => null,
         ];
 
-        $myType = new MyType($data);
+        return new MyType($data);
+    }
+
+    /**
+     * @throws NonExistingFieldException
+     */
+    public function testFields(): void
+    {
+        $myType = $this->initType();
 
         self::assertTrue($myType->getTestBool());
         self::assertSame('test string', $myType->getTestString());
@@ -107,6 +116,60 @@ class AbstractTypeTest extends TestCase
 
         $this->expectException(UnrequestedFieldException::class);
         $myType->getTestUnrequestedField();
+    }
+
+    /**
+     * @throws NonExistingFieldException
+     */
+    public function testSerialize(): void
+    {
+        $myType = $this->initType();
+        $json = <<<JSON
+{
+    "testBool": true,
+    "testString": "test string",
+    "testInt": 42,
+    "testFloat": 3.14,
+    "testOtherType": {
+        "test": "test other type"
+    },
+    "testArrayOfBool": [
+        true,
+        false,
+        true
+    ],
+    "testArrayOfString": [
+        "test",
+        "array",
+        "of",
+        "string"
+    ],
+    "testArrayOfInt": [
+        42,
+        12,
+        48
+    ],
+    "testArrayOfFloat": [
+        1.01,
+        3.14,
+        2.18
+    ],
+    "testArrayOfOtherType": [
+        {
+            "test": "test"
+        },
+        {
+            "test": "array"
+        },
+        {
+            "test": "of other type"
+        }
+    ],
+    "testNullableField": null
+}
+JSON;
+
+        self::assertEquals($json, json_encode($myType, JSON_PRETTY_PRINT));
     }
 }
 
