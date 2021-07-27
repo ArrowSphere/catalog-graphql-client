@@ -18,7 +18,10 @@ class DynamicAttributesTest extends TestCase
             DynamicAttributes::REGION                      => 'eu-west1',
             DynamicAttributes::VCPU                        => '4',
             DynamicAttributes::RESERVATIONS_AUTOFIT_GROUP  => 'test',
-            DynamicAttributes::ACU                         => '160'
+            DynamicAttributes::ACU                         => '160',
+            DynamicAttributes::MARKET_SEGMENT              => 'academic',
+            DynamicAttributes::VERSION                     => '16',
+            DynamicAttributes::METRIC                      => 'by core'
         ]);
 
         self::assertEquals('2', $dynamicAttributes->getDiskSize());
@@ -27,6 +30,9 @@ class DynamicAttributesTest extends TestCase
         self::assertEquals('4', $dynamicAttributes->getVCpu());
         self::assertEquals('test', $dynamicAttributes->getReservationsAutofitGroup());
         self::assertEquals('160', $dynamicAttributes->getAcu());
+        self::assertEquals('academic', $dynamicAttributes->getMarketSegment());
+        self::assertEquals('16', $dynamicAttributes->getVersion());
+        self::assertEquals('by core', $dynamicAttributes->getMetric());
 
         $dynamicAttributes
             ->setDiskSize('3')
@@ -35,6 +41,9 @@ class DynamicAttributesTest extends TestCase
             ->setVCpu('5')
             ->setReservationsAutofitGroup('test2')
             ->setAcu('240')
+            ->setMarketSegment('governmental')
+            ->setVersion('17')
+            ->setMetric('by user')
         ;
 
         self::assertEquals('3', $dynamicAttributes->getDiskSize());
@@ -43,5 +52,8 @@ class DynamicAttributesTest extends TestCase
         self::assertEquals('5', $dynamicAttributes->getVCpu());
         self::assertEquals('test2', $dynamicAttributes->getReservationsAutofitGroup());
         self::assertEquals('240', $dynamicAttributes->getAcu());
+        self::assertEquals('governmental', $dynamicAttributes->getMarketSegment());
+        self::assertEquals('17', $dynamicAttributes->getVersion());
+        self::assertEquals('by user', $dynamicAttributes->getMetric());
     }
 }
