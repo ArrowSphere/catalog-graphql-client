@@ -38,6 +38,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method float getWeightTopSales()
  * @method float getWeightForced()
  * @method PriceBand[] getPriceBand()
+ * @method PriceBand getDefaultPriceBand()
  * @method RelatedOffer[] getRelatedOffers()
  * @method string[] getArrowSubCategory()
  * @method bool getIsIndirectBusiness()
@@ -74,6 +75,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method Product setWeightTopSales(float $weightTopSales)
  * @method Product setWeightForced(float $weightForced)
  * @method Product setPriceBand(PriceBand[] $priceBand)
+ * @method Product setDefaultPriceBand(PriceBand $defaultPriceBand)
  * @method Product setRelatedOffers(RelatedOffer[] $relatedOffers)
  * @method Product setArrowSubCategory(string[] $arrowSubCategory)
  * @method Product setIsIndirectBusiness(bool $isIndirectBusiness)
@@ -146,6 +148,8 @@ class Product extends AbstractType
 
     public const PRICE_BAND = 'priceBand';
 
+    public const DEFAULT_PRICE_BAND = 'defaultPriceBand';
+
     public const RELATED_OFFERS = 'relatedOffers';
 
     public const ARROW_SUBCATEGORY = 'arrowSubCategories';
@@ -201,6 +205,7 @@ class Product extends AbstractType
         self::PROGRAM                    => Program::class,
         self::WEIGHT_TOP_SALES           => self::TYPE_FLOAT,
         self::WEIGHT_FORCED              => self::TYPE_FLOAT,
+        self::DEFAULT_PRICE_BAND         => PriceBand::class,
         self::PRICE_BAND                 => [
             self::MAPPING_TYPE  => PriceBand::class,
             self::MAPPING_ARRAY => true,

@@ -59,6 +59,7 @@ class ProductTest extends TestCase
             Product::PRICE_BAND                 => [
                 [],
             ],
+            Product::DEFAULT_PRICE_BAND         => [],
             Product::PROGRAM                    => [],
             Product::SALE_CONSTRAINTS           => [],
             Product::SERVICE_DESCRIPTION        => 'service description',
@@ -106,6 +107,7 @@ class ProductTest extends TestCase
         self::assertSame('name', $product->getName());
         self::assertIsArray($product->getPriceBand());
         self::assertInstanceOf(PriceBand::class, $product->getPriceBand()[0]);
+        self::assertInstanceOf(PriceBand::class, $product->getDefaultPriceBand());
         self::assertInstanceOf(Program::class, $product->getProgram());
         self::assertInstanceOf(SaleConstraints::class, $product->getSaleConstraints());
         self::assertSame('service description', $product->getServiceDescription());
