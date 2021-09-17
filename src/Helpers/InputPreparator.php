@@ -32,7 +32,9 @@ class InputPreparator
                     $value = $value ? 'true' : 'false';
                     $bool = true;
                 }
-                $res[] = $prefix . (is_string($value) && $bool === false ? '"' . addslashes($value) . '"' :  $value);
+                $newValue = $prefix . (is_string($value) && $bool === false ? '"' . addslashes($value) . '"' :  $value);
+                $newValue = str_replace('\\\'', '\\\\\'', $newValue);
+                $res[] = $newValue;
             }
         }
 

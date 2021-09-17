@@ -44,9 +44,15 @@ class InputPreparatorTest extends TestCase
             ],
             'double quotes' => [
                 'data'     => [
-                    'myQuotedString' => '"my value"',
+                    'myDoubleQuotedString' => '"my value"',
                 ],
-                'expected' => '{myQuotedString: "\"my value\""}',
+                'expected' => '{myDoubleQuotedString: "\"my value\""}',
+            ],
+            'quotes' => [
+                'data' => [
+                    'myQuotedString' => '\'my\'value\'',
+                ],
+                'expected' => '{myQuotedString: "\\\\\'my\\\\\'value\\\\\'"}',
             ],
             'spaced value'  => [
                 'data'     => [
