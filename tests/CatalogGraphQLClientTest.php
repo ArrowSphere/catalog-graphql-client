@@ -19,7 +19,7 @@ use PHPUnit\Framework\TestCase;
  */
 class CatalogGraphQLClientTest extends TestCase
 {
-    public function ztestFind(): void
+    public function testFind(): void
     {
         $client = $this->getMockBuilder(Client::class)
             ->disableOriginalConstructor()
