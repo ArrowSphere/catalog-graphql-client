@@ -40,7 +40,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method PriceBand[] getPriceBand()
  * @method PriceBand getDefaultPriceBand()
  * @method RelatedOffer[] getRelatedOffers()
- * @method string[] getArrowSubCategory()
+ * @method string[] getArrowSubCategories()
  * @method bool getIsIndirectBusiness()
  * @method Product setId(string $id)
  * @method Product setIdentifiers(Identifiers $identifiers)
@@ -152,7 +152,7 @@ class Product extends AbstractType
 
     public const RELATED_OFFERS = 'relatedOffers';
 
-    public const ARROW_SUBCATEGORY = 'arrowSubCategories';
+    public const ARROW_SUB_CATEGORIES = 'arrowSubCategories';
 
     public const IS_INDIRECT_BUSINESS = 'isIndirectBusiness';
 
@@ -161,7 +161,7 @@ class Product extends AbstractType
         self::IDENTIFIERS                => Identifiers::class,
         self::NAME                       => self::TYPE_STRING,
         self::CLASSIFICATION             => self::TYPE_STRING,
-        self::ARROW_SUBCATEGORY          => [
+        self::ARROW_SUB_CATEGORIES => [
             self::MAPPING_TYPE  => self::TYPE_STRING,
             self::MAPPING_ARRAY => true,
         ],

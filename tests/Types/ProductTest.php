@@ -31,6 +31,10 @@ class ProductTest extends TestCase
                 'cat1',
                 'cat2',
             ],
+            Product::ARROW_SUB_CATEGORIES       => [
+                'subCat1',
+                'subCat2',
+            ],
             Product::ASSETS                     => [],
             Product::BASE_OFFER_PRIMARIES       => [
                 [],
@@ -82,6 +86,11 @@ class ProductTest extends TestCase
             'cat1',
             'cat2',
         ], $product->getArrowCategories());
+        self::assertIsArray($product->getArrowSubCategories());
+        self::assertSame([
+            'subCat1',
+            'subCat2',
+        ], $product->getArrowSubCategories());
         self::assertInstanceOf(Assets::class, $product->getAssets());
         self::assertIsArray($product->getBaseOfferPrimaries());
         self::assertInstanceOf(Identifiers::class, $product->getBaseOfferPrimaries()[0]);
@@ -125,8 +134,7 @@ class ProductTest extends TestCase
             ->setId('my id')
             ->setClassification('FTSL')
             ->setMarketplace('FR')
-            ->setIsAddon(true)
-        ;
+            ->setIsAddon(true);
 
         self::assertFalse($product->getIsEnabled());
         self::assertEquals('lol', $product->getName());
