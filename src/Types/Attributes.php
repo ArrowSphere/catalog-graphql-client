@@ -5,6 +5,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
 /**
  * Class Attributes
  *
+ * @method bool getCanSwitchAutoRenew()
  * @method bool getCancelSubscription()
  * @method bool getDecreaseSeats()
  * @method bool getIncreaseSeats()
@@ -17,6 +18,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method bool getSuspendSubscription()
  * @method int getTerm()
  * @method string getUnitType()
+ * @method Attributes setCanSwitchAutoRenew(bool $canSwitchAutoRenew)
  * @method Attributes setCancelSubscription(bool $cancelSubscription)
  * @method Attributes setDecreaseSeats(bool $decreaseSeat)
  * @method Attributes setIncreaseSeats(bool $increaseSeat)
@@ -32,6 +34,8 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  */
 class Attributes extends AbstractType
 {
+    public const CAN_SWITCH_AUTO_RENEW = 'canSwitchAutoRenew';
+
     public const CANCEL_SUBSCRIPTION = 'cancelSubscription';
 
     public const DECREASE_SEATS = 'decreaseSeats';
@@ -57,6 +61,7 @@ class Attributes extends AbstractType
     public const UNIT_TYPE = 'unitType';
 
     protected const MAPPING = [
+        self::CAN_SWITCH_AUTO_RENEW   => self::TYPE_BOOL,
         self::CANCEL_SUBSCRIPTION     => self::TYPE_BOOL,
         self::DECREASE_SEATS          => self::TYPE_BOOL,
         self::INCREASE_SEATS          => self::TYPE_BOOL,
