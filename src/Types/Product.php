@@ -77,7 +77,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method Product setPriceBand(PriceBand[] $priceBand)
  * @method Product setDefaultPriceBand(PriceBand $defaultPriceBand)
  * @method Product setRelatedOffers(RelatedOffer[] $relatedOffers)
- * @method Product setArrowSubCategory(string[] $arrowSubCategory)
+ * @method Product setArrowSubCategories(string[] $arrowSubCategories)
  * @method Product setIsIndirectBusiness(bool $isIndirectBusiness)
  */
 class Product extends AbstractType

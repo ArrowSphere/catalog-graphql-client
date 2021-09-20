@@ -13,6 +13,7 @@ class AttributesTest extends TestCase
     public function testFields(): void
     {
         $attributes = new Attributes([
+            Attributes::CAN_SWITCH_AUTO_RENEW   => true,
             Attributes::CANCEL_SUBSCRIPTION     => true,
             Attributes::DECREASE_SEATS          => true,
             Attributes::INCREASE_SEATS          => true,
@@ -27,6 +28,7 @@ class AttributesTest extends TestCase
             Attributes::UNIT_TYPE               => 'unit type',
         ]);
 
+        self::assertTrue($attributes->getCanSwitchAutoRenew());
         self::assertTrue($attributes->getCancelSubscription());
         self::assertTrue($attributes->getDecreaseSeats());
         self::assertTrue($attributes->getIncreaseSeats());
@@ -41,6 +43,7 @@ class AttributesTest extends TestCase
         self::assertSame('unit type', $attributes->getUnitType());
 
         $attributes
+            ->setCanSwitchAutoRenew(false)
             ->setCancelSubscription(false)
             ->setDecreaseSeats(false)
             ->setIncreaseSeats(false)
@@ -55,6 +58,7 @@ class AttributesTest extends TestCase
             ->setUnitType('my unit type')
         ;
 
+        self::assertFalse($attributes->getCanSwitchAutoRenew());
         self::assertFalse($attributes->getCancelSubscription());
         self::assertFalse($attributes->getDecreaseSeats());
         self::assertFalse($attributes->getIncreaseSeats());

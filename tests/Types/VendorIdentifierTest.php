@@ -33,6 +33,7 @@ class VendorIdentifierTest extends TestCase
             ->setSku('my sku')
             ->setOfferName('my name')
             ->setAttributes(new Attributes([
+                Attributes::CAN_SWITCH_AUTO_RENEW   => true,
                 Attributes::CANCEL_SUBSCRIPTION     => true,
                 Attributes::DECREASE_SEATS          => true,
                 Attributes::INCREASE_SEATS          => true,
