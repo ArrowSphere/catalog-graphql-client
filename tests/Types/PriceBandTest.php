@@ -7,6 +7,7 @@ use ArrowSphere\CatalogGraphQLClient\Types\Billing;
 use ArrowSphere\CatalogGraphQLClient\Types\DynamicAttributes;
 use ArrowSphere\CatalogGraphQLClient\Types\PriceBand;
 use ArrowSphere\CatalogGraphQLClient\Types\PriceBandActionFlags;
+use ArrowSphere\CatalogGraphQLClient\Types\PriceBandAttribute;
 use ArrowSphere\CatalogGraphQLClient\Types\PriceBandIdentifiers;
 use ArrowSphere\CatalogGraphQLClient\Types\PriceBandSaleConstraints;
 use ArrowSphere\CatalogGraphQLClient\Types\Prices;
@@ -34,7 +35,10 @@ class PriceBandTest extends TestCase
             PriceBand::PRICES             => [],
             PriceBand::SALE_CONSTRAINTS   => [],
             PriceBand::UOM                => [],
-            PriceBand::DYNAMIC_ATTRIBUTES => []
+            PriceBand::DYNAMIC_ATTRIBUTES => [],
+            PriceBand::ATTRIBUTES         => [
+                [],
+            ],
         ]);
 
         self::assertInstanceOf(PriceBandActionFlags::class, $priceBand->getActionFlags());
@@ -48,6 +52,8 @@ class PriceBandTest extends TestCase
         self::assertInstanceOf(PriceBandSaleConstraints::class, $priceBand->getSaleConstraints());
         self::assertInstanceOf(Uom::class, $priceBand->getUom());
         self::assertInstanceOf(DynamicAttributes::class, $priceBand->getDynamicAttributes());
+        self::assertIsArray($priceBand->getAttributes());
+        self::assertInstanceOf(PriceBandAttribute::class, $priceBand->getAttributes()[0]);
 
         $priceBand
             ->setMarketplace('FR')
@@ -59,6 +65,12 @@ class PriceBandTest extends TestCase
                 Billing::TERM  => 8640,
                 Billing::TYPE  => 'type',
             ]))
+            ->setAttributes([
+                new PriceBandAttribute([
+                    PriceBandAttribute::NAME  => 'ram',
+                    PriceBandAttribute::VALUE => '32'
+                ])
+            ])
         ;
 
         self::assertInstanceOf(Billing::class, $priceBand->getBilling());
@@ -66,5 +78,7 @@ class PriceBandTest extends TestCase
         self::assertFalse($priceBand->getIsEnabled());
         self::assertEquals('FR', $priceBand->getMarketplace());
         self::assertEquals('lol', $priceBand->getOrderingType());
+        self::assertEquals('ram', $priceBand->getAttributes()[0]->getName());
+        self::assertEquals('32', $priceBand->getAttributes()[0]->getValue());
     }
 }

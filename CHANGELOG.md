@@ -4,6 +4,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- New ```attributes``` in priceBand, an array of Attribute object containing name and value, it aims to replace the fied dynamicAttributes
 
 ## [0.6.7] - 2021-10-04
 
