@@ -94,7 +94,7 @@ abstract class AbstractType implements JsonSerializable
             };
 
             if ($isArray) {
-                $this->fields[$name] = array_map($buildValue, $value);
+                $this->fields[$name] = array_map($buildValue, $value ?? []);
             } else {
                 $this->fields[$name] = $buildValue($value);
             }
