@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - New ```attributes``` in priceBand, an array of Attribute object containing name and value, it aims to replace the fied dynamicAttributes
 
+### Fixed
+- Null check on array type in AbstractType.php
+
 ## [0.6.7] - 2021-10-04
 
 ### Added
