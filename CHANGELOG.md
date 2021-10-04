@@ -5,6 +5,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.7] - 2021-10-04
+
 ### Added
 
 - Added semi-automatic publish of releases with changelog update
@@ -180,7 +182,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - CatalogGraphQLClient class with its "find" method
 
-[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.6...HEAD
+[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.7...HEAD
+[0.6.7]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.6...0.6.7
 [0.6.6]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.5...0.6.6
 [0.6.5]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.4...0.6.5
 [0.6.4]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.3...0.6.4
