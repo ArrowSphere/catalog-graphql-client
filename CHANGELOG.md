@@ -4,10 +4,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.6.8] - 2021-10-07
+
 ### Added
-- New ```attributes``` in priceBand, an array of Attribute object containing name and value, it aims to replace the fied dynamicAttributes
+
+- New `attributes` in priceBand, an array of Attribute object containing name and value, it aims to replace the fied dynamicAttributes
 
 ### Fixed
+
 - Null check on array type in AbstractType.php
 
 ## [0.6.7] - 2021-10-04
@@ -187,7 +192,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - CatalogGraphQLClient class with its "find" method
 
-[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.7...HEAD
+[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.8...HEAD
+[0.6.8]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.7...0.6.8
 [0.6.7]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.6...0.6.7
 [0.6.6]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.5...0.6.6
 [0.6.5]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.4...0.6.5
