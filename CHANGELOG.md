@@ -5,6 +5,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `Product` class:
+  - `RESELLERS` has been added (as a `OfferResellers` class)
+- `OfferResellers` class has been added: 
+  - `OWNER` has been added (as a `Reseller` class)
+  - `VIEWERS` has been added (as an array that contains `Reseller` classes)
+- `Reseller` class has been added:
+  - `XSP_REF` has been added (as a `string`)
+
 ## [0.6.8] - 2021-10-07
 
 ### Added
