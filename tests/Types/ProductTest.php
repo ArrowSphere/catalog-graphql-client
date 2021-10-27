@@ -7,6 +7,7 @@ use ArrowSphere\CatalogGraphQLClient\Types\Assets;
 use ArrowSphere\CatalogGraphQLClient\Types\Family;
 use ArrowSphere\CatalogGraphQLClient\Types\Identifiers;
 use ArrowSphere\CatalogGraphQLClient\Types\MarketingText;
+use ArrowSphere\CatalogGraphQLClient\Types\OfferResellers;
 use ArrowSphere\CatalogGraphQLClient\Types\PriceBand;
 use ArrowSphere\CatalogGraphQLClient\Types\Product;
 use ArrowSphere\CatalogGraphQLClient\Types\Program;
@@ -76,6 +77,7 @@ class ProductTest extends TestCase
                 [],
             ],
             Product::IS_INDIRECT_BUSINESS       => true,
+            Product::RESELLERS                  => [],
         ]);
 
         self::assertInstanceOf(ActionFlags::class, $product->getActionFlags());
@@ -143,5 +145,6 @@ class ProductTest extends TestCase
         self::assertEquals('FR', $product->getMarketplace());
         self::assertTrue($product->getIsAddon());
         self::assertTrue($product->getIsIndirectBusiness());
+        self::assertInstanceOf(OfferResellers::class, $product->getResellers());
     }
 }
