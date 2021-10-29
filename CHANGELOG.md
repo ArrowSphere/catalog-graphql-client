@@ -5,11 +5,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.9] - 2021-10-29
+
 ### Added
 
 - `Product` class:
   - `RESELLERS` has been added (as a `OfferResellers` class)
-- `OfferResellers` class has been added: 
+- `OfferResellers` class has been added:
   - `OWNER` has been added (as a `Reseller` class)
   - `VIEWERS` has been added (as an array that contains `Reseller` classes)
 - `Reseller` class has been added:
@@ -202,7 +204,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - CatalogGraphQLClient class with its "find" method
 
-[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.8...HEAD
+[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.9...HEAD
+[0.6.9]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.8...0.6.9
 [0.6.8]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.7...0.6.8
 [0.6.7]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.6...0.6.7
 [0.6.6]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.5...0.6.6
