@@ -48,6 +48,8 @@ class PriceBand extends AbstractType
 
     public const PRICES = 'prices';
 
+    public const FAMILY = 'family';
+
     public const SALE_CONSTRAINTS = 'saleConstraints';
 
     public const ORDERING_TYPE = 'orderingType';
@@ -69,6 +71,7 @@ class PriceBand extends AbstractType
         self::IDENTIFIERS        => PriceBandIdentifiers::class,
         self::MARKETPLACE        => self::TYPE_STRING,
         self::PRICES             => Prices::class,
+        self::FAMILY             => Family::class,
         self::DYNAMIC_ATTRIBUTES => DynamicAttributes::class,
         self::SALE_CONSTRAINTS   => PriceBandSaleConstraints::class,
         self::ORDERING_TYPE      => self::TYPE_STRING,
