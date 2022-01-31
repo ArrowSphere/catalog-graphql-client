@@ -50,7 +50,7 @@ jobs:
         id: create-pull-request
         uses: thomaseizinger/create-pull-request@1.0.0
         env:
-          GITHUB_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}
+          GITHUB_TOKEN: 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
         with:
           head: release/${{ github.event.inputs.version }}
           base: master
