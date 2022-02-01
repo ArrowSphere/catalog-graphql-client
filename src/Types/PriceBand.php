@@ -12,6 +12,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method PriceBandIdentifiers getIdentifiers()
  * @method string getMarketplace()
  * @method Prices getPrices()
+ * @method Family getFamily()
  * @method PriceBandSaleConstraints getSaleConstraints()
  * @method string getOrderingType()
  * @method Uom getUom()
@@ -25,6 +26,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method PriceBand setIdentifiers(PriceBandIdentifiers $identifiers)
  * @method PriceBand setMarketplace(string $marketplace)
  * @method PriceBand setPrices(Prices $prices)
+ * @method PriceBand setFamily(Family $family)
  * @method PriceBand setSaleConstraints(PriceBandSaleConstraints $saleConstraints)
  * @method PriceBand setOrderingType(string $orderingType)
  * @method PriceBand setUom(Uom $uom)
@@ -48,6 +50,8 @@ class PriceBand extends AbstractType
 
     public const PRICES = 'prices';
 
+    public const FAMILY = 'family';
+
     public const SALE_CONSTRAINTS = 'saleConstraints';
 
     public const ORDERING_TYPE = 'orderingType';
@@ -69,11 +73,12 @@ class PriceBand extends AbstractType
         self::IDENTIFIERS        => PriceBandIdentifiers::class,
         self::MARKETPLACE        => self::TYPE_STRING,
         self::PRICES             => Prices::class,
+        self::FAMILY             => Family::class,
         self::DYNAMIC_ATTRIBUTES => DynamicAttributes::class,
         self::SALE_CONSTRAINTS   => PriceBandSaleConstraints::class,
         self::ORDERING_TYPE      => self::TYPE_STRING,
         self::UOM                => Uom::class,
-        self::ATTRIBUTES   => [
+        self::ATTRIBUTES         => [
             self::MAPPING_TYPE  => PriceBandAttribute::class,
             self::MAPPING_ARRAY => true,
         ],
