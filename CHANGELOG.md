@@ -5,6 +5,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+###Added
+- `Product` class:
+  - `PROMOTIONS` has been added (as an array that contains `Promotion` classes)
+- `Promotion` class has been added:
+  - `ENTRIES` has been added (as an array that contains `Entry` classes)
+  - `ID` has been added (as a string)
+- `Entry` class has been added:
+  - `BILLING` has been added (as a `Billing` class)
+  - `NAME` has been added (as a string)
+  - `DESCRIPTION` has been added (as a string)
+  - `PRICING_TYPE` has been added (as a string)
+  - `PROMOTION_TYPE` has been added (as a string)
+  - `MARKETPLACE` has been added (as a string)
+  - `START_DATE` has been added (as a string)
+  - `END_DATE` has been added (as a string)
+  - `PRICING_VALUE` has been added (as a float)
+
 ## [0.6.9] - 2021-10-29
 
 ### Added
