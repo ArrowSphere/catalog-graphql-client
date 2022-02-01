@@ -5,6 +5,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+###Added
+
+- `PriceBand` class:
+  - `FAMILY` has been added (as a `Family` class)
+
 ## [0.6.9] - 2021-10-29
 
 ### Added
