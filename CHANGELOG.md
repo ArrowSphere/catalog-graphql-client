@@ -5,6 +5,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added a `.gitattributes` file to ignore development files when installing this package
+
+### Changed
+
+- Changed minimum version of `gmostafa/php-graphql-client` dependency to `1.9` to support PHP 8.
+- Changed automatic tests to include PHP 8 and PHP 8.1
+
 ## [0.6.14] - 2022-06-03
 
 ### Added
