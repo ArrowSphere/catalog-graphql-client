@@ -5,9 +5,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `Product` class:
+  - New boolean attribute `isIndependantAddon` which indicates that the offer is an independant addon that can be ordered without pre-requisites.
+
 ## [0.6.10] - 2022-02-11
 
-###Added
+### Added
 
 - `PriceBand` class:
   - `FAMILY` has been added (as a `Family` class)

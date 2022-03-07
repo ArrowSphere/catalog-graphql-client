@@ -41,6 +41,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method PriceBand getDefaultPriceBand()
  * @method RelatedOffer[] getRelatedOffers()
  * @method string[] getArrowSubCategories()
+ * @method bool getIsIndependantAddon()
  * @method bool getIsIndirectBusiness()
  * @method OfferResellers getResellers()
  * @method Product setId(string $id)
@@ -79,6 +80,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method Product setDefaultPriceBand(PriceBand $defaultPriceBand)
  * @method Product setRelatedOffers(RelatedOffer[] $relatedOffers)
  * @method Product setArrowSubCategories(string[] $arrowSubCategories)
+ * @method Product setIsIndependantAddon(bool $isIndependantAddon)
  * @method Product setIsIndirectBusiness(bool $isIndirectBusiness)
  * @method Product setResellers(OfferResellers $offerResellers)
  */
@@ -156,6 +158,8 @@ class Product extends AbstractType
 
     public const ARROW_SUB_CATEGORIES = 'arrowSubCategories';
 
+    public const IS_INDEPENDANT_ADDON = 'isIndependantAddon';
+
     public const IS_INDIRECT_BUSINESS = 'isIndirectBusiness';
 
     public const RESELLERS = 'resellers';
@@ -218,6 +222,7 @@ class Product extends AbstractType
             self::MAPPING_TYPE  => RelatedOffer::class,
             self::MAPPING_ARRAY => true,
         ],
+        self::IS_INDEPENDANT_ADDON => self::TYPE_BOOL,
         self::IS_INDIRECT_BUSINESS       => self::TYPE_BOOL,
         self::RESELLERS                  => OfferResellers::class,
     ];
