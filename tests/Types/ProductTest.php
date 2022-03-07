@@ -76,6 +76,7 @@ class ProductTest extends TestCase
             Product::RELATED_OFFERS             => [
                 [],
             ],
+            Product::IS_INDEPENDANT_ADDON       => true,
             Product::IS_INDIRECT_BUSINESS       => true,
             Product::RESELLERS                  => [],
         ]);
@@ -144,6 +145,7 @@ class ProductTest extends TestCase
         self::assertEquals('FTSL', $product->getClassification());
         self::assertEquals('FR', $product->getMarketplace());
         self::assertTrue($product->getIsAddon());
+        self::assertTrue($product->getIsIndependantAddon());
         self::assertTrue($product->getIsIndirectBusiness());
         self::assertInstanceOf(OfferResellers::class, $product->getResellers());
     }
