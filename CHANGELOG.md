@@ -5,6 +5,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.11] - 2022-03-11
+
 ### Added
 
 - `Product` class:
@@ -216,7 +218,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - CatalogGraphQLClient class with its "find" method
 
-[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.10...HEAD
+[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.11...HEAD
+[0.6.11]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.10...0.6.11
 [0.6.10]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.9...0.6.10
 [0.6.9]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.8...0.6.9
 [0.6.8]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.7...0.6.8
