@@ -44,6 +44,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method bool getIsIndependantAddon()
  * @method bool getIsIndirectBusiness()
  * @method OfferResellers getResellers()
+ * @method Promotion[] getPromotions()
  * @method Product setId(string $id)
  * @method Product setIdentifiers(Identifiers $identifiers)
  * @method Product setName(string $name)
@@ -83,6 +84,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method Product setIsIndependantAddon(bool $isIndependantAddon)
  * @method Product setIsIndirectBusiness(bool $isIndirectBusiness)
  * @method Product setResellers(OfferResellers $offerResellers)
+ * @method Product setPromotions(Promotion[] $promotions)
  */
 class Product extends AbstractType
 {
@@ -164,6 +166,8 @@ class Product extends AbstractType
 
     public const RESELLERS = 'resellers';
 
+    public const PROMOTIONS = 'promotions';
+
     protected const MAPPING = [
         self::ID                         => self::TYPE_STRING,
         self::IDENTIFIERS                => Identifiers::class,
@@ -225,5 +229,9 @@ class Product extends AbstractType
         self::IS_INDEPENDANT_ADDON => self::TYPE_BOOL,
         self::IS_INDIRECT_BUSINESS       => self::TYPE_BOOL,
         self::RESELLERS                  => OfferResellers::class,
+        self::PROMOTIONS                 => [
+            self::MAPPING_TYPE  => Promotion::class,
+            self::MAPPING_ARRAY => true,
+        ],
     ];
 }

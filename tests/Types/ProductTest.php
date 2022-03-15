@@ -11,6 +11,7 @@ use ArrowSphere\CatalogGraphQLClient\Types\OfferResellers;
 use ArrowSphere\CatalogGraphQLClient\Types\PriceBand;
 use ArrowSphere\CatalogGraphQLClient\Types\Product;
 use ArrowSphere\CatalogGraphQLClient\Types\Program;
+use ArrowSphere\CatalogGraphQLClient\Types\Promotion;
 use ArrowSphere\CatalogGraphQLClient\Types\RelatedOffer;
 use ArrowSphere\CatalogGraphQLClient\Types\SaleConstraints;
 use ArrowSphere\CatalogGraphQLClient\Types\Vendor;
@@ -79,6 +80,17 @@ class ProductTest extends TestCase
             Product::IS_INDEPENDANT_ADDON       => true,
             Product::IS_INDIRECT_BUSINESS       => true,
             Product::RESELLERS                  => [],
+            Product::PROMOTIONS                 => [
+                [
+                    Promotion::PROMOTION_ID        => '39NFJQT1PFPK:0003:39NFJQT1Q5M6',
+                    Promotion::VENDOR_SKU          => 'CFQ7TTC0LH3J:0003',
+                    Promotion::NAME                => 'Dynamics 365 Customer Insights Attach',
+                    Promotion::DESCRIPTION         => 'New Commerce Launch Promotional Discount',
+                    Promotion::PRICING_VALUE       => 0.1667,
+                    Promotion::PRICING_TYPE        => 'discount',
+                    Promotion::MARKETPLACE         => 'FR',
+                ],
+            ],
         ]);
 
         self::assertInstanceOf(ActionFlags::class, $product->getActionFlags());
@@ -130,6 +142,10 @@ class ProductTest extends TestCase
         self::assertSame('xsp url', $product->getXspUrl());
         self::assertIsArray($product->getRelatedOffers());
         self::assertInstanceOf(RelatedOffer::class, $product->getRelatedOffers()[0]);
+        self::assertIsArray($product->getPromotions());
+        self::assertInstanceOf(Promotion::class, $product->getPromotions()[0]);
+        self::assertSame('39NFJQT1PFPK:0003:39NFJQT1Q5M6', $product->getPromotions()[0]->getPromotionId());
+        self::assertSame('CFQ7TTC0LH3J:0003', $product->getPromotions()[0]->getVendorSku());
 
         $product
             ->setIsEnabled(false)
