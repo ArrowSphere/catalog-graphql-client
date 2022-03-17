@@ -5,6 +5,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- `AttributesParameter` class:
+  - `ATTRIBUTES_PARAMETERS` has been added (as an array that contains `AttributesParameters` classes)
+- `AttributesParameters` class has been added:
+  - `VALUE` has been added (as a string)
+  - `LABEL` has been added (as a string)
+  - `POSITION` has been added (as an int)
 ## [0.6.12] - 2022-03-17
 
 ###Added

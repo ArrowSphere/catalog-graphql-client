@@ -4,6 +4,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Tests\Types;
 
 use ArrowSphere\CatalogGraphQLClient\Types\ActionFlags;
 use ArrowSphere\CatalogGraphQLClient\Types\Assets;
+use ArrowSphere\CatalogGraphQLClient\Types\AttributesParameters;
 use ArrowSphere\CatalogGraphQLClient\Types\Family;
 use ArrowSphere\CatalogGraphQLClient\Types\Identifiers;
 use ArrowSphere\CatalogGraphQLClient\Types\MarketingText;
@@ -91,6 +92,13 @@ class ProductTest extends TestCase
                     Promotion::MARKETPLACE         => 'FR',
                 ],
             ],
+            Product::ATTRIBUTES_PARAMETERS          => [
+                [
+                    AttributesParameters::NAME       => 'vCpu',
+                    AttributesParameters::LABEL      => 'Virtual Cpu',
+                    AttributesParameters::POSITION      => 1,
+                ],
+            ],
         ]);
 
         self::assertInstanceOf(ActionFlags::class, $product->getActionFlags());
@@ -146,6 +154,11 @@ class ProductTest extends TestCase
         self::assertInstanceOf(Promotion::class, $product->getPromotions()[0]);
         self::assertSame('39NFJQT1PFPK:0003:39NFJQT1Q5M6', $product->getPromotions()[0]->getPromotionId());
         self::assertSame('CFQ7TTC0LH3J:0003', $product->getPromotions()[0]->getVendorSku());
+        self::assertIsArray($product->getAttributesParameters());
+        self::assertInstanceOf(AttributesParameters::class, $product->getAttributesParameters()[0]);
+        self::assertSame('vCpu', $product->getAttributesParameters()[0]->getName());
+        self::assertSame('Virtual Cpu', $product->getAttributesParameters()[0]->getLabel());
+        self::assertSame(1, $product->getAttributesParameters()[0]->getPosition());
 
         $product
             ->setIsEnabled(false)
