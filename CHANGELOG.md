@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `VALUE` has been added (as a string)
   - `LABEL` has been added (as a string)
   - `POSITION` has been added (as an int)
+- `PriceBand` class:
+  - `PROMOTION_PRICES` has been added (as a `PromotionPrices` class)
+- `PromotionPrices` class has been added:
+  - `PROMOTION_ID` has been added (as a string)
+  - `PRICES` has been added (as a `Prices` class)
+
 ## [0.6.12] - 2022-03-17
 
 ###Added

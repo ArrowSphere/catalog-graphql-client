@@ -11,6 +11,7 @@ use ArrowSphere\CatalogGraphQLClient\Types\PriceBandAttribute;
 use ArrowSphere\CatalogGraphQLClient\Types\PriceBandIdentifiers;
 use ArrowSphere\CatalogGraphQLClient\Types\PriceBandSaleConstraints;
 use ArrowSphere\CatalogGraphQLClient\Types\Prices;
+use ArrowSphere\CatalogGraphQLClient\Types\PromotionPrices;
 use ArrowSphere\CatalogGraphQLClient\Types\Uom;
 use PHPUnit\Framework\TestCase;
 
@@ -39,6 +40,7 @@ class PriceBandTest extends TestCase
             PriceBand::ATTRIBUTES         => [
                 [],
             ],
+            PriceBand::PROMOTION_PRICES => [],
         ]);
 
         self::assertInstanceOf(PriceBandActionFlags::class, $priceBand->getActionFlags());
@@ -54,6 +56,7 @@ class PriceBandTest extends TestCase
         self::assertInstanceOf(DynamicAttributes::class, $priceBand->getDynamicAttributes());
         self::assertIsArray($priceBand->getAttributes());
         self::assertInstanceOf(PriceBandAttribute::class, $priceBand->getAttributes()[0]);
+        self::assertInstanceOf(PromotionPrices::class, $priceBand->getPromotionPrices());
 
         $priceBand
             ->setMarketplace('FR')
@@ -71,6 +74,14 @@ class PriceBandTest extends TestCase
                     PriceBandAttribute::VALUE => '32'
                 ])
             ])
+            ->setPromotionPrices(new PromotionPrices([
+                PromotionPrices::PROMOTION_ID => 'ABC',
+                PromotionPrices::PRICES => [
+                    'buy' => '50',
+                    'sell' => '80',
+                    'public' => '100',
+                ],
+            ]))
         ;
 
         self::assertInstanceOf(Billing::class, $priceBand->getBilling());
@@ -80,5 +91,10 @@ class PriceBandTest extends TestCase
         self::assertEquals('lol', $priceBand->getOrderingType());
         self::assertEquals('ram', $priceBand->getAttributes()[0]->getName());
         self::assertEquals('32', $priceBand->getAttributes()[0]->getValue());
+        self::assertInstanceOf(PromotionPrices::class, $priceBand->getPromotionPrices());
+        self::assertEquals('ABC', $priceBand->getPromotionPrices()->getPromotionId());
+        self::assertEquals('50', $priceBand->getPromotionPrices()->getPrices()->getBuy());
+        self::assertEquals('80', $priceBand->getPromotionPrices()->getPrices()->getSell());
+        self::assertEquals('100', $priceBand->getPromotionPrices()->getPrices()->getPublic());
     }
 }
