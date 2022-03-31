@@ -19,6 +19,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method DynamicAttributes getDynamicAttributes()
  * @method string getName()
  * @method PriceBandAttribute[] getAttributes()
+ * @method PromotionPrices getPromotionPrices()
  * @method PriceBand setIsEnabled(bool $isEnabled)
  * @method PriceBand setActionFlags(PriceBandActionFlags $actionFlags)
  * @method PriceBand setBilling(Billing $billing)
@@ -33,6 +34,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method PriceBand setDynamicAttributes(DynamicAttributes $dynamicAttributes)
  * @method PriceBand setName(string $name)
  * @method PriceBand setAttributes(PriceBandAttribute[] $attributes)
+ * @method PriceBand setPromotionPrices(PromotionPrices $promotionPrices)
  */
 class PriceBand extends AbstractType
 {
@@ -64,6 +66,8 @@ class PriceBand extends AbstractType
 
     public const ATTRIBUTES = 'attributes';
 
+    public const PROMOTION_PRICES = 'promotionPrices';
+
     protected const MAPPING = [
         self::NAME               => self::TYPE_STRING,
         self::IS_ENABLED         => self::TYPE_BOOL,
@@ -82,5 +86,6 @@ class PriceBand extends AbstractType
             self::MAPPING_TYPE  => PriceBandAttribute::class,
             self::MAPPING_ARRAY => true,
         ],
+        self::PROMOTION_PRICES => PromotionPrices::class,
     ];
 }
