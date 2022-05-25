@@ -7,7 +7,9 @@ use ArrowSphere\CatalogGraphQLClient\Helpers\FilterHelper;
 use ArrowSphere\CatalogGraphQLClient\Helpers\InputPreparator;
 use ArrowSphere\CatalogGraphQLClient\Input\Paginate;
 use ArrowSphere\CatalogGraphQLClient\Input\SearchBody;
+use ArrowSphere\CatalogGraphQLClient\Types\PaginatedPriceBands;
 use ArrowSphere\CatalogGraphQLClient\Types\PaginatedProducts;
+use ArrowSphere\CatalogGraphQLClient\Types\PriceBand;
 use ArrowSphere\CatalogGraphQLClient\Types\Product;
 use GraphQL\Client;
 use GraphQL\Query;
@@ -18,6 +20,11 @@ use GraphQL\RawObject;
  */
 class CatalogGraphQLClient
 {
+    /**
+     * @const int
+     */
+    private const DEFAULT_PER_PAGE = 100;
+
     /**
      * @var Client
      */
@@ -65,11 +72,57 @@ class CatalogGraphQLClient
      * @param int $page
      * @param int $perPage
      *
+     * @return PaginatedPriceBands
+     *
+     * @throws NonExistingFieldException
+     */
+    public function findPriceBands(array $searchBody, array $fields, int $page = 1, int $perPage = self::DEFAULT_PER_PAGE): PaginatedPriceBands
+    {
+        return new PaginatedPriceBands($this->findItems(Types\Query::GET_PRICE_BANDS, $searchBody, $fields, $page, $perPage));
+    }
+
+    /**
+     * @param array $searchBody
+     * @param array $fields
+     * @param int $page
+     * @param int $perPage
+     *
      * @return PaginatedProducts
      *
      * @throws NonExistingFieldException
      */
-    public function find(array $searchBody, array $fields, int $page = 1, $perPage = 100): PaginatedProducts
+    public function findProducts(array $searchBody, array $fields, int $page = 1, int $perPage = self::DEFAULT_PER_PAGE): PaginatedProducts
+    {
+        return new PaginatedProducts($this->findItems(Types\Query::GET_PRODUCTS, $searchBody, $fields, $page, $perPage));
+    }
+
+    /**
+     * @deprecated Use findProducts() instead
+     *
+     * @param array $searchBody
+     * @param array $fields
+     * @param int $page
+     * @param int $perPage
+     *
+     * @return PaginatedProducts
+     *
+     * @throws NonExistingFieldException
+     */
+    public function find(array $searchBody, array $fields, int $page = 1, int $perPage = self::DEFAULT_PER_PAGE): PaginatedProducts
+    {
+        return $this->findProducts($searchBody, $fields, $page, $perPage);
+    }
+
+    /**
+     * @param string $functionName
+     * @param array $searchBody
+     * @param array $fields
+     * @param int $page
+     * @param int $perPage
+     *
+     * @return array
+     */
+    private function findItems(string $functionName, array $searchBody, array $fields, int $page = 1, int $perPage = self::DEFAULT_PER_PAGE): array
     {
         $selectionSet = $this->prepareSelectionSet($fields);
 
@@ -83,8 +136,6 @@ class CatalogGraphQLClient
             $searchBody[SearchBody::FILTERS] = (new FilterHelper($searchBody[SearchBody::FILTERS]))->getSearchBodyFilters();
         }
 
-        $functionName = Types\Query::GET_PRODUCTS;
-
         $data = $this->call(
             $functionName,
             [
@@ -94,9 +145,26 @@ class CatalogGraphQLClient
             $selectionSet
         );
 
-        $arrayData = $this->parseData($data);
+        return $this->parseData($data);
+    }
 
-        return new PaginatedProducts($arrayData);
+    /**
+     * @param array $searchBody
+     * @param array $fields
+     *
+     * @return PriceBand|null
+     *
+     * @throws NonExistingFieldException
+     */
+    public function findOnePriceBand(array $searchBody, array $fields): ?PriceBand
+    {
+        $result = $this->findOneItem(Types\Query::PRICE_BAND, $searchBody, $fields);
+
+        if ($result === null) {
+            return null;
+        }
+
+        return new PriceBand($result);
     }
 
     /**
@@ -107,7 +175,40 @@ class CatalogGraphQLClient
      *
      * @throws NonExistingFieldException
      */
+    public function findOneProduct(array $searchBody, array $fields): ?Product
+    {
+        $result = $this->findOneItem(Types\Query::PRODUCT, $searchBody, $fields);
+
+        if ($result === null) {
+            return null;
+        }
+
+        return new Product($result);
+    }
+
+    /**
+     * @deprecated Use findOneProduct() instead
+     *
+     * @param array $searchBody
+     * @param array $fields
+     *
+     * @return Product|null
+     *
+     * @throws NonExistingFieldException
+     */
     public function findOne(array $searchBody, array $fields): ?Product
+    {
+        return $this->findOneProduct($searchBody, $fields);
+    }
+
+    /**
+     * @param string $functionName
+     * @param array $searchBody
+     * @param array $fields
+     *
+     * @return array|null
+     */
+    private function findOneItem(string $functionName, array $searchBody, array $fields): ?array
     {
         $selectionSet = $this->prepareSelectionSet($fields);
 
@@ -115,8 +216,6 @@ class CatalogGraphQLClient
         if (isset($searchBody[SearchBody::FILTERS])) {
             $searchBody[SearchBody::FILTERS] = (new FilterHelper($searchBody[SearchBody::FILTERS]))->getSearchBodyFilters();
         }
-
-        $functionName = Types\Query::PRODUCT;
 
         $data = $this->call(
             $functionName,
@@ -130,9 +229,7 @@ class CatalogGraphQLClient
             return null;
         }
 
-        $arrayData = $this->parseData($data);
-
-        return new Product($arrayData);
+        return $this->parseData($data);
     }
 
     /**

@@ -5,14 +5,17 @@ namespace ArrowSphere\CatalogGraphQLClient\Tests\Types;
 use ArrowSphere\CatalogGraphQLClient\Exceptions\NonExistingFieldException;
 use ArrowSphere\CatalogGraphQLClient\Types\Billing;
 use ArrowSphere\CatalogGraphQLClient\Types\DynamicAttributes;
+use ArrowSphere\CatalogGraphQLClient\Types\OfferLight;
 use ArrowSphere\CatalogGraphQLClient\Types\PriceBand;
 use ArrowSphere\CatalogGraphQLClient\Types\PriceBandActionFlags;
 use ArrowSphere\CatalogGraphQLClient\Types\PriceBandAttribute;
 use ArrowSphere\CatalogGraphQLClient\Types\PriceBandIdentifiers;
 use ArrowSphere\CatalogGraphQLClient\Types\PriceBandSaleConstraints;
 use ArrowSphere\CatalogGraphQLClient\Types\Prices;
+use ArrowSphere\CatalogGraphQLClient\Types\Program;
 use ArrowSphere\CatalogGraphQLClient\Types\PromotionPrices;
 use ArrowSphere\CatalogGraphQLClient\Types\Uom;
+use ArrowSphere\CatalogGraphQLClient\Types\Vendor;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -41,6 +44,10 @@ class PriceBandTest extends TestCase
                 [],
             ],
             PriceBand::PROMOTION_PRICES => [],
+            PriceBand::OFFER            => [],
+            PriceBand::VENOOR           => [],
+            PriceBand::PROGRAM          => [],
+
         ]);
 
         self::assertInstanceOf(PriceBandActionFlags::class, $priceBand->getActionFlags());
@@ -57,6 +64,9 @@ class PriceBandTest extends TestCase
         self::assertIsArray($priceBand->getAttributes());
         self::assertInstanceOf(PriceBandAttribute::class, $priceBand->getAttributes()[0]);
         self::assertInstanceOf(PromotionPrices::class, $priceBand->getPromotionPrices());
+        self::assertInstanceOf(OfferLight::class, $priceBand->getOffer());
+        self::assertInstanceOf(Vendor::class, $priceBand->getVendor());
+        self::assertInstanceOf(Program::class, $priceBand->getProgram());
 
         $priceBand
             ->setMarketplace('FR')
