@@ -22,4 +22,6 @@ class SearchBody
     public const RESELLER_REF = 'resellerRef';
 
     public const AGGREGATOR_FILTER = 'aggregatorFilter';
+
+    public const GET_FAMILIES = 'getFamilies';
 }
