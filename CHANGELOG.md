@@ -1,9 +1,11 @@
-  # Changelog
+# Changelog
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.6.14] - 2022-06-03
 
 ### Added
 
@@ -14,8 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - New method `findOneProduct()` to search for one Product
 
 - `Query` class:
-  - `GET_PRICE_BANDS` has been added to search for priceBands 
-  - `PRICE_BAND` has been added to search for one priceBand 
+  - `GET_PRICE_BANDS` has been added to search for priceBands
+  - `PRICE_BAND` has been added to search for one priceBand
 
 - `PaginatedPriceBands.php` class is now available when searching for priceBands
 
@@ -27,19 +29,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `CLASSIFICATION` has beed added (as a `string`)
 
 - `PriceBand` class:
-  - `OFFER` has been added (as a `OfferLight` class) 
-  - `PROGRAM` has been added (as a `Program` class) 
-  - `VENDOR` has been added (as a `Vendor` class) 
+  - `OFFER` has been added (as a `OfferLight` class)
+  - `PROGRAM` has been added (as a `Program` class)
+  - `VENDOR` has been added (as a `Vendor` class)
 
 - `OfferLight` class is now available inside `PriceBand` class when searching for priceBands
 
 ### Changed
+
 - `CatalogGraphQLClient` class:
   - The methods `find()` and `findOne()` are deprecated (replaced by `findProducts()` and `findOneProduct()`)
 
 ### Fixed
+
 - `Family` class:
-  - @method Family setName(string `$id`) replaced by @method Family setName(string `$name`) 
+  - @method Family setName(string `$id`) replaced by @method Family setName(string `$name`)
 
 ## [0.6.13] - 2022-04-04
 
@@ -290,7 +294,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - CatalogGraphQLClient class with its "find" method
 
-[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.13...HEAD
+[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.14...HEAD
+[0.6.14]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.13...0.6.14
 [0.6.13]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.12...0.6.13
 [0.6.12]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.11...0.6.12
 [0.6.11]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.10...0.6.11
