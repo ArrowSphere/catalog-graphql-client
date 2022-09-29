@@ -5,6 +5,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.15] - 2022-09-29
+
 ### Added
 
 - Added a `.gitattributes` file to ignore development files when installing this package
@@ -303,7 +305,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - CatalogGraphQLClient class with its "find" method
 
-[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.14...HEAD
+[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.15...HEAD
+[0.6.15]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.14...0.6.15
 [0.6.14]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.13...0.6.14
 [0.6.13]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.12...0.6.13
 [0.6.12]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.11...0.6.12
