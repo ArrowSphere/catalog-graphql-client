@@ -29,31 +29,27 @@ class FilterHelper
      */
     public function getSearchBodyFilters(): array
     {
-        return $this->computeFilters('', $this->filters);
+        return $this->computeFilters($this->filters);
     }
 
     /**
-     * @param string $prefix
      * @param array $filters
      *
      * @return array
      */
-    private function computeFilters(string $prefix, array $filters): array
+    private function computeFilters(array $filters): array
     {
         $searchBodyFilters = [[]];
-        foreach ($filters as $name => $value) {
-            $newPrefix = $prefix === '' ? $name : $prefix . '.' . $name;
-
-            if (is_array($value) && ! array_is_list($value)) {
-                $searchBodyFilters[] = $this->computeFilters($newPrefix, $value);
-            } else {
-                $searchBodyFilters[] = [
+        foreach ($filters as $filter) {
+            $searchBodyFilters[] = [
+                array_merge(
                     [
-                        Filter::NAME => $newPrefix,
-                        Filter::VALUE => is_array($value) ? $this->sanitizeArray($value) : $this->sanitizeValue($value),
+                        Filter::NAME => $filter['name'],
+                        Filter::VALUE => is_array($filter['value']) ? $this->sanitizeArray($filter['value']) : $this->sanitizeValue($filter['value']),
                     ],
-                ];
-            }
+                    empty($filter['filters']) ? [] : ['filters' => $this->computeFilters($filter['filters'])]
+                )
+            ];
         }
 
         return array_merge(...$searchBodyFilters);

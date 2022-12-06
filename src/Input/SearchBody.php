@@ -24,4 +24,6 @@ class SearchBody
     public const AGGREGATOR_FILTER = 'aggregatorFilter';
 
     public const GET_FAMILIES = 'getFamilies';
+
+    public const QUANTITY = 'quantity';
 }

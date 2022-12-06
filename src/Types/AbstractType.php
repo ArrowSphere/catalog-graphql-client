@@ -59,11 +59,12 @@ abstract class AbstractType implements JsonSerializable
         }
 
         $property = lcfirst(substr($method, 3));
-        if (! array_key_exists($property, $this->fields)) {
-            throw new UnrequestedFieldException(sprintf('Field %s from type %s has not been requested', $property, static::class));
-        }
 
         if ($prefix === 'get') {
+            if (! array_key_exists($property, $this->fields)) {
+                throw new UnrequestedFieldException(sprintf('Field %s from type %s has not been requested', $property, static::class));
+            }
+
             return $this->fields[$property] ?? null;
         }
         $this->fields[$property] = $params[0];
