@@ -5,6 +5,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added support for nested filters
+
+- `SearchBody` class:
+  - `QUANTITY` has been added (type integer) to filter priceBands by quantity
+
+### Changed
+
+- Changed format of filters (see UPGRADING to version `0.7.0`)
+
 ## [0.6.15] - 2022-09-29
 
 ### Added

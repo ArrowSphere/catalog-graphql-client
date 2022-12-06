@@ -19,8 +19,10 @@ class FilterHelperTest extends TestCase
             ],
             'oneValue'           => [
                 'inputArray' => [
-                    'test1' => 'val1',
-                ],
+                    [
+                        'name'  => 'test1',
+                        'value' => 'val1',
+                    ],                ],
                 'expected'   => [
                     [
                         'name'  => 'test1',
@@ -30,9 +32,18 @@ class FilterHelperTest extends TestCase
             ],
             'nonStringValues'    => [
                 'inputArray' => [
-                    'testBool'  => true,
-                    'testInt'   => 42,
-                    'testFloat' => 12.34,
+                    [
+                        'name'  => 'testBool',
+                        'value' => true,
+                    ],
+                    [
+                        'name'  => 'testInt',
+                        'value' => 42,
+                    ],
+                    [
+                        'name'  => 'testFloat',
+                        'value' => 12.34,
+                    ],
                 ],
                 'expected'   => [
                     [
@@ -51,9 +62,12 @@ class FilterHelperTest extends TestCase
             ],
             'multipleValues'     => [
                 'inputArray' => [
-                    'test1' => [
-                        'val1',
-                        'val2',
+                    [
+                        'name'  => 'test1',
+                        'value' => [
+                            'val1',
+                            'val2',
+                        ],
                     ],
                 ],
                 'expected'   => [
@@ -66,56 +80,35 @@ class FilterHelperTest extends TestCase
                     ],
                 ],
             ],
-            'simpleNestedArray'  => [
+            'nesetedFilters'     => [
                 'inputArray' => [
-                    'test1' => 'val1',
-                    'test2' => [
-                        'test2.1' => 'val2.1',
-                        'test2.2' => 'val2.2',
-                    ],
-                ],
-                'expected'   => [
                     [
-                        'name'  => 'test1',
-                        'value' => 'val1',
-                    ],
-                    [
-                        'name'  => 'test2.test2.1',
-                        'value' => 'val2.1',
-                    ],
-                    [
-                        'name'  => 'test2.test2.2',
-                        'value' => 'val2.2',
-                    ],
-                ],
-            ],
-            'complexNestedArray' => [
-                'inputArray' => [
-                    'test1' => 'val1',
-                    'test2' => [
-                        'test2.1' => 'val2.1',
-                        'test2.2' => [
-                            'test2.2.1' => 'val2.2.1',
-                            'test2.2.2' => 'val2.2.2',
+                        'name'    => 'test1',
+                        'value'   => [
+                            'val1',
+                            'val2',
                         ],
+                        'filters' => [
+                            [
+                                'name'  => 'nestedTest1',
+                                'value' => 'nestedVal1'
+                            ]
+                        ]
                     ],
                 ],
                 'expected'   => [
                     [
-                        'name'  => 'test1',
-                        'value' => 'val1',
-                    ],
-                    [
-                        'name'  => 'test2.test2.1',
-                        'value' => 'val2.1',
-                    ],
-                    [
-                        'name'  => 'test2.test2.2.test2.2.1',
-                        'value' => 'val2.2.1',
-                    ],
-                    [
-                        'name'  => 'test2.test2.2.test2.2.2',
-                        'value' => 'val2.2.2',
+                        'name'    => 'test1',
+                        'value'   => [
+                            'val1',
+                            'val2',
+                        ],
+                        'filters' => [
+                            [
+                                'name'  => 'nestedTest1',
+                                'value' => 'nestedVal1'
+                            ]
+                        ]
                     ],
                 ],
             ],

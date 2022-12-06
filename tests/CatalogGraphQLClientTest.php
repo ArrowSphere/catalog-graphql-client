@@ -3,11 +3,12 @@
 namespace ArrowSphere\CatalogGraphQLClient\Tests;
 
 use ArrowSphere\CatalogGraphQLClient\CatalogGraphQLClient;
+use ArrowSphere\CatalogGraphQLClient\Input\Filter;
 use ArrowSphere\CatalogGraphQLClient\Input\SearchBody;
+use ArrowSphere\CatalogGraphQLClient\Schema\Product as ProductSchema;
 use ArrowSphere\CatalogGraphQLClient\Types\ArrowsphereIdentifier;
 use ArrowSphere\CatalogGraphQLClient\Types\Identifiers;
 use ArrowSphere\CatalogGraphQLClient\Types\Product;
-use ArrowSphere\CatalogGraphQLClient\Types\Program;
 use ArrowSphere\CatalogGraphQLClient\Types\VendorIdentifier;
 use GraphQL\Client;
 use GraphQL\Results;
@@ -62,14 +63,17 @@ JSON;
         $catalogGraphQLClient = new CatalogGraphQLClient('https://example.com', 'my_token', $client);
 
         $filters = [
-            Product::CLASSIFICATION => 'SaaS',
-            Product::IDENTIFIERS => [
-                Identifiers::VENDOR => [
-                    VendorIdentifier::SKU => '031C9E47-4802-4248-838E-778FB1D2CC05',
-                ],
+            [
+                Filter::NAME => ProductSchema::CLASSIFICATION,
+                Filter::VALUE => 'SaaS',
             ],
-            Product::PROGRAM => [
-                Program::LEGACY_CODE => 'microsoft',
+            [
+                Filter::NAME => ProductSchema::IDENTIFIERS_VENDOR_SKU,
+                Filter::VALUE => '031C9E47-4802-4248-838E-778FB1D2CC05',
+            ],
+            [
+                Filter::NAME => ProductSchema::PROGRAM_LEGACY_CODE,
+                Filter::VALUE => 'microsoft',
             ],
         ];
 
@@ -90,7 +94,7 @@ JSON;
             SearchBody::FILTERS     => $filters,
         ];
 
-        $result = $catalogGraphQLClient->find($searchBody, $fields);
+        $result = $catalogGraphQLClient->findProducts($searchBody, $fields);
 
         $product = $result->getProducts()[0];
 
@@ -162,14 +166,17 @@ JSON;
         $catalogGraphQLClient = new CatalogGraphQLClient('https://example.com', 'my_token', $client);
 
         $filters = [
-            Product::CLASSIFICATION => 'SaaS',
-            Product::IDENTIFIERS => [
-                Identifiers::VENDOR => [
-                    VendorIdentifier::SKU => '031C9E47-4802-4248-838E-778FB1D2CC05',
-                ],
+            [
+                Filter::NAME => ProductSchema::CLASSIFICATION,
+                Filter::VALUE => 'SaaS',
             ],
-            Product::PROGRAM => [
-                Program::LEGACY_CODE => 'microsoft',
+            [
+                Filter::NAME => ProductSchema::IDENTIFIERS_VENDOR_SKU,
+                Filter::VALUE => '031C9E47-4802-4248-838E-778FB1D2CC05',
+            ],
+            [
+                Filter::NAME => ProductSchema::PROGRAM_LEGACY_CODE,
+                Filter::VALUE => 'microsoft',
             ],
         ];
 
@@ -190,7 +197,7 @@ JSON;
             SearchBody::FILTERS     => $filters,
         ];
 
-        $product = $catalogGraphQLClient->findOne($searchBody, $fields);
+        $product = $catalogGraphQLClient->findOneProduct($searchBody, $fields);
 
         self::assertEquals(
             'U2FhU3x8TWljcm9zb2Z0fHxNU18wQV9PMzY1X0JVU0lORVNTfHwwMzFDOUU0Ny00ODAyLTQyNDgtODM4RS03NzhGQjFEMkNDMDU=',
@@ -268,14 +275,17 @@ JSON;
         $catalogGraphQLClient = new CatalogGraphQLClient('https://example.com', 'my_token', $client);
 
         $filters = [
-            Product::CLASSIFICATION => 'SaaS',
-            Product::IDENTIFIERS => [
-                Identifiers::VENDOR => [
-                    VendorIdentifier::SKU => '031C9E47-4802-4248-838E-778FB1D2CC05',
-                ],
+            [
+                Filter::NAME => ProductSchema::CLASSIFICATION,
+                Filter::VALUE => 'SaaS',
             ],
-            Product::PROGRAM => [
-                Program::LEGACY_CODE => 'microsoft',
+            [
+                Filter::NAME => ProductSchema::IDENTIFIERS_VENDOR_SKU,
+                Filter::VALUE => '031C9E47-4802-4248-838E-778FB1D2CC05',
+            ],
+            [
+                Filter::NAME => ProductSchema::PROGRAM_LEGACY_CODE,
+                Filter::VALUE => 'microsoft',
             ],
         ];
 
@@ -349,14 +359,17 @@ JSON;
         $catalogGraphQLClient = new CatalogGraphQLClient('https://example.com', 'my_token', $client);
 
         $filters = [
-            Product::CLASSIFICATION => 'SaaS',
-            Product::IDENTIFIERS => [
-                Identifiers::VENDOR => [
-                    VendorIdentifier::SKU => '031C9E47-4802-4248-838E-778FB1D2CC05',
-                ],
+            [
+                Filter::NAME => ProductSchema::CLASSIFICATION,
+                Filter::VALUE => 'SaaS',
             ],
-            Product::PROGRAM => [
-                Program::LEGACY_CODE => 'microsoft',
+            [
+                Filter::NAME => ProductSchema::IDENTIFIERS_VENDOR_SKU,
+                Filter::VALUE => '031C9E47-4802-4248-838E-778FB1D2CC05',
+            ],
+            [
+                Filter::NAME => ProductSchema::PROGRAM_LEGACY_CODE,
+                Filter::VALUE => 'microsoft',
             ],
         ];
 

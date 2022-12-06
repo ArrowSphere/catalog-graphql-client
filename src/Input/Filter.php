@@ -10,4 +10,6 @@ class Filter
     public const NAME = 'name';
 
     public const VALUE = 'value';
+
+    public const FILTERS = 'filters';
 }
