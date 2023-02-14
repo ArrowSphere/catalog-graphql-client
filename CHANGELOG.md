@@ -5,6 +5,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.0] - 2023-02-14
+
 ### Added
 
 - Added support for nested filters
@@ -316,7 +318,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - CatalogGraphQLClient class with its "find" method
 
-[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.15...HEAD
+[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.0...HEAD
+[0.7.0]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.15...0.7.0
 [0.6.15]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.14...0.6.15
 [0.6.14]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.13...0.6.14
 [0.6.13]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.12...0.6.13
