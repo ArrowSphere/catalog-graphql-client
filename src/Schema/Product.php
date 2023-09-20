@@ -222,6 +222,8 @@ class Product
 
     public const PRICE_BAND_PRICES_SELL = 'priceBand.prices.sell';
 
+    public const PRICE_BAND_PRICES_TRANSFER_PRICE = 'priceBand.prices.transferPrice';
+
     public const PRICE_BAND_SALE_CONSTRAINTS = 'priceBand.saleConstraints';
 
     public const PRICE_BAND_SALE_CONSTRAINTS_MAX_QUANTITY = 'priceBand.saleConstraints.maxQuantity';
