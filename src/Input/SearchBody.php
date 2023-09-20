@@ -26,4 +26,6 @@ class SearchBody
     public const GET_FAMILIES = 'getFamilies';
 
     public const QUANTITY = 'quantity';
+
+    public const USERNAME = 'username';
 }
