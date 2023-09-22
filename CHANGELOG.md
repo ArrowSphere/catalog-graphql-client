@@ -4,9 +4,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.7.1] - 2023-09-22
+
 ### Added
-* In `SearchBody` class: added `username` field to send the username of the impersonated user
-* In `Prices` class: added `transferPrice` field
+
+- In `SearchBody` class: added `username` field to send the username of the impersonated user
+- In `Prices` class: added `transferPrice` field
 
 ## [0.7.0] - 2023-02-14
 
@@ -321,7 +325,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - CatalogGraphQLClient class with its "find" method
 
-[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.0...HEAD
+[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.1...HEAD
+[0.7.1]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.0...0.7.1
 [0.7.0]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.15...0.7.0
 [0.6.15]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.14...0.6.15
 [0.6.14]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.13...0.6.14
