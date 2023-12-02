@@ -62,6 +62,7 @@ class ProductTest extends TestCase
             Product::LICENSE_AGREEMENT_TYPE     => 'license agreement type',
             Product::MARKETING_TEXT             => [],
             Product::MARKETPLACE                => 'marketplace',
+            Product::MARKET_SEGMENTS => ['corporate', 'charity'],
             Product::NAME                       => 'name',
             Product::PRICE_BAND                 => [
                 [],
@@ -136,6 +137,7 @@ class ProductTest extends TestCase
         self::assertSame('license agreement type', $product->getLicenseAgreementType());
         self::assertInstanceOf(MarketingText::class, $product->getMarketingText());
         self::assertSame('marketplace', $product->getMarketplace());
+        self::assertSame(['corporate', 'charity'], $product->getMarketSegments());
         self::assertSame('name', $product->getName());
         self::assertIsArray($product->getPriceBand());
         self::assertInstanceOf(PriceBand::class, $product->getPriceBand()[0]);

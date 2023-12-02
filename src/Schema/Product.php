@@ -162,6 +162,8 @@ class Product
 
     public const MARKETPLACE = 'marketplace';
 
+    public const MARKET_SEGMENTS = 'marketSegments';
+
     public const NAME = 'name';
 
     public const PRICE_BAND = 'priceBand';
