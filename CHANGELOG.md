@@ -5,6 +5,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.2] - 2023-12-02
+
 ### Added
 
 - `Product` class: New attribute `marketSegments`, array of strings, to compile all market segments that are present in the pricebands.
@@ -329,7 +331,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - CatalogGraphQLClient class with its "find" method
 
-[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.1...HEAD
+[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.2...HEAD
+[0.7.2]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.1...0.7.2
 [0.7.1]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.0...0.7.1
 [0.7.0]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.15...0.7.0
 [0.6.15]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.6.14...0.6.15
