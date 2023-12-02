@@ -5,6 +5,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `Product` class: New attribute `marketSegments`, array of strings, to compile all market segments that are present in the pricebands.
+
 ## [0.7.1] - 2023-09-22
 
 ### Added

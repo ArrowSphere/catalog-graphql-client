@@ -46,6 +46,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method OfferResellers getResellers()
  * @method Promotion[] getPromotions()
  * @method AttributesParameters[] getAttributesParameters()
+ * @method string[] getMarketSegments()
  * @method Product setId(string $id)
  * @method Product setIdentifiers(Identifiers $identifiers)
  * @method Product setName(string $name)
@@ -87,6 +88,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method Product setResellers(OfferResellers $offerResellers)
  * @method Product setPromotions(Promotion[] $promotions)
  * @method Product setAttributesParameters(AttributesParameters[] $attributesParameters)
+ * @method Product setMarketSegments(string[] $marketSegments)
  */
 class Product extends AbstractType
 {
@@ -121,6 +123,8 @@ class Product extends AbstractType
     public const ENVIRONMENT_AVAILABILITY = 'environmentAvailability';
 
     public const MARKETPLACE = 'marketplace';
+
+    public const MARKET_SEGMENTS = 'marketSegments';
 
     public const IS_ENABLED = 'isEnabled';
 
@@ -205,6 +209,7 @@ class Product extends AbstractType
         self::ASSETS                     => Assets::class,
         self::ENVIRONMENT_AVAILABILITY   => self::TYPE_STRING,
         self::MARKETPLACE                => self::TYPE_STRING,
+        self::MARKET_SEGMENTS => self::TYPE_STRING,
         self::IS_ENABLED                 => self::TYPE_BOOL,
         self::IS_TRIAL                   => self::TYPE_BOOL,
         self::LAST_UPDATE                => self::TYPE_STRING,
