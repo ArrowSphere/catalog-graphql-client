@@ -28,4 +28,6 @@ class SearchBody
     public const QUANTITY = 'quantity';
 
     public const USERNAME = 'username';
+
+    public const EFFECTIVE_DATE = 'effectiveDate';
 }
