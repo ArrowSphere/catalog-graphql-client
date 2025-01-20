@@ -5,6 +5,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.4] - 2025-01-20
+
 - Updated Github action cache dependency for the CI workflow
 
 ## [0.7.3] - 2024-09-06
@@ -338,7 +340,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - CatalogGraphQLClient class with its "find" method
 
-[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.3...HEAD
+[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.4...HEAD
+[0.7.4]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.3...0.7.4
 [0.7.3]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.2...0.7.3
 [0.7.2]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.1...0.7.2
 [0.7.1]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.0...0.7.1
