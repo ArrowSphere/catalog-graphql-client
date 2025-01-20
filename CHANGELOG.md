@@ -5,6 +5,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Updated Github action cache dependency for the CI workflow
+
 ## [0.7.3] - 2024-09-06
 
 - In `SearchBody` class:
