@@ -5,6 +5,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Updated AbstractType to ignore missing mapping instead of throwing an exception
+- Remove NonExistingFieldException
+
 ## [0.7.4] - 2025-01-20
 
 - Updated Github action cache dependency for the CI workflow

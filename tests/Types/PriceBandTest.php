@@ -2,7 +2,6 @@
 
 namespace ArrowSphere\CatalogGraphQLClient\Tests\Types;
 
-use ArrowSphere\CatalogGraphQLClient\Exceptions\NonExistingFieldException;
 use ArrowSphere\CatalogGraphQLClient\Types\Billing;
 use ArrowSphere\CatalogGraphQLClient\Types\DynamicAttributes;
 use ArrowSphere\CatalogGraphQLClient\Types\OfferLight;
@@ -23,9 +22,6 @@ use PHPUnit\Framework\TestCase;
  */
 class PriceBandTest extends TestCase
 {
-    /**
-     * @throws NonExistingFieldException
-     */
     public function testFields(): void
     {
         $priceBand = new PriceBand([
