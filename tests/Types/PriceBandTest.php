@@ -2,7 +2,6 @@
 
 namespace ArrowSphere\CatalogGraphQLClient\Tests\Types;
 
-use ArrowSphere\CatalogGraphQLClient\Exceptions\NonExistingFieldException;
 use ArrowSphere\CatalogGraphQLClient\Types\Billing;
 use ArrowSphere\CatalogGraphQLClient\Types\DynamicAttributes;
 use ArrowSphere\CatalogGraphQLClient\Types\OfferLight;
@@ -23,9 +22,6 @@ use PHPUnit\Framework\TestCase;
  */
 class PriceBandTest extends TestCase
 {
-    /**
-     * @throws NonExistingFieldException
-     */
     public function testFields(): void
     {
         $priceBand = new PriceBand([
@@ -106,5 +102,13 @@ class PriceBandTest extends TestCase
         self::assertEquals('50', $priceBand->getPromotionPrices()->getPrices()->getBuy());
         self::assertEquals('80', $priceBand->getPromotionPrices()->getPrices()->getSell());
         self::assertEquals('100', $priceBand->getPromotionPrices()->getPrices()->getPublic());
+    }
+
+    public function testRealData(): void
+    {
+        $offerJson = file_get_contents(__DIR__ . '/../resources/offer.json');
+        $offerData = json_decode($offerJson, true);
+        $priceBand = new PriceBand($offerData['priceBand'][0]);
+        self::assertSame('MS_FTSL_DG7GMGF0M7XW_0004_IT_EUR_RECURRING_8640_8640', $priceBand->getIdentifiers()->getArrowsphere()->getSku());
     }
 }

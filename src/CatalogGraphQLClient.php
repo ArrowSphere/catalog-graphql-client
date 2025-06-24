@@ -2,7 +2,6 @@
 
 namespace ArrowSphere\CatalogGraphQLClient;
 
-use ArrowSphere\CatalogGraphQLClient\Exceptions\NonExistingFieldException;
 use ArrowSphere\CatalogGraphQLClient\Helpers\FilterHelper;
 use ArrowSphere\CatalogGraphQLClient\Helpers\InputPreparator;
 use ArrowSphere\CatalogGraphQLClient\Input\Paginate;
@@ -73,8 +72,6 @@ class CatalogGraphQLClient
      * @param int $perPage
      *
      * @return PaginatedPriceBands
-     *
-     * @throws NonExistingFieldException
      */
     public function findPriceBands(array $searchBody, array $fields, int $page = 1, int $perPage = self::DEFAULT_PER_PAGE): PaginatedPriceBands
     {
@@ -88,8 +85,6 @@ class CatalogGraphQLClient
      * @param int $perPage
      *
      * @return PaginatedProducts
-     *
-     * @throws NonExistingFieldException
      */
     public function findProducts(array $searchBody, array $fields, int $page = 1, int $perPage = self::DEFAULT_PER_PAGE): PaginatedProducts
     {
@@ -105,8 +100,6 @@ class CatalogGraphQLClient
      * @param int $perPage
      *
      * @return PaginatedProducts
-     *
-     * @throws NonExistingFieldException
      */
     public function find(array $searchBody, array $fields, int $page = 1, int $perPage = self::DEFAULT_PER_PAGE): PaginatedProducts
     {
@@ -153,8 +146,6 @@ class CatalogGraphQLClient
      * @param array $fields
      *
      * @return PriceBand|null
-     *
-     * @throws NonExistingFieldException
      */
     public function findOnePriceBand(array $searchBody, array $fields): ?PriceBand
     {
@@ -172,8 +163,6 @@ class CatalogGraphQLClient
      * @param array $fields
      *
      * @return Product|null
-     *
-     * @throws NonExistingFieldException
      */
     public function findOneProduct(array $searchBody, array $fields): ?Product
     {
@@ -193,8 +182,6 @@ class CatalogGraphQLClient
      * @param array $fields
      *
      * @return Product|null
-     *
-     * @throws NonExistingFieldException
      */
     public function findOne(array $searchBody, array $fields): ?Product
     {

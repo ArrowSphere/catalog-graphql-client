@@ -180,4 +180,12 @@ class ProductTest extends TestCase
         self::assertTrue($product->getIsIndirectBusiness());
         self::assertInstanceOf(OfferResellers::class, $product->getResellers());
     }
+
+    public function testRealData(): void
+    {
+        $offerJson = file_get_contents(__DIR__ . '/../resources/offer.json');
+        $offerData = json_decode($offerJson, true);
+        $product = new Product($offerData);
+        self::assertSame('be7572fbb5f217f8b20dc0255f52dc75', $product->getId());
+    }
 }

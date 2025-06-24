@@ -2,7 +2,6 @@
 
 namespace ArrowSphere\CatalogGraphQLClient\Tests\Types;
 
-use ArrowSphere\CatalogGraphQLClient\Exceptions\NonExistingFieldException;
 use ArrowSphere\CatalogGraphQLClient\Types\Prices;
 use ArrowSphere\CatalogGraphQLClient\Types\PromotionPrices;
 use PHPUnit\Framework\TestCase;
@@ -12,9 +11,6 @@ use PHPUnit\Framework\TestCase;
  */
 class PromotionPricesTest extends TestCase
 {
-    /**
-     * @throws NonExistingFieldException
-     */
     public function testFields(): void
     {
         $promotionPrices = new PromotionPrices([
