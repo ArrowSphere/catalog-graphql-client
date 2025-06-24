@@ -36,4 +36,14 @@ class PricesTest extends TestCase
         self::assertSame('3', $prices->getSell());
         self::assertSame('4', $prices->getTransferPrice());
     }
+
+    public function testRealData(): void
+    {
+        $offerJson = file_get_contents(__DIR__ . '/../resources/offer.json');
+        $offerData = json_decode($offerJson, true);
+        $prices = new Prices($offerData['priceBand'][0]['prices']);
+        self::assertSame(2000, $prices->getBuy());
+        self::assertSame(2200, $prices->getSell());
+        self::assertSame(2500, $prices->getPublic());
+    }
 }

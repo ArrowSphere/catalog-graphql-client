@@ -1,0 +1,102 @@
+{
+  "id": "be7572fbb5f217f8b20dc0255f52dc75",
+  "name": "SQL Server Standard - 2 Core License Pack - 1 year",
+  "assets": {
+    "mainLogoUrl": "https://websource.myportal.cloud/images/icon/SQL_SERVER.png",
+    "squareLogoUrl": "https://websource.myportal.cloud/images/icon/SQL_SERVER.png"
+  },
+  "family": {
+    "name": "Microsoft SQL Server"
+  },
+  "vendor": {
+    "name": "Microsoft"
+  },
+  "isAddon": false,
+  "isTrial": false,
+  "program": {
+    "legacyCode": "Microsoft"
+  },
+  "hasAddons": false,
+  "priceBand": [
+    {
+      "uom": {
+        "type": "LICENSE"
+      },
+      "offer": {
+        "isEnabled": true
+      },
+      "family": {
+        "id": "MS-FTSL-SQL-SERVER",
+        "name": "Microsoft SQL Server (Corporate)"
+      },
+      "prices": {
+        "buy": 2000,
+        "sell": 2200,
+        "arrow": 2000,
+        "public": 2500,
+        "retail": 2500,
+        "partner": 2200,
+        "endCustomer": 2500
+      },
+      "billing": {
+        "term": 8640,
+        "type": "UPFRONT",
+        "cycle": 8640
+      },
+      "currency": "EUR",
+      "isEnabled": true,
+      "attributes": [
+        {
+          "name": "MarketSegment",
+          "value": "Corporate"
+        }
+      ],
+      "identifiers": {
+        "erp": {
+          "sku": "DG7GMGF0M7XW:0004"
+        },
+        "vendor": {
+          "sku": "DG7GMGF0M7XW:0004",
+          "purchasePlan": null
+        },
+        "arrowsphere": {
+          "sku": "MS_FTSL_DG7GMGF0M7XW_0004_IT_EUR_RECURRING_8640_8640"
+        }
+      },
+      "marketplace": "IT",
+      "orderingType": "RECURRING",
+      "promotionPrices": null,
+      "saleConstraints": {
+        "expiryDate": null,
+        "maxQuantity": 2147483647,
+        "minQuantity": 1,
+        "availableDate": null
+      }
+    }
+  ],
+  "actionFlags": {
+    "isAutoRenew": false
+  },
+  "identifiers": {
+    "vendor": {
+      "sku": "DG7GMGF0M7XW:0004",
+      "family": "MS-FTSL-SQL-SERVER",
+      "attributes": {
+        "canSwitchAutoRenew": true
+      }
+    }
+  },
+  "marketplace": "IT",
+  "marketingText": {
+    "features": "",
+    "featuresFull": "",
+    "featuresShort": "",
+    "overviewDescription": ""
+  },
+  "addonPrimaries": [],
+  "classification": "FTSL",
+  "arrowSubCategories": [],
+  "baseOfferPrimaries": [],
+  "isIndependantAddon": false,
+  "licenseAgreementType": "Corporate"
+}

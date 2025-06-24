@@ -3,7 +3,6 @@
 namespace ArrowSphere\CatalogGraphQLClient\Types;
 
 use ArrowSphere\CatalogGraphQLClient\Exceptions\CatalogGraphQLClientException;
-use ArrowSphere\CatalogGraphQLClient\Exceptions\NonExistingFieldException;
 use ArrowSphere\CatalogGraphQLClient\Exceptions\UnrequestedFieldException;
 use JsonSerializable;
 
@@ -76,14 +75,12 @@ abstract class AbstractType implements JsonSerializable
      * AbstractType constructor.
      *
      * @param array $data
-     *
-     * @throws NonExistingFieldException
      */
     public function __construct(array $data)
     {
         array_walk($data, function ($value, string $name) {
             if (! isset(static::MAPPING[$name])) {
-                throw new NonExistingFieldException(sprintf('Field %s does not exist in type %s', $name, static::class));
+                return;
             }
 
             $definition = static::MAPPING[$name];

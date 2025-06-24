@@ -2,7 +2,6 @@
 
 namespace ArrowSphere\CatalogGraphQLClient\Tests\Types;
 
-use ArrowSphere\CatalogGraphQLClient\Exceptions\NonExistingFieldException;
 use ArrowSphere\CatalogGraphQLClient\Exceptions\UnrequestedFieldException;
 use ArrowSphere\CatalogGraphQLClient\Types\AbstractType;
 use PHPUnit\Framework\TestCase;
@@ -12,9 +11,6 @@ use PHPUnit\Framework\TestCase;
  */
 class AbstractTypeTest extends TestCase
 {
-    /**
-     * @throws NonExistingFieldException
-     */
     private function initType(): MyType
     {
         $data = [
@@ -63,9 +59,6 @@ class AbstractTypeTest extends TestCase
         return new MyType($data);
     }
 
-    /**
-     * @throws NonExistingFieldException
-     */
     public function testFields(): void
     {
         $myType = $this->initType();
@@ -118,9 +111,6 @@ class AbstractTypeTest extends TestCase
         $myType->getTestUnrequestedField();
     }
 
-    /**
-     * @throws NonExistingFieldException
-     */
     public function testSerialize(): void
     {
         $myType = $this->initType();
