@@ -5,6 +5,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.5] - 2025-06-24
+
 - `NonExistingFieldException` has been removed and no exception will be thrown when trying to hydrate an object with a non-existing field. The non-existing fields will simply be ignored.
 
 ## [0.7.4] - 2025-01-20
@@ -342,7 +344,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - CatalogGraphQLClient class with its "find" method
 
-[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.4...HEAD
+[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.5...HEAD
+[0.7.5]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.4...0.7.5
 [0.7.4]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.3...0.7.4
 [0.7.3]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.2...0.7.3
 [0.7.2]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.1...0.7.2
