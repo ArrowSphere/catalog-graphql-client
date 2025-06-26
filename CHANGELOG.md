@@ -5,6 +5,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+-`AttributesParameters` add type 
+
 ## [0.7.5] - 2025-06-24
 
 - `NonExistingFieldException` has been removed and no exception will be thrown when trying to hydrate an object with a non-existing field. The non-existing fields will simply be ignored.
