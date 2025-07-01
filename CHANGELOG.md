@@ -5,7 +5,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
--`AttributesParameters` add type 
+## [0.7.6] - 2025-07-01
+
+-`AttributesParameters` add type
 
 ## [0.7.5] - 2025-06-24
 
@@ -346,7 +348,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - CatalogGraphQLClient class with its "find" method
 
-[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.5...HEAD
+[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.6...HEAD
+[0.7.6]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.5...0.7.6
 [0.7.5]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.4...0.7.5
 [0.7.4]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.3...0.7.4
 [0.7.3]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.2...0.7.3
