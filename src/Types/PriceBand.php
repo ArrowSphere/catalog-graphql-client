@@ -23,6 +23,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method OfferLight getOffer()
  * @method Program getProgram()
  * @method Vendor getVendor()
+ * @method PricingRule[] getPricingRules()
  * @method PriceBand setIsEnabled(bool $isEnabled)
  * @method PriceBand setActionFlags(PriceBandActionFlags $actionFlags)
  * @method PriceBand setBilling(Billing $billing)
@@ -41,6 +42,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method PriceBand setOffer(OfferLight $offer)
  * @method PriceBand setProgram(Program $program)
  * @method PriceBand setVendor(Vendor $vendor)
+ * @method PriceBand setPricingRules(PricingRule[] $pricingRules)
  */
 class PriceBand extends AbstractType
 {
@@ -78,7 +80,9 @@ class PriceBand extends AbstractType
 
     public const PROGRAM = 'program';
 
-    public const VENOOR = 'vendor';
+    public const VENDOR = 'vendor';
+
+    public const PRICING_RULES = 'pricingRules';
 
     protected const MAPPING = [
         self::NAME               => self::TYPE_STRING,
@@ -101,6 +105,10 @@ class PriceBand extends AbstractType
         self::PROMOTION_PRICES => PromotionPrices::class,
         self::OFFER            => OfferLight::class,
         self::PROGRAM          => Program::class,
-        self::VENOOR           => Vendor::class
+        self::VENDOR           => Vendor::class,
+        self::PRICING_RULES    => [
+            self::MAPPING_TYPE  => PricingRule::class,
+            self::MAPPING_ARRAY => true,
+        ]
     ];
 }

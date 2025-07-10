@@ -5,6 +5,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Added `PricingRule` class with properties: tier (int), type (string), rateType (string), and value (float)
+- Updated `PriceBand` class to include `pricingRules` property, an array of `PricingRule` objects
+- Fixed typo in `PriceBand::VENDOR` constant name
+
 ## [0.7.6] - 2025-07-01
 
 -`AttributesParameters` add type

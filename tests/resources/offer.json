@@ -71,7 +71,21 @@
         "maxQuantity": 2147483647,
         "minQuantity": 1,
         "availableDate": null
-      }
+      },
+      "pricingRules": [
+        {
+          "tier": 2,
+          "type": "rate",
+          "rateType": "uplift",
+          "value": 0.07
+        },
+        {
+          "tier": 3,
+          "type": "rate",
+          "rateType": "discount",
+          "value": -0.03
+        }
+      ]
     }
   ],
   "actionFlags": {
