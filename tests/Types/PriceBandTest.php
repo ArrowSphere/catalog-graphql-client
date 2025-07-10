@@ -41,9 +41,11 @@ class PriceBandTest extends TestCase
             ],
             PriceBand::PROMOTION_PRICES => [],
             PriceBand::OFFER            => [],
-            PriceBand::VENOOR           => [],
+            PriceBand::VENDOR           => [],
             PriceBand::PROGRAM          => [],
-
+            PriceBand::PRICING_RULES         => [
+                [],
+            ],
         ]);
 
         self::assertInstanceOf(PriceBandActionFlags::class, $priceBand->getActionFlags());
@@ -63,6 +65,7 @@ class PriceBandTest extends TestCase
         self::assertInstanceOf(OfferLight::class, $priceBand->getOffer());
         self::assertInstanceOf(Vendor::class, $priceBand->getVendor());
         self::assertInstanceOf(Program::class, $priceBand->getProgram());
+        self::assertIsArray($priceBand->getPricingRules());
 
         $priceBand
             ->setMarketplace('FR')

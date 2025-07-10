@@ -46,7 +46,7 @@ class PaginatedPriceBandsTest extends TestCase
             ],
             PriceBand::PROMOTION_PRICES  => [],
             PriceBand::OFFER             => [],
-            PriceBand::VENOOR            => [],
+            PriceBand::VENDOR            => [],
             PriceBand::PROGRAM           => [],
         ]);
 
