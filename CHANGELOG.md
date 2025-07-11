@@ -5,6 +5,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.7] - 2025-07-11
+
 - Added `PricingRule` class with properties: tier (int), type (string), rateType (string), and value (float)
 - Updated `PriceBand` class to include `pricingRules` property, an array of `PricingRule` objects
 - Fixed typo in `PriceBand::VENDOR` constant name
@@ -352,7 +354,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - CatalogGraphQLClient class with its "find" method
 
-[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.6...HEAD
+[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.7...HEAD
+[0.7.7]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.6...0.7.7
 [0.7.6]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.5...0.7.6
 [0.7.5]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.4...0.7.5
 [0.7.4]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.3...0.7.4
