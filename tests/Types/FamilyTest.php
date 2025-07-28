@@ -35,5 +35,19 @@ class FamilyTest extends TestCase
         self::assertSame('my name', $family->getName());
         self::assertSame('my classification', $family->getClassification());
         self::assertSame(['first', 'second'], $family->getArrowSubCategories());
+
+        $family->setClassifications(['Classification 1', 'Classification 2']);
+
+        self::assertSame(['Classification 1', 'Classification 2'], $family->getClassifications());
+
+        $family2 = new Family([
+            Family::ID   => 'id',
+            Family::NAME => 'name',
+            Family::CLASSIFICATION => 'SAAS',
+            Family::CLASSIFICATIONS => ['SAAS', 'FTSL'],
+            Family::ARROW_SUB_CATEGORIES => ['nce', 'ibm']
+        ]);
+
+        self::assertSame(['SAAS', 'FTSL'], $family2->getClassifications());
     }
 }
