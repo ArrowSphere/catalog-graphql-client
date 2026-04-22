@@ -109,6 +109,7 @@ class ProductTest extends TestCase
                     AttributesParameters::POSITION      => 1,
                 ],
             ],
+            Product::IS_FOR_PARTNER_ONLY        => false,
         ]);
 
         self::assertInstanceOf(ActionFlags::class, $product->getActionFlags());
@@ -177,6 +178,7 @@ class ProductTest extends TestCase
         self::assertSame('vCpu', $product->getAttributesParameters()[0]->getName());
         self::assertSame('Virtual Cpu', $product->getAttributesParameters()[0]->getLabel());
         self::assertSame(1, $product->getAttributesParameters()[0]->getPosition());
+        self::assertFalse($product->getIsForPartnerOnly());
 
         $product
             ->setIsEnabled(false)
@@ -184,7 +186,8 @@ class ProductTest extends TestCase
             ->setId('my id')
             ->setClassification('FTSL')
             ->setMarketplace('FR')
-            ->setIsAddon(true);
+            ->setIsAddon(true)
+            ->setIsForPartnerOnly(true);
 
         self::assertFalse($product->getIsEnabled());
         self::assertEquals('lol', $product->getName());
@@ -195,6 +198,7 @@ class ProductTest extends TestCase
         self::assertTrue($product->getIsIndependantAddon());
         self::assertTrue($product->getIsIndirectBusiness());
         self::assertInstanceOf(OfferResellers::class, $product->getResellers());
+        self::assertTrue($product->getIsForPartnerOnly());
     }
 
     public function testRealData(): void
@@ -203,5 +207,6 @@ class ProductTest extends TestCase
         $offerData = json_decode($offerJson, true);
         $product = new Product($offerData);
         self::assertSame('be7572fbb5f217f8b20dc0255f52dc75', $product->getId());
+        self::assertFalse($product->getIsForPartnerOnly());
     }
 }

@@ -50,6 +50,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method Promotion[] getPromotions()
  * @method AttributesParameters[] getAttributesParameters()
  * @method string[] getMarketSegments()
+ * @method bool getIsForPartnerOnly()
  * @method Product setId(string $id)
  * @method Product setIdentifiers(Identifiers $identifiers)
  * @method Product setName(string $name)
@@ -95,6 +96,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method Product setPromotions(Promotion[] $promotions)
  * @method Product setAttributesParameters(AttributesParameters[] $attributesParameters)
  * @method Product setMarketSegments(string[] $marketSegments)
+ * @method Product setIsForPartnerOnly(bool $isForPartnerOnly)
  */
 class Product extends AbstractType
 {
@@ -188,6 +190,8 @@ class Product extends AbstractType
 
     public const ATTRIBUTES_PARAMETERS = 'attributesParameters';
 
+    public const IS_FOR_PARTNER_ONLY = 'isForPartnerOnly';
+
     protected const MAPPING = [
         self::ID                         => self::TYPE_STRING,
         self::IDENTIFIERS                => Identifiers::class,
@@ -261,5 +265,6 @@ class Product extends AbstractType
             self::MAPPING_TYPE  => AttributesParameters::class,
             self::MAPPING_ARRAY => true,
         ],
+        self::IS_FOR_PARTNER_ONLY       => self::TYPE_BOOL,
     ];
 }

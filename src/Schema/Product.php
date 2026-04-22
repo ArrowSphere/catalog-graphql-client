@@ -280,4 +280,6 @@ class Product
     public const WEIGHT_FORCED = 'weightForced';
 
     public const WEIGHT_TOP_SALES = 'weightTopSales';
+
+    public const IS_FOR_PARTNER_ONLY = 'isForPartnerOnly';
 }
