@@ -5,6 +5,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Added boolean attribute `IsForPartnerOnly` which indicates that the offer is available for sale only to partners.
+
 ## [0.7.10] - 2026-06-03
 
 - Added `BundleBillingRules` class with properties: `billingCycle` (string), `billingTerm` (string), `name` (string), `orderingType` (string)
