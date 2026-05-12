@@ -5,6 +5,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Added `Attribute` class with properties: `name` (string) and `value` (string)
+- Added `PromotionsPrice` class with properties: `promotionId` (string), `prices` (`Prices`), `vendorSku` (string), `marketplace` (string), `name` (string), `description` (string), `isAutoApplicable` (bool), `startDate` (string), `endDate` (string), `promotionType` (string), `pricingType` (string), `pricingValue` (float), `minQuantity` (int), `maxQuantity` (int), `currency` (string), `applicableUntil` (string), `applicableFor` (int), `checkEligibility` (bool), and `attributes` (array of `Attribute`)
+- Updated `PriceBand` class to include `promotionsPrices` property, an array of `PromotionsPrice` objects, to support multiple promotions per price band
+
 ## [0.7.8] - 2025-09-03
 
 - Added `classifications` field in `Family` type
