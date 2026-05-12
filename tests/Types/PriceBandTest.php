@@ -2,6 +2,7 @@
 
 namespace ArrowSphere\CatalogGraphQLClient\Tests\Types;
 
+use ArrowSphere\CatalogGraphQLClient\Types\Attribute;
 use ArrowSphere\CatalogGraphQLClient\Types\Billing;
 use ArrowSphere\CatalogGraphQLClient\Types\DynamicAttributes;
 use ArrowSphere\CatalogGraphQLClient\Types\OfferLight;
@@ -13,6 +14,7 @@ use ArrowSphere\CatalogGraphQLClient\Types\PriceBandSaleConstraints;
 use ArrowSphere\CatalogGraphQLClient\Types\Prices;
 use ArrowSphere\CatalogGraphQLClient\Types\Program;
 use ArrowSphere\CatalogGraphQLClient\Types\PromotionPrices;
+use ArrowSphere\CatalogGraphQLClient\Types\PromotionsPrice;
 use ArrowSphere\CatalogGraphQLClient\Types\Uom;
 use ArrowSphere\CatalogGraphQLClient\Types\Vendor;
 use PHPUnit\Framework\TestCase;
@@ -39,10 +41,13 @@ class PriceBandTest extends TestCase
             PriceBand::ATTRIBUTES         => [
                 [],
             ],
-            PriceBand::PROMOTION_PRICES => [],
-            PriceBand::OFFER            => [],
-            PriceBand::VENDOR           => [],
-            PriceBand::PROGRAM          => [],
+            PriceBand::PROMOTION_PRICES  => [],
+            PriceBand::PROMOTIONS_PRICES => [
+                [],
+            ],
+            PriceBand::OFFER             => [],
+            PriceBand::VENDOR            => [],
+            PriceBand::PROGRAM           => [],
             PriceBand::PRICING_RULES         => [
                 [],
             ],
@@ -62,6 +67,8 @@ class PriceBandTest extends TestCase
         self::assertIsArray($priceBand->getAttributes());
         self::assertInstanceOf(PriceBandAttribute::class, $priceBand->getAttributes()[0]);
         self::assertInstanceOf(PromotionPrices::class, $priceBand->getPromotionPrices());
+        self::assertIsArray($priceBand->getPromotionsPrices());
+        self::assertInstanceOf(PromotionsPrice::class, $priceBand->getPromotionsPrices()[0]);
         self::assertInstanceOf(OfferLight::class, $priceBand->getOffer());
         self::assertInstanceOf(Vendor::class, $priceBand->getVendor());
         self::assertInstanceOf(Program::class, $priceBand->getProgram());
@@ -91,6 +98,26 @@ class PriceBandTest extends TestCase
                     'public' => '100',
                 ],
             ]))
+            ->setPromotionsPrices([
+                new PromotionsPrice([
+                    PromotionsPrice::PROMOTION_ID => 'DEF',
+                    PromotionsPrice::PRICES => [
+                        'buy' => '51',
+                        'sell' => '81',
+                        'public' => '101',
+                    ],
+                    PromotionsPrice::ATTRIBUTES => [
+                        [
+                            Attribute::NAME  => 'name E3',
+                            Attribute::VALUE => 'value H7',
+                        ],
+                        [
+                            Attribute::NAME  => 'name A1',
+                            Attribute::VALUE => 'value BZ',
+                        ],
+                    ]
+                ])
+            ])
         ;
 
         self::assertInstanceOf(Billing::class, $priceBand->getBilling());
@@ -105,6 +132,11 @@ class PriceBandTest extends TestCase
         self::assertEquals('50', $priceBand->getPromotionPrices()->getPrices()->getBuy());
         self::assertEquals('80', $priceBand->getPromotionPrices()->getPrices()->getSell());
         self::assertEquals('100', $priceBand->getPromotionPrices()->getPrices()->getPublic());
+        self::assertEquals('DEF', $priceBand->getPromotionsPrices()[0]->getPromotionId());
+        self::assertEquals('51', $priceBand->getPromotionsPrices()[0]->getPrices()->getBuy());
+        self::assertEquals('81', $priceBand->getPromotionsPrices()[0]->getPrices()->getSell());
+        self::assertEquals('101', $priceBand->getPromotionsPrices()[0]->getPrices()->getPublic());
+        self::assertEquals('value BZ', $priceBand->getPromotionsPrices()[0]->getAttributes()[1]->getValue());
     }
 
     public function testRealData(): void

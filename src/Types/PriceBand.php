@@ -20,6 +20,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method string getName()
  * @method PriceBandAttribute[] getAttributes()
  * @method PromotionPrices getPromotionPrices()
+ * @method PromotionsPrice[] getPromotionsPrices()
  * @method OfferLight getOffer()
  * @method Program getProgram()
  * @method Vendor getVendor()
@@ -39,6 +40,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method PriceBand setName(string $name)
  * @method PriceBand setAttributes(PriceBandAttribute[] $attributes)
  * @method PriceBand setPromotionPrices(PromotionPrices $promotionPrices)
+ * @method PriceBand setPromotionsPrices(PromotionsPrice[] $promotionsPrices)
  * @method PriceBand setOffer(OfferLight $offer)
  * @method PriceBand setProgram(Program $program)
  * @method PriceBand setVendor(Vendor $vendor)
@@ -76,6 +78,8 @@ class PriceBand extends AbstractType
 
     public const PROMOTION_PRICES = 'promotionPrices';
 
+    public const PROMOTIONS_PRICES = 'promotionsPrices';
+
     public const OFFER = 'offer';
 
     public const PROGRAM = 'program';
@@ -103,6 +107,10 @@ class PriceBand extends AbstractType
             self::MAPPING_ARRAY => true,
         ],
         self::PROMOTION_PRICES => PromotionPrices::class,
+        self::PROMOTIONS_PRICES => [
+            self::MAPPING_TYPE  => PromotionsPrice::class,
+            self::MAPPING_ARRAY => true,
+        ],
         self::OFFER            => OfferLight::class,
         self::PROGRAM          => Program::class,
         self::VENDOR           => Vendor::class,
