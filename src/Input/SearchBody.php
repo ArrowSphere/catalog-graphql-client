@@ -19,6 +19,10 @@ class SearchBody
 
     public const MARKETPLACE = 'marketplace';
 
+    public const INCLUDE_BUNDLES = 'includeBundles';
+
+    public const BUNDLE_ARROW_SPHERE_SKU = 'bundleArrowSphereSku';
+
     public const RESELLER_REF = 'resellerRef';
 
     public const AGGREGATOR_FILTER = 'aggregatorFilter';

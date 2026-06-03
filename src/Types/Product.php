@@ -13,7 +13,10 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method string getLicenseAgreementType()
  * @method Family getFamily()
  * @method bool getIsAddon()
+ * @method bool getIsBundle()
+ * @method bool getIsBundleOrderQuantityLinked()
  * @method bool getHasAddons()
+ * @method BundleBillingRules getBundleBillingRules()
  * @method ActionFlags getActionFlags()
  * @method Identifiers[] getAddonPrimaries()
  * @method Identifiers[] getConversionOfferPrimaries()
@@ -55,7 +58,10 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method Product setLicenseAgreementType(string $licenseAgreementType)
  * @method Product setFamily(Family $family)
  * @method Product setIsAddon(bool $isAddon)
+ * @method Product setIsBundle(bool $isBundle)
+ * @method Product setIsBundleOrderQuantityLinked(bool $isBundleOrderQuantityLinked)
  * @method Product setHasAddons(bool $hasAddons)
+ * @method Product setBundleBillingRules(BundleBillingRules $bundleBillingRules)
  * @method Product setActionFlags(ActionFlags $actionFlags)
  * @method Product setAddonPrimaries(Identifiers[] $addonPrimaries)
  * @method Product setConversionOfferPrimaries(Identifiers[] $conversionOfferPrimaries)
@@ -107,6 +113,12 @@ class Product extends AbstractType
     public const FAMILY = 'family';
 
     public const IS_ADDON = 'isAddon';
+
+    public const IS_BUNDLE = 'isBundle';
+
+    public const IS_BUNDLE_ORDER_QUANTITY_LINKED = 'isBundleOrderQuantityLinked';
+
+    public const BUNDLE_BILLING_RULES = 'bundleBillingRules';
 
     public const HAS_ADDONS = 'hasAddons';
 
@@ -192,6 +204,9 @@ class Product extends AbstractType
         self::LICENSE_AGREEMENT_TYPE     => self::TYPE_STRING,
         self::FAMILY                     => Family::class,
         self::IS_ADDON                   => self::TYPE_BOOL,
+        self::IS_BUNDLE                  => self::TYPE_BOOL,
+        self::IS_BUNDLE_ORDER_QUANTITY_LINKED  => self::TYPE_BOOL,
+        self::BUNDLE_BILLING_RULES        => BundleBillingRules::class,
         self::HAS_ADDONS                 => self::TYPE_BOOL,
         self::ACTION_FLAGS               => ActionFlags::class,
         self::ADDON_PRIMARIES            => [
