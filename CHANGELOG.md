@@ -5,6 +5,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Added `BundleBillingRules` class with properties: `billingCycle` (string), `billingTerm` (string), `name` (string), `orderingType` (string)
+- Updated `Product` class to include `bundleBillingRules` property (as a `BundleBillingRules` class), `isBundle` (bool), and `isBundleOrderQuantityLinked` (bool)
+- Updated `Schema\Product` class with new constants: `BUNDLE_BILLING_RULES`, `BUNDLE_BILLING_RULES_BILLING_CYCLE`, `BUNDLE_BILLING_RULES_BILLING_TERM`, `BUNDLE_BILLING_RULES_NAME`, `BUNDLE_BILLING_RULES_ORDERING_TYPE`
+- Updated `SearchBody` class to include `INCLUDE_BUNDLES`, `BUNDLE_ARROW_SPHERE_SKU`  constants
+
 ## [0.7.9] - 2026-05-19
 
 - Added `Attribute` class with properties: `name` (string) and `value` (string)

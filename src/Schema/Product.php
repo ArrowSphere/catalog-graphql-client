@@ -141,6 +141,13 @@ class Product
     public const IDENTIFIERS_VENDOR_SKU = 'identifiers.vendor.sku';
 
     public const IS_ADDON = 'isAddon';
+    public const IS_BUNDLE = 'isBundle';
+    public const IS_BUNDLE_ORDER_QUANTITY_LINKED = 'isBundleOrderQuantityLinked';
+    public const BUNDLE_BILLING_RULES = 'bundleBillingRules';
+    public const BUNDLE_BILLING_RULES_BILLING_CYCLE = 'bundleBillingRules.billingCycle';
+    public const BUNDLE_BILLING_RULES_BILLING_TERM = 'bundleBillingRules.billingTerm';
+    public const BUNDLE_BILLING_RULES_NAME = 'bundleBillingRules.name';
+    public const BUNDLE_BILLING_RULES_ORDERING_TYPE = 'bundleBillingRules.orderingType';
 
     public const IS_ENABLED = 'isEnabled';
 

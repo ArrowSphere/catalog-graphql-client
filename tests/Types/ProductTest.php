@@ -5,6 +5,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Tests\Types;
 use ArrowSphere\CatalogGraphQLClient\Types\ActionFlags;
 use ArrowSphere\CatalogGraphQLClient\Types\Assets;
 use ArrowSphere\CatalogGraphQLClient\Types\AttributesParameters;
+use ArrowSphere\CatalogGraphQLClient\Types\BundleBillingRules;
 use ArrowSphere\CatalogGraphQLClient\Types\Family;
 use ArrowSphere\CatalogGraphQLClient\Types\Identifiers;
 use ArrowSphere\CatalogGraphQLClient\Types\MarketingText;
@@ -56,6 +57,14 @@ class ProductTest extends TestCase
             Product::ID                         => 'id',
             Product::IDENTIFIERS                => [],
             Product::IS_ADDON                   => true,
+            Product::IS_BUNDLE                  => true,
+            Product::IS_BUNDLE_ORDER_QUANTITY_LINKED => true,
+            Product::BUNDLE_BILLING_RULES       => [
+                BundleBillingRules::BILLING_CYCLE  => 'monthly',
+                BundleBillingRules::BILLING_TERM   => '1 month',
+                BundleBillingRules::NAME           => 'bundle rule name',
+                BundleBillingRules::ORDERING_TYPE  => 'purchase',
+            ],
             Product::IS_ENABLED                 => true,
             Product::IS_TRIAL                   => true,
             Product::LAST_UPDATE                => '2021-01-01T00:00:00.000Z',
@@ -131,6 +140,13 @@ class ProductTest extends TestCase
         self::assertSame('id', $product->getId());
         self::assertInstanceOf(Identifiers::class, $product->getIdentifiers());
         self::assertTrue($product->getIsAddon());
+        self::assertTrue($product->getIsBundle());
+        self::assertTrue($product->getIsBundleOrderQuantityLinked());
+        self::assertInstanceOf(BundleBillingRules::class, $product->getBundleBillingRules());
+        self::assertSame('monthly', $product->getBundleBillingRules()->getBillingCycle());
+        self::assertSame('1 month', $product->getBundleBillingRules()->getBillingTerm());
+        self::assertSame('bundle rule name', $product->getBundleBillingRules()->getName());
+        self::assertSame('purchase', $product->getBundleBillingRules()->getOrderingType());
         self::assertTrue($product->getIsEnabled());
         self::assertTrue($product->getIsTrial());
         self::assertSame('2021-01-01T00:00:00.000Z', $product->getLastUpdate());
