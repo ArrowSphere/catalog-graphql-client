@@ -5,10 +5,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.10] - 2026-06-03
+
 - Added `BundleBillingRules` class with properties: `billingCycle` (string), `billingTerm` (string), `name` (string), `orderingType` (string)
 - Updated `Product` class to include `bundleBillingRules` property (as a `BundleBillingRules` class), `isBundle` (bool), and `isBundleOrderQuantityLinked` (bool)
 - Updated `Schema\Product` class with new constants: `BUNDLE_BILLING_RULES`, `BUNDLE_BILLING_RULES_BILLING_CYCLE`, `BUNDLE_BILLING_RULES_BILLING_TERM`, `BUNDLE_BILLING_RULES_NAME`, `BUNDLE_BILLING_RULES_ORDERING_TYPE`
-- Updated `SearchBody` class to include `INCLUDE_BUNDLES`, `BUNDLE_ARROW_SPHERE_SKU`  constants
+- Updated `SearchBody` class to include `INCLUDE_BUNDLES`, `BUNDLE_ARROW_SPHERE_SKU` constants
 
 ## [0.7.9] - 2026-05-19
 
@@ -369,7 +371,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - CatalogGraphQLClient class with its "find" method
 
-[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.9...HEAD
+[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.10...HEAD
+[0.7.10]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.9...0.7.10
 [0.7.9]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.8...0.7.9
 [0.7.8]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.7...0.7.8
 [0.7.7]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.6...0.7.7
