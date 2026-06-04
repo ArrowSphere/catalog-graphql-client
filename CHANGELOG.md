@@ -5,6 +5,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.11] - 2026-06-04
+
 - Added boolean attribute `IsForPartnerOnly` which indicates that the offer is available for sale only to partners.
 
 ## [0.7.10] - 2026-06-03
@@ -373,7 +375,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - CatalogGraphQLClient class with its "find" method
 
-[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.10...HEAD
+[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.11...HEAD
+[0.7.11]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.10...0.7.11
 [0.7.10]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.9...0.7.10
 [0.7.9]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.8...0.7.9
 [0.7.8]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.7...0.7.8
