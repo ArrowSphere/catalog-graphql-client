@@ -219,6 +219,8 @@ class Product
 
     public const PRICE_BAND_IS_ENABLED = 'priceBand.isEnabled';
 
+    public const PRICE_BAND_IS_BUYABLE = 'priceBand.isBuyable';
+
     public const PRICE_BAND_MARKETPLACE = 'priceBand.marketplace';
 
     public const PRICE_BAND_ORDERING_TYPE = 'priceBand.orderingType';

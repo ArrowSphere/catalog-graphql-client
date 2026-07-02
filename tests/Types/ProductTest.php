@@ -65,6 +65,7 @@ class ProductTest extends TestCase
                 BundleBillingRules::NAME           => 'bundle rule name',
                 BundleBillingRules::ORDERING_TYPE  => 'purchase',
             ],
+            Product::IS_BUYABLE                 => true,
             Product::IS_ENABLED                 => true,
             Product::IS_TRIAL                   => true,
             Product::LAST_UPDATE                => '2021-01-01T00:00:00.000Z',
@@ -148,6 +149,7 @@ class ProductTest extends TestCase
         self::assertSame('1 month', $product->getBundleBillingRules()->getBillingTerm());
         self::assertSame('bundle rule name', $product->getBundleBillingRules()->getName());
         self::assertSame('purchase', $product->getBundleBillingRules()->getOrderingType());
+        self::assertTrue($product->getIsBuyable());
         self::assertTrue($product->getIsEnabled());
         self::assertTrue($product->getIsTrial());
         self::assertSame('2021-01-01T00:00:00.000Z', $product->getLastUpdate());
@@ -181,6 +183,7 @@ class ProductTest extends TestCase
         self::assertFalse($product->getIsForPartnerOnly());
 
         $product
+            ->setIsBuyable(false)
             ->setIsEnabled(false)
             ->setName('lol')
             ->setId('my id')
@@ -189,6 +192,7 @@ class ProductTest extends TestCase
             ->setIsAddon(true)
             ->setIsForPartnerOnly(true);
 
+        self::assertFalse($product->getIsBuyable());
         self::assertFalse($product->getIsEnabled());
         self::assertEquals('lol', $product->getName());
         self::assertEquals('my id', $product->getId());
@@ -208,5 +212,6 @@ class ProductTest extends TestCase
         $product = new Product($offerData);
         self::assertSame('be7572fbb5f217f8b20dc0255f52dc75', $product->getId());
         self::assertFalse($product->getIsForPartnerOnly());
+        self::assertTrue($product->getIsBuyable());
     }
 }

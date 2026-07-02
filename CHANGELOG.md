@@ -5,6 +5,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Added the boolean attribute `isBuyable` to support filtering buyable offers.
+
 ## [0.7.11] - 2026-06-04
 
 - Added boolean attribute `IsForPartnerOnly` which indicates that the offer is available for sale only to partners.

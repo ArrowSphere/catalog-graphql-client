@@ -24,6 +24,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method Assets getAssets()
  * @method string getEnvironmentAvailability()
  * @method string getMarketplace()
+ * @method bool getIsBuyable()
  * @method bool getIsEnabled()
  * @method bool getIsTrial()
  * @method string getLastUpdate()
@@ -70,6 +71,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method Product setAssets(Assets $assets)
  * @method Product setEnvironmentAvailability(string $environmentAvailability)
  * @method Product setMarketplace(string $marketplace)
+ * @method Product setIsBuyable(bool $isBuyable)
  * @method Product setIsEnabled(bool $isEnabled)
  * @method Product setIsTrial(bool $isTrial)
  * @method Product setLastUpdate(string $lastUpdate)
@@ -139,6 +141,8 @@ class Product extends AbstractType
     public const MARKETPLACE = 'marketplace';
 
     public const MARKET_SEGMENTS = 'marketSegments';
+
+    public const IS_BUYABLE = 'isBuyable';
 
     public const IS_ENABLED = 'isEnabled';
 
@@ -229,6 +233,7 @@ class Product extends AbstractType
         self::ENVIRONMENT_AVAILABILITY   => self::TYPE_STRING,
         self::MARKETPLACE                => self::TYPE_STRING,
         self::MARKET_SEGMENTS => self::TYPE_STRING,
+        self::IS_BUYABLE                 => self::TYPE_BOOL,
         self::IS_ENABLED                 => self::TYPE_BOOL,
         self::IS_TRIAL                   => self::TYPE_BOOL,
         self::LAST_UPDATE                => self::TYPE_STRING,
