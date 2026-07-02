@@ -13,6 +13,7 @@
   },
   "isAddon": false,
   "isTrial": false,
+  "isBuyable": true,
   "isForPartnerOnly": false,
   "program": {
     "legacyCode": "Microsoft"
@@ -45,6 +46,7 @@
         "cycle": 8640
       },
       "currency": "EUR",
+      "isBuyable": true,
       "isEnabled": true,
       "attributes": [
         {
