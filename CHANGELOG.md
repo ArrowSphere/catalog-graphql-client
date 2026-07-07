@@ -5,6 +5,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.12] - 2026-07-07
+
 - Added the boolean attribute `isBuyable` to support filtering buyable offers.
 
 ## [0.7.11] - 2026-06-04
@@ -377,7 +379,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - CatalogGraphQLClient class with its "find" method
 
-[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.11...HEAD
+[Unreleased]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.12...HEAD
+[0.7.12]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.11...0.7.12
 [0.7.11]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.10...0.7.11
 [0.7.10]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.9...0.7.10
 [0.7.9]: https://github.com/ArrowSphere/catalog-graphql-client/compare/0.7.8...0.7.9
