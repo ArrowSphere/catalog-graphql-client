@@ -32,6 +32,7 @@ class PriceBandTest extends TestCase
             PriceBand::CURRENCY           => 'USD',
             PriceBand::IDENTIFIERS        => [],
             PriceBand::IS_ENABLED         => true,
+            PriceBand::IS_BUYABLE         => true,
             PriceBand::MARKETPLACE        => 'US',
             PriceBand::ORDERING_TYPE      => 'RECURRING',
             PriceBand::PRICES             => [],
@@ -58,6 +59,7 @@ class PriceBandTest extends TestCase
         self::assertEquals('USD', $priceBand->getCurrency());
         self::assertInstanceOf(PriceBandIdentifiers::class, $priceBand->getIdentifiers());
         self::assertTrue($priceBand->getIsEnabled());
+        self::assertTrue($priceBand->getIsBuyable());
         self::assertEquals('US', $priceBand->getMarketplace());
         self::assertEquals('RECURRING', $priceBand->getOrderingType());
         self::assertInstanceOf(Prices::class, $priceBand->getPrices());
@@ -79,6 +81,7 @@ class PriceBandTest extends TestCase
             ->setOrderingType('lol')
             ->setCurrency('EUR')
             ->setIsEnabled(false)
+            ->setIsBuyable(false)
             ->setBilling(new Billing([
                 Billing::CYCLE => 720,
                 Billing::TERM  => 8640,
@@ -123,6 +126,7 @@ class PriceBandTest extends TestCase
         self::assertInstanceOf(Billing::class, $priceBand->getBilling());
         self::assertEquals('EUR', $priceBand->getCurrency());
         self::assertFalse($priceBand->getIsEnabled());
+        self::assertFalse($priceBand->getIsBuyable());
         self::assertEquals('FR', $priceBand->getMarketplace());
         self::assertEquals('lol', $priceBand->getOrderingType());
         self::assertEquals('ram', $priceBand->getAttributes()[0]->getName());

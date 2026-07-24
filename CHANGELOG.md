@@ -5,6 +5,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Added the boolean attribute `isBuyable` to the `PriceBand` type.
+
 ## [0.7.12] - 2026-07-07
 
 - Added the boolean attribute `isBuyable` to support filtering buyable offers.

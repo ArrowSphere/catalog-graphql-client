@@ -40,6 +40,8 @@ class PriceBand
 
     public const IDENTIFIERS_VENDOR_SKU = 'identifiers.vendor.sku';
 
+    public const IS_BUYABLE = 'isBuyable';
+
     public const IS_ENABLED = 'isEnabled';
 
     public const MARKETPLACE = 'marketplace';
