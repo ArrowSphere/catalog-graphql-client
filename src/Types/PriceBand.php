@@ -6,6 +6,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * Class PriceBand
  *
  * @method bool getIsEnabled()
+ * @method bool getIsBuyable()
  * @method PriceBandActionFlags getActionFlags()
  * @method Billing getBilling()
  * @method string getCurrency()
@@ -26,6 +27,7 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
  * @method Vendor getVendor()
  * @method PricingRule[] getPricingRules()
  * @method PriceBand setIsEnabled(bool $isEnabled)
+ * @method PriceBand setIsBuyable(bool $isBuyable)
  * @method PriceBand setActionFlags(PriceBandActionFlags $actionFlags)
  * @method PriceBand setBilling(Billing $billing)
  * @method PriceBand setCurrency(string $currency)
@@ -49,6 +51,8 @@ namespace ArrowSphere\CatalogGraphQLClient\Types;
 class PriceBand extends AbstractType
 {
     public const IS_ENABLED = 'isEnabled';
+
+    public const IS_BUYABLE = 'isBuyable';
 
     public const ACTION_FLAGS = 'actionFlags';
 
@@ -91,6 +95,7 @@ class PriceBand extends AbstractType
     protected const MAPPING = [
         self::NAME               => self::TYPE_STRING,
         self::IS_ENABLED         => self::TYPE_BOOL,
+        self::IS_BUYABLE         => self::TYPE_BOOL,
         self::ACTION_FLAGS       => PriceBandActionFlags::class,
         self::BILLING            => Billing::class,
         self::CURRENCY           => self::TYPE_STRING,
