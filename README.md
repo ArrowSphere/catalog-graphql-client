@@ -2,7 +2,11 @@
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/arrowsphere/catalog-graphql-client)](https://packagist.org/packages/arrowsphere/catalog-graphql-client)
 [![Minimum PHP Version](https://img.shields.io/packagist/php-v/arrowsphere/catalog-graphql-client)](https://img.shields.io/packagist/php-v/arrowsphere/catalog-graphql-client)
-[![Build Status](https://img.shields.io/github/workflow/status/ArrowSphere/catalog-graphql-client/CI)](https://github.com/ArrowSphere/catalog-graphql-client/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/ArrowSphere/catalog-graphql-client/ci.yml?branch=master)](https://github.com/ArrowSphere/catalog-graphql-client/actions)
+[![Static Analysis](https://img.shields.io/github/actions/workflow/status/ArrowSphere/catalog-graphql-client/static.yml?branch=master&label=static%20analysis)](https://github.com/ArrowSphere/catalog-graphql-client/actions)
+[![PHPStan Level](https://img.shields.io/badge/PHPStan-level%20max-brightgreen)](https://phpstan.org/)
+[![Total Downloads](https://img.shields.io/packagist/dt/arrowsphere/catalog-graphql-client)](https://packagist.org/packages/arrowsphere/catalog-graphql-client)
+[![License](https://img.shields.io/packagist/l/arrowsphere/catalog-graphql-client)](LICENSE)
 
 This package provides a PHP client for ArrowSphere's Catalog GraphQL API.
 It should be the only way to make calls to ArrowSphere's Catalog GraphQL API with PHP code.
