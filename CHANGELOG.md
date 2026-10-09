@@ -5,6 +5,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Updated PHP-CS-Fixer to 3.95, installed through composer in CI and in the Makefile instead of a Docker image
 - Removed the unused Psalm configuration and Makefile targets
 - Replaced the archived composer-normalize GitHub action by composer-normalize 2.54 run in dry-run mode, and normalized composer.json accordingly
 - Added a `CONTRIBUTING.md` file
