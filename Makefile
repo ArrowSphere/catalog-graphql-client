@@ -32,7 +32,7 @@ static-psalm-update-baseline:
 	$(MAKE) static-psalm PSALM_PARAMS="--update-baseline"
 
 static-phpstan:
-	docker run --rm -it -e REQUIRE_DEV=true -v ${PWD}:/app -w /app oskarstark/phpstan-ga:0.12.76 analyze $(PHPSTAN_PARAMS)
+	docker run --rm -it -e REQUIRE_DEV=true -v ${PWD}:/app -w /app oskarstark/phpstan-ga:1.8.0 analyze $(PHPSTAN_PARAMS)
 
 static-phpstan-update-baseline:
 	$(MAKE) static-phpstan PHPSTAN_PARAMS="--generate-baseline"
