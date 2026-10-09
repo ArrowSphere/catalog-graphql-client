@@ -5,16 +5,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Raised the minimum PHP version to 8.1, matching the versions tested in CI, and removed the now useless `symfony/polyfill-php80` and `symfony/polyfill-php81` dependencies
 - Updated the PHPStan Docker image to 1.8.0 (PHP 8.1) in CI and in the Makefile, and fixed the findings it reported in `AbstractType`
 - Added a CI job that publishes the test coverage to Coveralls
 - Fixed the build status badge in the README and added static analysis, PHPStan, downloads and license badges
 - Added the MIT `LICENSE` file
-
 - Added PHP 8.4 and 8.5 to the CI test matrix
 - Updated the GitHub Actions workflows: `actions/checkout` v7, `actions/cache` v6, `changelog-enforcer` v3, `keep-a-changelog-new-release` 3.1.0, `GITHUB_OUTPUT` instead of `set-output`, releases created with the GitHub CLI
-
 - The Release workflow now enables auto-merge on the release pull request it creates
-
 - Pinned the CI jobs that install PHP via setup-php to the `ubuntu-24.04` runner image
 
 ## [0.7.13] - 2026-07-29
@@ -87,7 +85,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added support for nested filters
-
 - `SearchBody` class:
   - `QUANTITY` has been added (type integer) to filter priceBands by quantity
 
@@ -121,7 +118,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `PRICE_BAND` has been added to search for one priceBand
 
 - `PaginatedPriceBands.php` class is now available when searching for priceBands
-
 - `SearchBody` class:
   - `GET_FAMILIES` has been added (boolean to set to `true` to get the families corresponding to the found priceBands)
 
