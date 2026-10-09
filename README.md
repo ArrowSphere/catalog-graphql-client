@@ -4,6 +4,7 @@
 [![Minimum PHP Version](https://img.shields.io/packagist/php-v/arrowsphere/catalog-graphql-client)](https://img.shields.io/packagist/php-v/arrowsphere/catalog-graphql-client)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/ArrowSphere/catalog-graphql-client/ci.yml?branch=master)](https://github.com/ArrowSphere/catalog-graphql-client/actions)
 [![Static Analysis](https://img.shields.io/github/actions/workflow/status/ArrowSphere/catalog-graphql-client/static.yml?branch=master&label=static%20analysis)](https://github.com/ArrowSphere/catalog-graphql-client/actions)
+[![Coverage Status](https://img.shields.io/coverallsCoverage/github/ArrowSphere/catalog-graphql-client?branch=master)](https://coveralls.io/github/ArrowSphere/catalog-graphql-client?branch=master)
 [![PHPStan Level](https://img.shields.io/badge/PHPStan-level%20max-brightgreen)](https://phpstan.org/)
 [![Total Downloads](https://img.shields.io/packagist/dt/arrowsphere/catalog-graphql-client)](https://packagist.org/packages/arrowsphere/catalog-graphql-client)
 [![License](https://img.shields.io/packagist/l/arrowsphere/catalog-graphql-client)](LICENSE)
