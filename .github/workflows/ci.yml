@@ -10,7 +10,7 @@ env:
 jobs:
   build-lowest-version:
     name: Build lowest version
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         php-version: ['8.1', '8.2', '8.3']
@@ -35,7 +35,7 @@ jobs:
 
   build:
     name: Build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         php-version: ['8.1', '8.2', '8.3']

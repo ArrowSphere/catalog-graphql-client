@@ -5,6 +5,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Pinned the CI jobs that install PHP via setup-php to the `ubuntu-24.04` runner image
+
 ## [0.7.13] - 2026-07-29
 
 - Added the boolean attribute `isBuyable` to the `PriceBand` type.
