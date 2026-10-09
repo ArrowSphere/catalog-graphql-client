@@ -5,6 +5,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Replaced the archived composer-normalize GitHub action by composer-normalize 2.54 run in dry-run mode, and normalized composer.json accordingly
 - Added a `CONTRIBUTING.md` file
 - Added the Coveralls coverage badge to the README
 - Raised the minimum PHP version to 8.1, matching the versions tested in CI, and removed the now useless `symfony/polyfill-php80` and `symfony/polyfill-php81` dependencies
