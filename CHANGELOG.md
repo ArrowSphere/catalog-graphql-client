@@ -5,6 +5,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- The Release workflow now asks which part of the version to increment (patch, minor or major) and computes the new version from the latest tag
 - Updated PHPStan to 2.3 at level 9 (the former `max`), installed through composer in CI and in the Makefile instead of a Docker image
 - Updated PHP-CS-Fixer to 3.95, installed through composer in CI and in the Makefile instead of a Docker image
 - Removed the unused Psalm configuration and Makefile targets
