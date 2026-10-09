@@ -42,8 +42,8 @@ abstract class AbstractType implements JsonSerializable
     /**
      * Magic method to provide the getters and setters.
      *
-     * @param mixed $method
-     * @param mixed $params
+     * @param string $method
+     * @param array $params
      *
      * @return mixed
      *
@@ -88,7 +88,7 @@ abstract class AbstractType implements JsonSerializable
             $isArray = is_array($definition) && ($definition[self::MAPPING_ARRAY] ?? false);
 
             $buildValue = static function ($value) use ($type) {
-                return in_array($type, self::TYPES, true) || $value === null ? $value : new $type($value ?? []);
+                return in_array($type, self::TYPES, true) || $value === null ? $value : new $type($value);
             };
 
             if ($isArray) {

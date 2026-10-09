@@ -5,8 +5,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Updated the PHPStan Docker image to 1.8.0 (PHP 8.1) in CI and in the Makefile, and fixed the findings it reported in `AbstractType`
 - Added a CI job that publishes the test coverage to Coveralls
-
 - Fixed the build status badge in the README and added static analysis, PHPStan, downloads and license badges
 - Added the MIT `LICENSE` file
 
