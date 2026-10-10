@@ -17,3 +17,4 @@ Write a new class extending ```AbstractType``` in the ```Types``` namespace, wit
 
 - run the tests with ```make test``` and the static checks with ```make static```
 - add a line describing your change under ```## [Unreleased]``` in ```CHANGELOG.md```, this is enforced by the CI
+- if your change breaks backward compatibility, describe how to migrate under ```## Unreleased``` in ```UPGRADING.md```
