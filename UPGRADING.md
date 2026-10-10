@@ -1,5 +1,11 @@
 # Upgrade guide
 
+Breaking changes are documented under `## Unreleased` until they are released. The release workflow then
+moves them under the heading of the new version, and refuses a patch release while this section is not empty
+(or anything but a major release from 1.0 on).
+
+## Unreleased
+
 ## 0.6 to 0.7
 
 The format of ```SearchBody::FILTERS``` has changed:
