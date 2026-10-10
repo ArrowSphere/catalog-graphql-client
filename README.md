@@ -74,7 +74,7 @@ $searchBody = [
     SearchBody::FILTERS     => $filters,
 ];
 
-$result = $client->find($searchBody, $fields);
+$result = $client->findProducts($searchBody, $fields);
 
 $products = $result->getProducts();
 if (count($products) === 1) {
@@ -90,10 +90,38 @@ if (count($products) === 1) {
 ```
 
 ## More information
-This library returns a result based on the entities defined in the ```ArrowSphere\CatalogGraphQLClient\Types``` namespace.
 
-The ```find``` method from the ```CatalogGraphQLClient``` class is a simplified method that calls the ```getProducts``` query from the API and returns as instance of ```PaginatedProducts``` which allows you to access to any field you requested in the original query.
+This library returns a result based on the entities defined in the ```ArrowSphere\CatalogGraphQLClient\Types``` namespace.
 
 Please note that each field is nullable, you need to request a field for it to be populated by the API.
 
-There is also a generic ```call``` method in the ```CatalogGraphQLClient``` class that allows you to perform any query on the GraphQL API. This method doesn't provide any help, so it's a bit complicated to use "as is". The usage of the ```find``` method is recommended.
+### Searching
+
+| Method                                                  | GraphQL query   | Returns                                                  |
+|---------------------------------------------------------|-----------------|----------------------------------------------------------|
+| ```findProducts($searchBody, $fields, $page, $perPage)```   | ```getProducts```   | ```PaginatedProducts```, with ```getProducts()``` and ```getPagination()```     |
+| ```findPriceBands($searchBody, $fields, $page, $perPage)``` | ```getPriceBands``` | ```PaginatedPriceBands```, with ```getPriceBands()``` and ```getPagination()``` |
+| ```findOneProduct($searchBody, $fields)```                  | ```product```       | the matching ```Product```, or ```null```                     |
+| ```findOnePriceBand($searchBody, $fields)```                | ```priceBand```     | the matching ```PriceBand```, or ```null```                   |
+
+The paginated methods return the first page of 100 results by default; use ```$page``` and ```$perPage``` to go further, with the ```Pagination``` entity (```getTotal()```, ```getTotalPage()```) to know how many pages there are.
+
+```php
+<?php
+
+use ArrowSphere\CatalogGraphQLClient\Types\PriceBand;
+
+$priceBand = $client->findOnePriceBand($searchBody, [
+    PriceBand::NAME,
+]);
+
+if ($priceBand !== null) {
+    echo $priceBand->getName() . PHP_EOL;
+}
+```
+
+The ```find()``` and ```findOne()``` methods are deprecated aliases of ```findProducts()``` and ```findOneProduct()```.
+
+### Generic queries
+
+There is also a generic ```call``` method in the ```CatalogGraphQLClient``` class that allows you to perform any query on the GraphQL API. This method doesn't provide any help, so it's a bit complicated to use "as is". The search methods above are recommended.
